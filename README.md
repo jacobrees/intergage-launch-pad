@@ -25,3 +25,4 @@ npm run watch-scss
 - [x] Move all Current JS to Bundle File
 - [ ] Don't load the whole of Bootstrap JS in the bundle file
 - [ ] Have config options for SCSS so CSS file isn't massive
+- [ ] Have Site Folder for SCSS Variable File
