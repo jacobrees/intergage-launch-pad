@@ -1,7 +1,6 @@
-# intergage-launch-pad
+# Intergage Launch Pad Framework
 
 ## Usage
----
 Be sure to have [Node.js](https://nodejs.org/) installed before proceeding.
 ```
 # Clone the repo
@@ -19,5 +18,4 @@ npm run scss
 ```
 
 ### ToDo
----
 - [ ] Prefix SCSS before Bundle
