@@ -1,0 +1,64 @@
+// 
+// CMS Action Button overrides
+// 
+
+@function generate-selector-string($selector, $array, $replace-str: "{{c2Class}}") {
+  $extend-string: "";
+
+  @each $item in $array {
+    $extend-string: $extend-string + str-replace($selector, $replace-str, $item) + ", ";
+  }
+
+  @return $extend-string;
+}
+
+// For Secondary Action Buttons, extend outline btn class
+@each $color, $value in $theme-colors {
+  #{generate-selector-string(".btn-#{$color}.{{c2Class}}", $c2-secondary-actions)} {
+    background-color: transparent;
+    @extend .btn-outline-#{$color};
+  }
+}
+
+// For all CMS Action buttons, add a spinner to the Focus State
+.btn[class*='c2']:focus:before {
+  content: "";
+  margin-right: map-get($spacers, 1);
+
+  // Bootstrap Spinner
+  display: inline-block;
+  width: $spinner-width-sm;
+  height: $spinner-height-sm;
+  vertical-align: text-bottom;
+  border: $spinner-border-width-sm solid currentColor;
+  border-right-color: transparent;
+  // stylelint-disable-next-line property-blacklist
+  border-radius: 50%;
+  animation: spinner-border $spinner-animation-speed linear infinite;
+}
+
+@if $cms-base-product == 'Ecom' {
+  // Buy Button, add a Font Awesome Cart Icon
+  .c2btnbuy:after {
+    margin-left: map-get($spacers, 1);
+    @include font-awesome-pseudo("\f07a", "fas");
+  }
+
+  // Wish List Add Button, add a Font Awesome Heart Icon
+  .c2wlAddToWishList:before {
+    margin-right: map-get($spacers, 1);
+    @include font-awesome-pseudo("\f004", "far");
+  }
+
+  // "On Wish List" Div, turn into disabled inline button with Heart Icon
+  .c2wlOnWishList {
+    display: inline-block;
+    @extend .btn;
+    @extend .btn.disabled;
+    @extend .btn-outline-#{$c2-on-wish-list-btn-class};
+    &:before {
+      margin-right: map-get($spacers, 1);
+      @include font-awesome-pseudo("\f004", "fas");
+    }
+  }
+}

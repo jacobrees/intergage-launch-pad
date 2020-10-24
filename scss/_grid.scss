@@ -1,0 +1,95 @@
+// Row
+//
+// Rows contain your columns.
+
+@if $enable-grid-classes {
+  .row {
+    @include make-row();
+
+    > * {
+      @include make-col-ready();
+    }
+  }
+}
+
+// cke_editable Rows
+//
+// Make the whole body of the CMS rich text editor a bootstrap "row"
+// So Column logic logic applies (if any)
+@if $enable-grid-classes {
+  .cke_editable {
+    @include make-row();
+
+    // Make all Componets inside a col-12, include those p tags!
+    > * {
+      @include make-col-ready();
+    }
+  }
+}
+
+// c2pgitm_wrap within rows
+//
+// The CMS wraps Page Items in divs so it can target them on hover
+// We need to make these a bootstrap "row", so columns inside still
+// behave in the same way
+// 
+// Attribute Selector used so css hierarchy is not interfered with
+@if $enable-grid-classes {
+  *[class*="c2pgitm_wrap"] {
+    @include make-row((
+      'reset-gutter': false,
+      'negative-top': false
+    ));
+
+    // If this CMS Wrapper is within a row or
+    // If this CMS Wrapper is within another CMS Wrapper or
+    // If the next element is a row, remove aligment
+    .row > &,
+    & > &,
+    > .row {
+      margin-left: 0;
+      margin-right: 0;
+      padding-left: 0;
+      padding-right: 0;
+    }
+
+    // If this CMS Wrapper is within another CMS Wrapper Make width 100%
+    // By this point we are more than likely 3 levels deep in Flexbox containers,
+    // At a certain point flexboxes lose its width so we need to reset it
+    & > & {
+      width: 100%;
+    }
+
+    > *:not([class*="c2pgitm_wrap"]) {
+      @include make-col-ready(('margin-top': false));
+      // Remove Aligment
+      .row > &.row {
+        margin-left: 0;
+        margin-right: 0;
+        padding-left: 0;
+        padding-right: 0;
+      }
+    }
+    
+  }
+}
+
+// c2epiinsert
+//
+// The wrapper for insert points inside the iMS
+// These need to be above the Stretched Links otherwise the insert points are 
+// no longer clickable
+@if $enable-grid-classes {
+  .c2epiinsert {
+    z-index: $stretched-link-z-index + 1;
+  }
+}
+
+
+// Columns
+//
+// Common styles for small and large grid columns
+
+@if $enable-grid-classes {
+  @include make-grid-columns();
+}

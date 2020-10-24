@@ -1,0 +1,24 @@
+// Tint Covers
+// 
+// Creates a Pseudo element the size of the container
+// With an Opaque Background Colour
+
+.tint-cover {
+  // Root Variables used for Custom Page Items can set the 
+  // Tint Colour and Opacity
+  --bs-tint-cover-colour: #{$tint-cover-colour};
+  --bs-tint-cover-opacity: #{$tint-cover-opacity};
+  position: relative;
+  z-index: 0;
+  &:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--bs-tint-cover-colour);
+    opacity: var(--bs-tint-cover-opacity);
+    z-index: -1;
+  }
+}

@@ -1,0 +1,155 @@
+// Responsive images (ensure images don't scale beyond their parents)
+//
+// This is purposefully opt-in via an explicit class rather than being the default for all `<img>`s.
+// We previously tried the "images are responsive by default" approach in Bootstrap v2,
+// and abandoned it in Bootstrap v3 because it breaks lots of third-party widgets (including Google Maps)
+// which weren't expecting the images within themselves to be involuntarily resized.
+// See also https://github.com/twbs/bootstrap/issues/18178
+.img-fluid {
+  @include img-fluid();
+}
+
+// Well, I just added it back - OE 2020
+img {
+  @include img-fluid();
+}
+
+
+// Image thumbnails
+.img-thumbnail {
+  padding: $thumbnail-padding;
+  background-color: $thumbnail-bg;
+  border: $thumbnail-border-width solid $thumbnail-border-color;
+  @include border-radius($thumbnail-border-radius);
+  @include box-shadow($thumbnail-box-shadow);
+
+  // Keep them at most 100% wide
+  @include img-fluid();
+}
+
+// scss-docs-start responsive-breakpoints
+@each $breakpoint in map-keys($grid-breakpoints) {
+  @include media-breakpoint-up($breakpoint) {
+    $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
+
+    .img#{$infix}-object-fit-cover,
+    #{if($infix == "", ".img-na-object-fit-cover", "")}, // 'na' For Single Select Attributes
+    .img#{$infix}-object-fit-contain,
+    #{if($infix == "", ".img-na-object-fit-contain", "")} {
+      position: relative;
+      > img {
+        position: absolute;
+        top: 0;
+        left: calc(var(--grid-gutter-x) / 2); // stylelint-disable-line function-blacklist;
+        height: 100%;
+        width: subtract(100%, var(--grid-gutter-x));
+        min-height: 1rem;
+      }
+    }
+
+    // Cover
+    .img#{$infix}-object-fit-cover,
+    #{if($infix == "", ".img-na-object-fit-cover", "")} {
+      > img {
+        object-fit: cover;
+      }
+    }
+
+    // Contain
+    .img#{$infix}-object-fit-contain,
+    #{if($infix == "", ".img-na-object-fit-contain", "")} {
+      > img {
+        object-fit: contain;
+      }
+    }
+
+  }
+}
+// scss-docs-end responsive-breakpoints
+
+.img-object-fit-p-0 > img {
+  left: 0;
+  width: 100%;
+}
+
+// Position Top
+.img-object-fit-center-top {
+  > img {
+    object-position: top;
+  }
+}
+
+// Position Bottom
+.img-object-fit-center-bottom {
+  > img {
+    object-position: bottom;
+  }
+}
+
+// Position Left
+.img-object-fit-left-center {
+  > img {
+    object-position: left;
+  }
+}
+
+// Position Right
+.img-object-fit-right-center {
+  > img {
+    object-position: right;
+  }
+}
+
+// Position Left Top
+.img-object-fit-left-top {
+  > img {
+    object-position: left top;
+  }
+}
+
+// Position Right Top
+.img-object-fit-right-top {
+  > img {
+    object-position: right top;
+  }
+}
+
+// Position Left Bottom
+.img-object-fit-center-left-bottom {
+  > img {
+    object-position: left bottom;
+  }
+}
+
+// Position Right Bottom
+.img-object-fit-right-bottom {
+  > img {
+    object-position: right bottom;
+  }
+}
+
+//
+// Figures
+//
+
+.figure {
+  // Ensures the caption's text aligns with the image.
+  display: inline-block;
+}
+
+.figure-img,
+.c2figure img {
+  margin-bottom: $spacer / 2;
+  line-height: 1;
+}
+
+.figure-caption {
+  @include font-size($figure-caption-font-size);
+  color: $figure-caption-color;
+}
+
+.c2figure-caption > p {
+  // As Template Page Item, Image, has the Caption as Rich Text
+  // The Text will be wrapped in p tags
+  margin-bottom: 0;
+}

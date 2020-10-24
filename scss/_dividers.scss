@@ -1,0 +1,37 @@
+// Dividers
+// 
+// Are page breaks to create sections on various parts of your websites
+
+%hr-style-reset {
+  background-color: transparent;
+  border-color: $hr-color;
+}
+
+hr.dashed {
+  @extend %hr-style-reset;
+  border-top: 2px dashed;
+}
+
+hr.dotted {
+  @extend %hr-style-reset;
+  border-top: 2px dotted;
+}
+
+
+hr.hr-text {
+  position: relative;
+  overflow: visible;
+
+  &::before {
+    content: attr(data-content);
+    display: inline-block;
+    background: $body-bg;
+    padding: 0 $hr-margin-y; // Used for X in this case
+    font-weight: $font-weight-bold;
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}

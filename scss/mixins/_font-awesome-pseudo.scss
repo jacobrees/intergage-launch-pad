@@ -1,0 +1,33 @@
+// 
+// Mixin to create a Pseudo Element for a given Font Awesome Icon
+// Pro DuoTone Icons are NOT possible
+// 
+
+@mixin font-awesome-pseudo($unicode: "\f128", $style: "fas") {
+  content: $unicode;
+
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  text-rendering: auto;
+  line-height: 1;
+
+  @if $style == "fas" or $style == "fa" {
+    font-family: "Font Awesome 5 Pro";
+    font-weight: 900
+  }
+
+  @if $style == "fal" or $style == "far" {
+    font-family: "Font Awesome 5 Pro";
+  }
+
+  @if $style == "far" {
+    font-weight: 400;
+  }
+
+  @if $style == "fal" {
+    font-weight: 300;
+  }
+}
