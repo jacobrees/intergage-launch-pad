@@ -18,4 +18,5 @@ npm run scss
 ```
 
 ### ToDo
-- [ ] Prefix SCSS before Bundle
+- [x] Prefix SCSS after Bundle
+- [ ] Move all Current JS to Bundle File
