@@ -22,4 +22,6 @@ npm run watch-scss
 ### ToDo
 - [x] Prefix SCSS after Bundle
 - [x] Create Watch Script for SCSS and JS
-- [ ] Move all Current JS to Bundle File
+- [x] Move all Current JS to Bundle File
+- [ ] Don't load the whole of Bootstrap JS in the bundle file
+- [ ] Have config options for SCSS so CSS file isn't massive
