@@ -3,6 +3,7 @@ module.exports = {
   plugins: {
     autoprefixer: {
       cascade: false
-    }
+    },
+    "postcss-strip-inline-comments": {}
   }
 };
