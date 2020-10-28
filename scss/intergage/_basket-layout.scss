@@ -1,0 +1,73 @@
+// 
+// CMS Basket Layout
+// 
+
+@if $cms-base-product == 'Ecom' {
+  .c2-basket-layout {
+
+    .btn {
+      // Remove Default Margin given to all CMS Buttons
+      margin-right: 0 !important; 
+    }
+
+    // Variations
+    .item-variations {
+      span {
+        float: left;
+        &:nth-child(odd) {
+          clear: left;
+          &:after {
+            content: ":";
+          }
+        }
+      }
+      select {
+        border: $basket-layout-item-variations-select-border-width solid transparent; // remove default select style
+        &:hover {
+          border-color: $basket-layout-item-variations-select-border-colour;
+        }
+      }
+    }
+  
+    // Basket Layout Info
+    &__basket-options {
+      // Each Info Row
+      .c2ecbassum, .c2ecbasext {
+        .c2lbl {
+          color: $basket-layout-info-text-colour;
+          &:after {
+            content: ":";
+            padding-right: get('1', $spacers);
+          }
+        }
+        .c2val {
+          font-weight: $basket-layout-info-text-weight;
+        }
+      }
+      // Shipping Row already has ':' on it, remove ours
+      .c2ecbasshipnoed .c2lbl {
+        padding-right: get('1', $spacers);
+        &:after {
+          content: none;
+        }
+      }
+    }
+  }
+  
+  // Checkout now info
+  .c2ecbaschkbtn {
+    margin-top: get('3', $spacers);
+    @include media-breakpoint-up('md') {
+      display: flex;
+      justify-content: space-between;
+    }
+    .btn {
+      // Remove Default Margin given to all CMS Buttons
+      margin-right: 0 !important; 
+    }
+    .c2val {
+      display: block;
+      text-align: right;
+    }
+  }
+}

@@ -208,6 +208,7 @@ $enable-caret:                                true !default;
 $enable-rounded:                              true !default;
 $enable-shadows:                              false !default;
 $enable-gradients:                            false !default;
+$enable-bg-gradients:                         true !default;
 $enable-transitions:                          true !default;
 $enable-prefers-reduced-motion-media-query:   true !default;
 $enable-grid-classes:                         true !default;
@@ -221,7 +222,7 @@ $enable-important-utilities:                  true !default;
 //
 // Configuration settings for the CMS.
 
-$cms-base-product: 'Pro'; // Can be Light, Pro, Ecom
+$cms-base-product: 'Pro' !default; // Can be Light, Pro, Ecom // TBD: Need to change this to a map of options
 
 
 // Spacing
@@ -572,6 +573,17 @@ $btn-border-radius-lg:        $border-radius-lg !default;
 
 $btn-transition:              color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out !default;
 
+// CMS Button
+//
+// If a CMS action button needs to be a secondary variant add its class name here 
+
+$c2-secondary-actions: (
+  "c2btnreset",
+  "c2btncancel",
+  "c2wlAddToWishList"
+) !default;
+
+$c2-on-wish-list-btn-class:     "primary" !default;
 
 // Forms
 
@@ -1267,11 +1279,18 @@ $tint-cover-opacity:                .3 !default;
 // Text Accent Strips
 
 $accent-strips-margin-bottom:       1.4em !default;
-$accent-strips-colour:              get('primary', $theme-colors) !default;
+$accent-strips-colour:              $primary !default;
 $accent-strips-height:              4px !default;
 $accent-strips-width:               30% !default;
 $accent-strips-min-width:           150px !default;
 
+
+// CMS Basket Layout
+$basket-layout-item-variations-select-border-colour:  $border-color;
+$basket-layout-item-variations-select-border-width:   $border-width;
+
+$basket-layout-info-text-colour:                      $text-muted;
+$basket-layout-info-text-weight:                      $font-weight-bold;
 
 // Intergage Variables
 

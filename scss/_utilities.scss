@@ -23,7 +23,8 @@ $utilities: map-merge(
       print: true,
       property: display,
       class: d,
-      values: none inline inline-block block table table-row table-cell flex inline-flex inherit
+      // TBD: Remove 'table-row' 'table-row-group' 'table-header-group' in non Ecom Sites
+      values: none inline inline-block block table table-row table-cell table-row table-row-group table-header-group flex inline-flex inherit
     ),
     "shadow": (
       property: box-shadow,
