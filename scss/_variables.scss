@@ -1286,11 +1286,19 @@ $accent-strips-min-width:           150px !default;
 
 
 // CMS Basket Layout
+
 $basket-layout-item-variations-select-border-colour:  $border-color;
 $basket-layout-item-variations-select-border-width:   $border-width;
 
 $basket-layout-info-text-colour:                      $text-muted;
 $basket-layout-info-text-weight:                      $font-weight-bold;
+
+
+// Pretty Messenger
+
+$pretty-messenger-container-margin-bottom:    80px;
+$pretty-messenger-container-position:         'right'; // Can be 'left' or 'right'
+$pretty-messenger-alert-max-width:            310px;
 
 // Intergage Variables
 

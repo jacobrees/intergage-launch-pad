@@ -16,6 +16,8 @@ export default class PrettyMessenger {
     this.nRemoveTime = 500;
     this.sOnclick = "console.log(\"\")";
 
+    this.sContainerClass = 'pretty-messenger-container fixed-bottom';
+
     // Error Mapping to Class Names
     this.oAlertTypes = {
       'error': 'alert-danger',
@@ -95,13 +97,13 @@ export default class PrettyMessenger {
 
     // Work out if we already have a container on the page. If so fade in
     // to the container and push the message up
-    var bContainer = (document.getElementById("PrettyMessengerCont") != null) ? 1 : 0;
+    var bContainer = (document.getElementById('pretty-messenger') != null) ? 1 : 0;
 
     // If we have no container then output to body
     if(!bContainer){
-      document.body.insertAdjacentHTML('beforeend', "<div id='PrettyMessengerCont' class='PrettyMessengerCont'>" + sPrettyMessenger + "</div>");
+      document.body.insertAdjacentHTML('beforeend', `<div id='pretty-messenger' class='${this.sContainerClass}'>${sPrettyMessenger}</div>`);
     } else {
-      document.getElementById("PrettyMessengerCont").insertAdjacentHTML('beforeend', sPrettyMessenger);
+      document.getElementById('pretty-messenger').insertAdjacentHTML('beforeend', sPrettyMessenger);
     }
 
     // Process the Next Message in nTrickleTime
