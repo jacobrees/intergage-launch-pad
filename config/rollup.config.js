@@ -9,7 +9,8 @@ const SERVE = process.env.SERVE === 'true';
 
 const imputFiles = [
   {name: 'main', src: 'src/main.js'},
-  {name: 'main2', src: 'src/main2.js'}
+  {name: 'productPage', src: 'src/productPage.js'},
+  {name: 'productGallery', src: 'src/productGallery.js'}
 ];
 
 // TBD: Needs tidying
@@ -38,7 +39,7 @@ let exports = [];
 
 imputFiles.forEach(file => {
   let { ...outputFile } = SERVE ? serveFile : buildFile;
-  outputFile.name += file.name;
+  outputFile.name = file.name;
   outputFile.file += file.name + '.min.js';
 
   exports.push({
