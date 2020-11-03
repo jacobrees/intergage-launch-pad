@@ -8,7 +8,8 @@ import { terser } from 'rollup-plugin-terser';
 const SERVE = process.env.SERVE === 'true';
 
 const imputFiles = [
-  {name: 'main', src: 'src/main.js'}
+  {name: 'main', src: 'src/main.js'},
+  {name: 'main2', src: 'src/main2.js'}
 ];
 
 // TBD: Needs tidying
@@ -36,7 +37,7 @@ const buildFile = {
 let exports = [];
 
 imputFiles.forEach(file => {
-  let outputFile = SERVE ? serveFile : buildFile;
+  let { ...outputFile } = SERVE ? serveFile : buildFile;
   outputFile.name += file.name;
   outputFile.file += file.name + '.min.js';
 
