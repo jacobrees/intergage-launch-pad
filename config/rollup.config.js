@@ -7,58 +7,49 @@ import { terser } from 'rollup-plugin-terser';
 
 const SERVE = process.env.SERVE === 'true';
 
-let outputFiles = [];
+const imputFiles = [
+  {name: 'main', src: 'src/main.js'}
+];
 
-// If we are Serving the files in the Public Folder
-if(SERVE) {
-  outputFiles.push(
-    {
-      file: 'public/js/bundle.min.js',
-      format: 'umd',
-      name: 'library',
-      globals: {
-        jquery: '$'
-      },
-      sourcemap: true,
-      plugins: [terser()]
-    }
-  );
-}
+// TBD: Needs tidying
 
-// Not Serving, create a Bundle and Non Bundle file
-if(!SERVE) {
-  outputFiles.push(
-    {
-      file: 'build/bundle.js',
-      format: 'umd',
-      name: 'library',
-      globals: {
-        jquery: '$'
-      },
-      sourcemap: true
-    }
-  )
-  outputFiles.push(
-    {
-      file: 'build/bundle.min.js',
-      format: 'umd',
-      name: 'library',
-      globals: {
-        jquery: '$'
-      },
-      sourcemap: true,
-      plugins: [terser()]
-    }
-  )
-}
-
-export default {
-  input: 'src/main.js',
-  output: outputFiles,
-  plugins: [
-    resolve(),
-    commonjs(),
-    babel({ babelHelpers: 'bundled' })
-  ],
-  external: ['jquery']
+const serveFile = {
+  file: 'public/js/',
+  format: 'umd',
+  globals: {
+    jquery: '$'
+  },
+  sourcemap: true,
+  plugins: [terser()]
 };
+
+const buildFile = {
+  file: 'build/js/',
+  format: 'umd',
+  globals: {
+    jquery: '$'
+  },
+  sourcemap: true,
+  plugins: [terser()]
+};
+
+let exports = [];
+
+imputFiles.forEach(file => {
+  let outputFile = SERVE ? serveFile : buildFile;
+  outputFile.name += file.name;
+  outputFile.file += file.name + '.min.js';
+
+  exports.push({
+    input: file.src,
+    output: outputFile,
+    plugins: [
+      resolve(),
+      commonjs(),
+      babel({ babelHelpers: 'bundled' })
+    ],
+    external: ['jquery']
+  });
+});
+
+export default exports;
