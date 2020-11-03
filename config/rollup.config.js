@@ -8,8 +8,7 @@ import { terser } from 'rollup-plugin-terser';
 const SERVE = process.env.SERVE === 'true';
 
 const imputFiles = [
-  {name: 'main', src: 'src/main.js'},
-  {name: 'main2', src: 'src/main2.js'}
+  {name: 'main', src: 'src/main.js'}
 ];
 
 // TBD: Needs tidying
