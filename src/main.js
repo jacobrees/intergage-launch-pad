@@ -12,4 +12,8 @@ import app from './app';
 $(document).ready(function() {
   // Run the App
   app();
+  
+  // Need to Try Catch these...
+  productGallery();
+  productPage();
 });
