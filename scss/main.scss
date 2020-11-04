@@ -1,0 +1,10 @@
+// Main SCSS Files
+// 
+// This SCSS will be bundled to build/scss/main.bundle.scss
+
+
+@import 'variables';
+
+// Load the whole of Bootstrap
+// Optionally you can load parts of bootstrap - TDB: Needs documentation
+@import '../bootstrap-theme/bootstrap';

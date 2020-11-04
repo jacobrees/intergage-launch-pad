@@ -1,0 +1,41 @@
+// Launch Pad Variables
+//
+// Variables should follow the `$component-state-property-size` formula for
+// consistent naming. Ex: $nav-link-disabled-color and $modal-content-box-shadow-xs.
+//
+// These will override the defaults in ./_variables.scss
+// But as these too have !default at the end, they can also be overriden again 
+// in ../site/_site-variables.scss
+
+// Colours
+
+$primary:       $col-Primary !default;
+$secondary:     $col-Secondary !default;
+$success:       $col-Success !default;
+$info:          $col-Info !default;
+$warning:       $col-Warning !default;
+$danger:        $col-Danger !default;
+$light:         $col-Light !default;
+$dark:          $col-Dark !default;
+
+
+// Spacing
+
+$spacer:        $var-spacer !default;
+
+
+// Body
+
+$body-bg:       $col-Body !default;
+
+
+// Grid breakpoints
+
+$grid-breakpoints: (
+  xs: 0,
+  sm: $var-screen-sm,
+  md: $var-screen-md,
+  lg: $var-screen-lg,
+  xl: $var-screen-xl,
+  xxl: $var-screen-xxl
+) !default;

@@ -23,8 +23,8 @@ npm run watch-scss
 - [x] Prefix SCSS after Bundle
 - [x] Create Watch Script for SCSS and JS
 - [x] Move all Current JS to Bundle File
+- [ ] Tidy up Rollup's Config
+- [x] Be able to bundle multiple SCSS files
+
 - [ ] Don't load the whole of Bootstrap JS in the bundle file
 - [ ] Have config options for SCSS so CSS file isn't massive
-- [ ] Have Site Folder for SCSS Variable File, plus other starting SCSS Files
-- [ ] Be able to bundle multiple SCSS files
-- [ ] Tidy up Rollup's Config
