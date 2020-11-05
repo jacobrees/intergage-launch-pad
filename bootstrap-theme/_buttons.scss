@@ -16,7 +16,15 @@
   cursor: if($enable-pointer-cursor-for-buttons, pointer, null);
   user-select: none;
   background-color: transparent;
+
   border: $btn-border-width solid transparent;
+  @if $btn-border-images != null {
+    border-image-slice: $btn-border-image-slice;
+    border-image-width: $btn-border-image-width;
+    border-image-outset: $btn-border-image-outset;
+    border-image-repeat: $btn-border-image-repeat;
+  }
+
   @include button-size($btn-padding-y, $btn-padding-x, $btn-font-size, $btn-border-radius);
   @include transition($btn-transition);
 
@@ -47,6 +55,39 @@
     opacity: $btn-disabled-opacity;
     @include box-shadow(none);
   }
+
+  // Custom for MyTime
+  position: relative;
+  z-index: 1;
+
+  &:before, &:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  &:before {
+    // Border Image
+    border: $btn-border-width solid transparent;
+    border-image-slice: $btn-border-image-slice;
+    border-image-width: $btn-border-image-width;
+    border-image-outset: $btn-border-image-outset;
+    border-image-repeat: $btn-border-image-repeat;
+    transition: border-image $btn-pseudo-border-transition, opacity $btn-pseudo-border-transition;
+  }
+
+  &:after {
+    // Background Bruch
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    transform: scale($btn-background-brushes-scalar);
+    z-index: -1;
+    transition: background-image $btn-background-brushes-transition, opacity $btn-background-brushes-transition;
+  }
 }
 
 
@@ -56,7 +97,7 @@
 
 @each $color, $value in $theme-colors {
   .btn-#{$color} {
-    @include button-variant($value, $value);
+    @include button-variant($color, $value, $value);
   }
   // Extend .btn For RTE Buttons
   .rte-btn-#{$color} {
@@ -75,7 +116,7 @@
 
 @each $color, $value in $theme-colors {
   .btn-outline-#{$color} {
-    @include button-outline-variant($value);
+    @include button-outline-variant($color, $value);
   }
   // Extend .btn For RTE Buttons
   .rte-btn-outline-#{$color} {
@@ -130,6 +171,10 @@
   &:disabled,
   &.disabled {
     color: $btn-link-disabled-color;
+  }
+
+  &:after {
+    display: none;
   }
 
   // No need for an active state here

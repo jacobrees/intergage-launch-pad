@@ -20,23 +20,6 @@
   }
 }
 
-// For all CMS Action buttons, add a spinner to the Focus State
-.btn[class*='c2']:focus:before {
-  content: "";
-  margin-right: map-get($spacers, 1);
-
-  // Bootstrap Spinner
-  display: inline-block;
-  width: $spinner-width-sm;
-  height: $spinner-height-sm;
-  vertical-align: text-bottom;
-  border: $spinner-border-width-sm solid currentColor;
-  border-right-color: transparent;
-  // stylelint-disable-next-line property-blacklist
-  border-radius: 50%;
-  animation: spinner-border $spinner-animation-speed linear infinite;
-}
-
 @if $cms-base-product == 'Ecom' {
   // Buy Button, add a Font Awesome Cart Icon
   .c2btnbuy:after {

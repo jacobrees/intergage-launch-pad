@@ -336,6 +336,14 @@ $border-radius:               .25rem !default;
 $border-radius-sm:            .2rem !default;
 $border-radius-lg:            .3rem !default;
 
+$border-image-slice:          30 !default;
+$border-image-width:          16px !default;
+// If not null the element will have no overflow if it also has a background-image set
+// For example, form-select or form-errors
+// If it needs to be used, then a custom solution needs to be built
+$border-image-outset:         0 !default;
+$border-image-repeat:         round !default;
+
 $rounded-pill:                50rem !default;
 
 $box-shadow:                  0 .5rem 1rem rgba($black, .15) !default;
@@ -555,6 +563,18 @@ $btn-font-size-lg:            $input-btn-font-size-lg !default;
 
 $btn-border-width:            $input-btn-border-width !default;
 
+// Must be a List matching $theme-colors List, e.g.
+//  (
+//    "primary":    "primary-border.svg",
+//    "secondary":  "secondary-border.svg",
+//  )
+// Any colours missing from the list, will just display as normal
+$btn-border-images:           null;
+$btn-border-image-slice:      $border-image-slice !default;
+$btn-border-image-width:      $border-image-width !default;
+$btn-border-image-outset:     $border-image-outset !default;
+$btn-border-image-repeat:     $border-image-repeat !default;
+
 $btn-font-weight:             $font-weight-normal !default;
 $btn-box-shadow:              inset 0 1px 0 rgba($white, .15), 0 1px 1px rgba($black, .075) !default;
 $btn-focus-width:             $input-btn-focus-width !default;
@@ -629,6 +649,12 @@ $input-box-shadow:                      $box-shadow-inset !default;
 $input-border-radius:                   $border-radius !default;
 $input-border-radius-sm:                $border-radius-sm !default;
 $input-border-radius-lg:                $border-radius-lg !default;
+
+$input-border-image:                    null !default;
+$input-border-image-slice:              $border-image-slice !default;
+$input-border-image-width:              $border-image-width !default;
+$input-border-image-outset:             $border-image-outset !default;
+$input-border-image-repeat:             $border-image-repeat !default;
 
 $input-focus-bg:                        $input-bg !default;
 $input-focus-border-color:              lighten($component-active-bg, 25%) !default;

@@ -4,6 +4,7 @@
 // and disabled options for all buttons
 
 @mixin button-variant(
+  $variant,
   $background,
   $border,
   $color: color-contrast($background),
@@ -15,44 +16,33 @@
   $active-color: color-contrast($active-background)
 ) {
   color: $color;
-  @include gradient-bg($background);
-  border-color: $border;
-  @include box-shadow($btn-box-shadow);
 
-  &:hover {
-    color: $hover-color;
-    @include gradient-bg($hover-background);
-    border-color: $hover-border;
-  }
-
-  &:focus,
-  &.focus {
-    color: $hover-color;
-    @include gradient-bg($hover-background);
-    border-color: $hover-border;
-    @if $enable-shadows {
-      @include box-shadow($btn-box-shadow, 0 0 0 $btn-focus-width rgba(mix($color, $border, 15%), .5));
-    } @else {
-      // Avoid using mixin so we can pass custom focus shadow properly
-      box-shadow: 0 0 0 $btn-focus-width rgba(mix($color, $border, 15%), .5);
+  // Border Image
+  @if get($variant, $btn-pseudo-border-images) {
+    &:before {
+      border-image-source: url(#{get($variant, $btn-pseudo-border-images)});
     }
   }
 
-  &:active,
-  &.active,
-  .show > &.dropdown-toggle {
-    color: $active-color;
-    background-color: $active-background;
-    // Remove CSS gradients if they're enabled
-    background-image: if($enable-gradients, none, null);
-    border-color: $active-border;
+  // Background Bruch
+  @if get($variant, $btn-background-brushes) {
+    &:after {
+      background-image: url(#{get($variant, $btn-background-brushes)});
+    }
+  }
 
-    &:focus {
-      @if $enable-shadows {
-        @include box-shadow($btn-active-box-shadow, 0 0 0 $btn-focus-width rgba(mix($color, $border, 15%), .5));
-      } @else {
-        // Avoid using mixin so we can pass custom focus shadow properly
-        box-shadow: 0 0 0 $btn-focus-width rgba(mix($color, $border, 15%), .5);
+  &:hover {
+    color: $hover-color;
+    // Border Image
+    @if get($variant, $btn-pseudo-border-hover-images) {
+      &:before {
+        border-image-source: url(#{get($variant, $btn-pseudo-border-hover-images)});
+      }
+    }
+    // Background Bruch
+    @if get($variant, $btn-background-hover-brushes) {
+      &:after {
+        border-image-source: url(#{get($variant, $btn-background-hover-brushes)});
       }
     }
   }
@@ -60,27 +50,44 @@
   &:disabled,
   &.disabled {
     color: $color;
-    background-color: $background;
-    // Remove CSS gradients if they're enabled
-    background-image: if($enable-gradients, none, null);
-    border-color: $border;
   }
 }
 
 @mixin button-outline-variant(
+  $variant,
   $color,
   $color-hover: color-contrast($color),
   $active-background: $color,
   $active-border: $color,
   $active-color: color-contrast($active-background)
 ) {
-  color: $color;
-  border-color: $color;
+  color: color-contrast($color);
+
+  // Border Image
+  @if get($variant, $btn-pseudo-border-images) {
+    &:before {
+      opacity: 0;
+      border-image-source: url(#{get($variant, $btn-pseudo-border-images)});
+
+    }
+  }
+
+  // Background Bruch
+  @if get($variant, $btn-background-brushes) {
+    &:after {
+      background-image: url(#{get($variant, $btn-background-brushes)});
+      opacity: 1;
+    }
+  }
 
   &:hover {
-    color: $color-hover;
-    background-color: $active-background;
-    border-color: $active-border;
+    // Border Image
+    @if get($variant, $btn-pseudo-border-hover-images) {
+      &:before {
+        opacity: 1;
+        border-image-source: url(#{get($variant, $btn-pseudo-border-hover-images)});
+      }
+    }
   }
 
   &:focus,
@@ -88,27 +95,9 @@
     box-shadow: 0 0 0 $btn-focus-width rgba($color, .5);
   }
 
-  &:active,
-  &.active,
-  &.dropdown-toggle.show {
-    color: $active-color;
-    background-color: $active-background;
-    border-color: $active-border;
-
-    &:focus {
-      @if $enable-shadows {
-        @include box-shadow($btn-active-box-shadow, 0 0 0 $btn-focus-width rgba($color, .5));
-      } @else {
-        // Avoid using mixin so we can pass custom focus shadow properly
-        box-shadow: 0 0 0 $btn-focus-width rgba($color, .5);
-      }
-    }
-  }
-
   &:disabled,
   &.disabled {
     color: $color;
-    background-color: transparent;
   }
 }
 

@@ -1,0 +1,78 @@
+// Site Variables
+// 
+// These Variables override Bootstrap's Defaults
+// Or are new Variables
+
+
+// Border with Image
+
+$border-with-image-slice:   30;
+$border-with-image-width:   30px;
+$border-with-image-outset:  $border-with-image-width / 2;
+$border-with-image-repeat:  round;
+
+$border-image-names: (
+  'primary': 'button-frame-primary.svg',
+  'white': 'button-frame-white.svg',
+  'black': 'button-frame-black.svg'
+);
+
+
+// Buttons
+
+$btn-padding-y:       0.9rem;
+$btn-padding-x:       2.5rem;
+$btn-text-transform:  uppercase;
+$btn-font-weight:     700;
+
+$btn-pseudo-border-images: (
+  "primary": "button-frame-white.svg",
+  "light": "button-frame-white.svg",
+  "dark": "button-frame-black.svg" 
+);
+$btn-pseudo-border-hover-images: (
+  "primary": "button-frame-black.svg",
+  "light": "button-frame-white.svg",
+  "dark": "button-frame-black.svg" 
+);
+$btn-pseudo-border-transition: .15s ease-in-out;
+
+$btn-background-brushes: (
+  'primary': 'button-brush-primary.svg',
+  'light': 'button-brush-black.svg',
+);
+$btn-background-hover-brushes: (
+  'primary': 'button-brush-primary.svg'
+);
+$btn-background-brushes-scalar: 1.5;
+$btn-background-brushes-transition: $btn-pseudo-border-transition;
+
+
+// Form Inputs
+
+$form-row-margin-bottom: 1rem;
+$form-label-font-weight: 700;
+
+$input-border-image:  'form-input-frame-black.svg';
+
+$input-bg:            transparent;
+$input-padding-y:     0.8rem;
+$input-padding-x:     0.9rem;
+
+$input-focus-box-shadow-colour:   rgba($col-Black, 0.25);
+
+$input-focus-box-shadow: 0 0 0 0.2rem $input-focus-box-shadow-colour, inset 0 0 0 0.3rem $input-focus-box-shadow-colour;
+
+
+// Extension to Utils
+
+$utilities: (
+  "border-image": (
+    property: border-image,
+    values: (
+      "primary": url(#{get('primary', $border-image-names)}) #{$border-with-image-slice} / #{$border-with-image-width} / #{$border-with-image-outset} #{$border-with-image-repeat},
+      "white": url(#{get('white', $border-image-names)}) #{$border-with-image-slice} / #{$border-with-image-width} / #{$border-with-image-outset} #{$border-with-image-repeat},
+      "black": url(#{get('black', $border-image-names)}) #{$border-with-image-slice} / #{$border-with-image-width} / #{$border-with-image-outset} #{$border-with-image-repeat}
+    )
+  )
+);
