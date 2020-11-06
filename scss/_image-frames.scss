@@ -1,0 +1,97 @@
+// Image Frames
+// 
+// A pair of frames with optional border 'frames' and skews
+// Could also display only one of the images
+
+$c2-image-frame-width:  20px;
+$c2-image-frame-slice:  10;
+$c2-image-frame-repeat: stretch;
+
+$c2-image-frame-skew:   10deg;
+$c2-image-frame-scale:  0.86;
+$c2-image-frame-shift:  100px;
+
+$c2-image-frame-border-images: (
+  "light": linear-gradient(167deg, #FFFFFF 0%, #E5E1EA 40%, #D5CFDE 75%, #D0C9DA 100%),
+  "regular": linear-gradient(167deg, #FFFFFF 0%, #E5E1EA 40%, #D5CFDE 75%, #D0C9DA 100%),
+  "dark": linear-gradient(167deg, #FFFFFF 0%, #F9F8FA 4%, #E6E3EC 22%, #D9D4E1 42%, #D2CBDB 65%, #D0C9DA 100%)
+);
+
+$c2-image-frame-sticky-tape-pseudo:     before;
+$c2-image-frame-sticky-tape:            url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="104.557" height="226.946" viewBox="0 0 104.557 226.946"><defs><style>.a{opacity:0.43;fill:url(#a);}</style><linearGradient id="a" x1="5.206" y1="-2.151" x2="5.696" y2="-1.177" gradientUnits="objectBoundingBox"><stop offset="0" stop-color="#fff"/><stop offset="0.212" stop-color="#ebe8ef"/><stop offset="0.447" stop-color="#dbd6e3"/><stop offset="0.701" stop-color="#d2ccdc"/><stop offset="1" stop-color="#d0c9da"/></linearGradient></defs><path class="a" d="M727.674,77.229l18.511,220.118.11-.008,11.223-6.956,9.2,5.336.743-.059,11.646-8.446,9.9,6.737,11.749-9.127,10.172,7.468,10.953-9.443,10.356,7.672L813.719,70.4Z" transform="translate(-727.674 -70.4)"/></svg>');
+$c2-image-frame-sticky-tape-width:      90px;
+$c2-image-frame-sticky-tape-height:     200px;
+$c2-image-frame-sticky-tape-transform:  translateX(-50%);
+
+.c2-image-frames {
+  position: relative;
+
+  // Sticky Tape
+  &.add-tape-Yes {
+    &:#{$c2-image-frame-sticky-tape-pseudo} {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 50%;
+      width: $c2-image-frame-sticky-tape-width;
+      height: $c2-image-frame-sticky-tape-height;
+      transform: $c2-image-frame-sticky-tape-transform;
+      background-image: escape-svg($c2-image-frame-sticky-tape);
+      background-position: center;
+      background-size: contain;
+      background-repeat: no-repeat;
+      z-index: $zindex-image-frame-sticky-tape;
+    }
+    // Sticky Tape Skew
+    &.tape-skew {
+      &-left:#{$c2-image-frame-sticky-tape-pseudo} {
+        transform: $c2-image-frame-sticky-tape-transform translateX(100px) scaleX(-1);
+      }
+      &-right:#{$c2-image-frame-sticky-tape-pseudo} {
+        transform: $c2-image-frame-sticky-tape-transform translateX(-100px);
+      }
+    }
+  }
+
+  &__img {
+    border: $c2-image-frame-width solid;
+    border-image-slice: $c2-image-frame-slice;
+    border-image-repeat: $c2-image-frame-repeat;
+
+    // Frame Types
+    &.frame-type {
+      @each $type, $gradient in $c2-image-frame-border-images {
+        &-#{$type} {
+          border-image-source: $gradient;
+        }
+      }
+    }
+
+    // Frame Skew
+    transform-origin: center;
+    &.frame-skew {
+      &-left {
+        transform: 
+          scale($c2-image-frame-scale) 
+          rotate(-$c2-image-frame-skew)
+          translateX(-$c2-image-frame-shift);
+      }
+      &-right {
+        transform: 
+          scale($c2-image-frame-scale) 
+          rotate($c2-image-frame-skew)
+          translateX($c2-image-frame-shift);
+      }
+    }
+    
+    &--1 {
+      z-index: $zindex-image-frame-1;
+    }
+    &--2 {
+      position: absolute;
+      top: 0;
+      width: subtract(100%, var(--grid-gutter-x));
+      z-index: $zindex-image-frame-2;
+    }
+  }
+}

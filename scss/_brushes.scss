@@ -1,0 +1,41 @@
+// Brushes
+// 
+// Absolutely positioned div with a brush as a background image
+// The Type and Colour of the brush is defined server side
+// NOTE: The parent container must be relatively positioned
+
+$c2-brushes-skew:       10deg;
+$c2-brushes-transform:  scale(2);
+
+.c2-brushes {
+  &.add-brush-No {
+    // This also prevents the HTTP request for the brush SVG
+    display: none;
+  }
+
+  &.add-brush-Yes {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    z-index: $zindex-image-brushes;
+  }
+
+  // Slant Direction
+  transform-origin: center;
+  &.brush-slant {
+    &-left {
+      transform: $c2-brushes-transform rotate(-$c2-brushes-skew);
+    }
+    &-right {
+      transform: $c2-brushes-transform rotate($c2-brushes-skew);
+    }
+    &-none {
+      transform: $c2-brushes-transform;
+    }
+  }
+}

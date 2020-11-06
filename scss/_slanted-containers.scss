@@ -1,0 +1,36 @@
+// Slanted Containers
+// 
+// Each Container item can either slant left, right or both
+
+$c2-slanted-slope-height: 200px;
+$c2-slanted-slope-skew:   4deg;
+
+
+.c2-container.slant {
+  position: relative;
+  overflow: hidden;
+  padding-bottom: $c2-slanted-slope-height;
+
+  // The Slant
+  &:before {
+    content: '';
+    position: absolute;
+    bottom: -40px;
+    left: 0;
+    width: 100%;
+    height: $c2-slanted-slope-height;
+    background: var(--slant-colour);
+    z-index: $zindex-slanted-containers;
+  }
+
+  // Slant Directions
+  &--left:before {
+    transform: skewY(-$c2-slanted-slope-skew);
+    transform-origin: 100% 0;
+  }
+  &--right:before {
+    transform: skewY($c2-slanted-slope-skew);
+    transform-origin: 0 100%;
+  }
+
+}
