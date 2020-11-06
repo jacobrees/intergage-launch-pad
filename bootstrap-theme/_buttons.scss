@@ -95,7 +95,7 @@
 // Alternate buttons
 //
 
-@each $color, $value in $theme-colors {
+@each $color, $value in $btn-colors {
   .btn-#{$color} {
     @include button-variant($color, $value, $value);
   }
@@ -103,6 +103,7 @@
   .rte-btn-#{$color} {
     @extend .btn;
     @extend .btn-#{$color};
+    margin-right: map-get($spacers, 5);
     // For a tag in Spans, generated when using the Rich Text Editor
     > a {
       color: inherit;
@@ -114,7 +115,7 @@
   }
 }
 
-@each $color, $value in $theme-colors {
+@each $color, $value in $btn-colors {
   .btn-outline-#{$color} {
     @include button-outline-variant($color, $value);
   }
@@ -122,6 +123,7 @@
   .rte-btn-outline-#{$color} {
     @extend .btn;
     @extend .btn-outline-#{$color};
+    margin-right: map-get($spacers, 5);
     // For a tag in Spans, generated when using the Rich Text Editor
     > a {
       color: inherit;

@@ -20,30 +20,35 @@ $border-image-names: (
 
 // Buttons
 
+$btn-colors: (
+  "primary":    $col-Primary,
+  "secondary":  $col-Secondary
+);
+
 $btn-padding-y:       0.9rem;
 $btn-padding-x:       2.5rem;
 $btn-text-transform:  uppercase;
 $btn-font-weight:     700;
 
+$btn-hover-colors: (
+  "primary":    $col-Black,
+  "secondary":  $col-Primary,
+);
 $btn-pseudo-border-images: (
   "primary": "button-frame-white.svg",
-  "light": "button-frame-white.svg",
-  "dark": "button-frame-black.svg" 
+  "secondary": "button-frame-white.svg"
 );
 $btn-pseudo-border-hover-images: (
   "primary": "button-frame-black.svg",
-  "light": "button-frame-white.svg",
-  "dark": "button-frame-black.svg" 
+  "secondary": "button-frame-primary.svg"
 );
 $btn-pseudo-border-transition: .15s ease-in-out;
 
 $btn-background-brushes: (
   'primary': 'button-brush-primary.svg',
-  'light': 'button-brush-black.svg',
+  'secondary': 'button-brush-black.svg'
 );
-$btn-background-hover-brushes: (
-  'primary': 'button-brush-primary.svg'
-);
+$btn-background-hover-brushes: ();
 $btn-background-brushes-scalar: 1.5;
 $btn-background-brushes-transition: $btn-pseudo-border-transition;
 

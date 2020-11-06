@@ -13,7 +13,7 @@
 }
 
 // For Secondary Action Buttons, extend outline btn class
-@each $color, $value in $theme-colors {
+@each $color, $value in $btn-colors {
   #{generate-selector-string(".btn-#{$color}.{{c2Class}}", $c2-secondary-actions)} {
     background-color: transparent;
     @extend .btn-outline-#{$color};
