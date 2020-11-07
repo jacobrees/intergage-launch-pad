@@ -1,3 +1,5 @@
+'use strict'
+
 const fs = require('fs');
 const path = require('path');
 const { Bundler } = require('scss-bundle');
@@ -23,7 +25,7 @@ const OUTPUT_FILE_EXTENSION   = 'bundled.scss';
     return;
   }
 
-  // Find all Files in the SCSS directory without an _ in their names
+  // Find all Files in the SCSS directory without an _ at the start of their name
   const filesToBundle = fs.readdirSync(inputFilePath)
     .filter(file => !file.startsWith('_'))
     .map(file => file);
@@ -47,7 +49,7 @@ const OUTPUT_FILE_EXTENSION   = 'bundled.scss';
  
   const fileToWritePath = path.resolve(__dirname, OUTPUT_FILE_DIRECTORY);
   // If this file path doesn't already exist, create it!
-  if (!fs.existsSync(fileToWritePath)){
+  if(!fs.existsSync(fileToWritePath)) {
     fs.mkdirSync(fileToWritePath, { recursive: true });
   }
 
