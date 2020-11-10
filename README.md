@@ -11,20 +11,23 @@ cd intergage-launch-pad
 npm i
 
 # Bundle JS
-npm run js
+npm run build-js
 npm run watch-js
 
 # Bundle SCSS
-npm run scss
+npm run build-scss
 npm run watch-scss
+
+# Serve JS and Bundle SCSS
+npm start
 ```
 
 ### ToDo
 - [x] Prefix SCSS after Bundle
 - [x] Create Watch Script for SCSS and JS
 - [x] Move all Current JS to Bundle File
+- [x] Tidy up Rollup's Config
+- [x] Be able to bundle multiple SCSS files
+
 - [ ] Don't load the whole of Bootstrap JS in the bundle file
 - [ ] Have config options for SCSS so CSS file isn't massive
-- [ ] Have Site Folder for SCSS Variable File, plus other starting SCSS Files
-- [ ] Be able to bundle multiple SCSS files
-- [ ] Tidy up Rollup's Config
