@@ -1,0 +1,50 @@
+// VAT Toggler
+// 
+// VAT Toggler found in the Header
+
+$c2-toggler-height:                     48px;
+$c2-toggler-width:                      88px;
+$c2-toggler-background-colour:          rgba( $white , 0.5);
+$c2-toggler-off-opacity:                0.8;
+
+$c2-toggler-center-margin:              8px;
+$c2-toggler-center-height:              $c2-toggler-height - $c2-toggler-center-margin;
+$c2-toggler-center-width:               $c2-toggler-center-height;
+
+.c2-toggler {
+  > input, > label {
+    display: none;
+  }
+  &__slider {
+    $this: &;
+    position: relative;
+    height: $c2-toggler-height;
+    width: $c2-toggler-width;
+    border-radius: $c2-toggler-height / 2;
+    background: $c2-toggler-background-colour;
+    opacity: $c2-toggler-off-opacity;
+    cursor: pointer;
+    transition: opacity 0.2s;
+
+    &:hover {
+      opacity: 1;
+    }
+
+    &__center {
+      position: absolute;
+      top: $c2-toggler-center-margin / 2;
+      left: $c2-toggler-center-margin / 2;
+      height: $c2-toggler-center-height;
+      width: $c2-toggler-center-width;
+      border-radius: $c2-toggler-center-height / 2;
+      transition: left 0.2s;
+    }
+
+    &.active {
+      opacity: 1;
+      #{$this}__center {
+        left: ($c2-toggler-center-margin / 2) + $c2-toggler-center-width;
+      }
+    }
+  }
+}

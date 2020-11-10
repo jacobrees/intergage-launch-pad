@@ -5,7 +5,8 @@ import polyfills from './polyfills';
 // Actions
 import configMenu from './actions/configMenu';
 import scrollToError from './actions/scrollToError';
-import hideBeforeInteraction from './actions/hideBeforeInteraction';
+import VATToggler from './actions/vatToggler';
+import searchBox from './actions/searchBox';
 
 export default () => {
   polyfills.objectFit();
@@ -13,7 +14,10 @@ export default () => {
   // Find Error Messages
   new PrettyMessenger().findMessages();
 
+  // Trigger Actions
+  searchBox();
   configMenu();
   scrollToError();
-  hideBeforeInteraction();
+
+  let vatToggler = new VATToggler(document.querySelector('.c2ecvatsw'));
 };

@@ -1,0 +1,20 @@
+// Site Variables
+// 
+// These Variables override Bootstrap's Defaults
+// Or are new Variables
+
+
+// Extention to Util
+
+$utilities: (
+  "cursor": (
+    property: cursor,
+    values: pointer default,
+  ),
+);
+
+
+// Breadcrumbs
+
+$breadcrumb-bg:             transparent;
+$breadcrumb-margin-bottom:  0;
