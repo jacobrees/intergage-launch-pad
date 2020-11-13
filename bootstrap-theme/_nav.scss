@@ -18,6 +18,7 @@
   padding: $nav-link-padding-y $nav-link-padding-x;
   text-decoration: if($link-decoration == none, null, none);
   text-transform: $nav-link-text-transform;
+  font-weight: $nav-link-font-weight;
   @include transition($nav-link-transition);
 
   &:hover,

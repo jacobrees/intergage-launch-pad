@@ -2,7 +2,7 @@
 // Stretched link
 //
 
-.stretched-link, .stretched-linkYes {
+a.stretched-link, a.stretched-linkYes {
   &::#{$stretched-link-pseudo-element} {
     position: absolute;
     top: 0;
