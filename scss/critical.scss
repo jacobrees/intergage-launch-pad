@@ -1,0 +1,12 @@
+// Critical SCSS Files
+// 
+// This SCSS will be bundled to build/scss/critical.bundle.scss
+// These styles will be render blocking
+
+@import '../bootstrap-theme/functions';
+
+@import 'variables';
+
+
+// Load Critical Bootstrap styles
+@import '../bootstrap-theme/critical-bootstrap';

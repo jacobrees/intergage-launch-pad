@@ -16,22 +16,22 @@
 
 // Layout & components
 
-@import "root";
-@import "reboot";
-@import "type";
+//@import "root"; - Critical
+//@import "reboot"; - Critical
+//@import "type"; - Critical
 @import "dividers";
 @import "images";
-@import "containers";
+//@import "containers"; - Critical
 @import "tables";
 @import "forms";
-@import "grid";
+//@import "grid"; - Critical
 @import "buttons";
 @import "transitions";
 @import "animate";
 @import "dropdown";
 @import "button-group";
-@import "nav";
-@import "navbar";
+//@import "nav"; - Critical
+//@import "navbar"; - Critical
 @import "card";
 @import "breadcrumb";
 @import "pagination";
@@ -54,6 +54,8 @@
 
 
 // Utilities
+// Only use the non Critical Utilities
+$utilities: map-get-all-excluding($utilities, $critical-utilities);
 
 @import "utilities/api";
 

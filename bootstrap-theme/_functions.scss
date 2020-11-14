@@ -53,7 +53,36 @@
   @return $result;
 }
 
-/** deep-map-get - Function to fetch deeply nested values from a given map
+// Get multiple keys from a sass map excluding ones given
+@function map-get-all-excluding($map, $values) {
+  $result: ();
+  @each $key, $value in $map {
+    @if (index($values, $key) == null) {
+      $result: map-merge($result, ($key: $value));
+    }
+  }
+  @return $result;
+}
+
+/**
+  * list-merge - Merge two lists, if the value is present in both of the lists 
+  * only add it once
+  * @param $list1 {list} 
+  * @param $list2 {list} List to merge
+  * @return {list} the merged list
+  */
+@function list-merge($list1, $list2) {
+  $result: $list1;
+  @each $value in $list2 {
+    @if (index($list1, $value) == null) {
+      $result: append($result, $value);
+    }
+  }
+  @return $result;
+}
+
+/** 
+ * deep-map-get - Function to fetch deeply nested values from a given map
  * @param map {map}: The map we are fetching from
  * @param keys {array}: The key chain
  * @return {*}: The found value

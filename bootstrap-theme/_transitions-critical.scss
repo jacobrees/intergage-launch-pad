@@ -1,0 +1,10 @@
+// Transitions Critical
+// 
+// This display none style was costing me on 'Cumulative Layout Shift'
+// So it's now critical
+
+.collapse {
+  &:not(.show) {
+    display: none;
+  }
+}

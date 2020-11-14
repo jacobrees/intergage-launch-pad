@@ -6,11 +6,12 @@
   }
 }
 
-.collapse {
-  &:not(.show) {
-    display: none;
-  }
-}
+// Moved to transitions-critical.scss
+//.collapse {
+//  &:not(.show) {
+//    display: none;
+//  }
+//}
 
 .collapsing {
   height: 0;
