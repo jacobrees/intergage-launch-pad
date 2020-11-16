@@ -2,6 +2,70 @@
 // 
 // Styles to add the DDC Swoosh to container items
 
-.c2swoosh__swoosh {
-  top: 100%;
+.c2swoosh {
+  $this: &;
+  left: 0;
+  padding: 0;
+
+  svg {
+    max-width: 100%;
+    width: 100%;
+    height: auto;
+  }
+
+  &--top {
+    bottom: 100%;
+    svg {
+      vertical-align: bottom;
+    }
+    .path {
+      fill: var(--bg-swoosh-top, var(--bg-colour, transparent));
+    }
+
+    // When Inverted move to the bottom
+    // Make the fill colour the Bottom Swoosh colour, as now it's on the bottom.
+    // Then make default colour the Body Colour, not the background colour of 
+    // the container, if it was the background colour of the container the 
+    // swoosh wouldn't be visable.
+    // And inver the vertical alignment
+    #{$this}--invert > & {
+      top: 100%;
+      bottom: auto;
+      transform: translateY(-99%); // Ensure no background leakage
+      svg {
+        vertical-align: top;
+      }
+      .path {
+        fill: var(--bg-swoosh-bottom, #{$col-Body});
+      }
+    }
+  }
+
+  &--bottom {
+    top: 100%;
+    svg {
+      vertical-align: top;
+    }
+    .path {
+      fill: var(--bg-swoosh-bottom, var(--bg-colour, transparent));
+    }
+
+    // When Inverted move to the top
+    // Make the fill colour the Top Swoosh colour, as now it's at the top.
+    // Then make default colour the Body Colour, not the background colour of 
+    // the container, if it was the background colour of the container the 
+    // swoosh wouldn't be visable.
+    // And inver the vertical alignment
+    #{$this}--invert > & {
+      bottom: 100%;
+      top: auto;
+      transform: translateY(99%); // Ensure no background leakage
+      svg {
+        vertical-align: bottom;
+      }
+      .path {
+        fill: var(--bg-swoosh-top, #{$col-Body});
+      }
+    }
+  }
 }

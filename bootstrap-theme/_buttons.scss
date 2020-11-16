@@ -20,6 +20,11 @@
   @include button-size($btn-padding-y, $btn-padding-x, $btn-font-size, $btn-border-radius);
   @include transition($btn-transition);
 
+  &:after {
+    @include font-awesome-pseudo('\f054');
+    margin-left: map-get($spacers, 1);
+  }
+
   &:hover {
     color: $body-color;
     text-decoration: if($link-hover-decoration == underline, none, null);

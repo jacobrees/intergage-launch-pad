@@ -67,6 +67,12 @@ img {
 }
 // scss-docs-end responsive-breakpoints
 
+// Not using Object Fit, but still is an Image Style
+// Force image to be 100% width of its container
+.img-md-object-fit-stretch > img {
+  width: 100%
+}
+
 .img-object-fit-p-0 > img {
   left: 0;
   width: 100%;

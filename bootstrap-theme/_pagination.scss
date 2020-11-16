@@ -1,9 +1,11 @@
-.pagination {
+.pagination,
+.c2pagination {
   display: flex;
   @include list-unstyled();
 }
 
-.page-link {
+.page-link,
+.c2page-link {
   position: relative;
   display: block;
   color: $pagination-color;
@@ -39,6 +41,26 @@
   }
 
   &.disabled .page-link {
+    color: $pagination-disabled-color;
+    pointer-events: none;
+    background-color: $pagination-disabled-bg;
+    border-color: $pagination-disabled-border-color;
+  }
+}
+
+.c2page-item {
+  &:not(:first-child) .c2page-link {
+    margin-left: $pagination-margin-left;
+  }
+
+  &.active .c2page-link {
+    z-index: 3;
+    color: $pagination-active-color;
+    background-color: $pagination-active-bg;
+    border-color: $pagination-active-border-color;
+  }
+
+  &.disabled .c2page-link {
     color: $pagination-disabled-color;
     pointer-events: none;
     background-color: $pagination-disabled-bg;
