@@ -1,0 +1,34 @@
+// 
+// Product Details
+//
+
+$c2-product-detail-qty-font-weight:   $font-weight-bold;
+$c2-product-detail-qty-margin-bottom: map-get($spacers, 4);
+
+.c2-product-detail {
+  &__buy-form {
+    .BuyFormFieldName:first-child, .BuyFormPrice {
+      display: none;
+    }
+
+    .c2ecbuyfrm {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: flex-end;
+    }
+
+    .BuyFormFieldName {
+      font-weight: $c2-product-detail-qty-font-weight;
+      margin-right: map-get($spacers, 2);
+    }
+
+    .BuyFormFieldName, .BuyFormQty {
+      margin-bottom: $c2-product-detail-qty-margin-bottom;
+    }
+
+    .BuyFormBtn {
+      display: flex;
+    }
+  }
+}

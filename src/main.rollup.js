@@ -13,7 +13,15 @@ $(document).ready(function() {
   // Run the App
   app();
   
-  // Need to Try Catch these...
-  //productGallery();
-  //productPage();
+  // Are we on the Product Listings / Details?
+  try {
+    productGallery();
+  } catch (error) {
+    // Not on the Product Pages
+  }
+  try {
+    productPage();
+  } catch (error) {
+    // Not on the Product Pages
+  }
 });

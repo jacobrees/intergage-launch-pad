@@ -1,0 +1,59 @@
+// Filters for Listing Item
+// 
+// Accordion is setup using listing-filters.js
+
+$c2-list-filters-filter-font-weight:      $font-weight-bold;
+$c2-list-filters-filter-border-bottom:    $border-width solid $border-color;
+$c2-list-filters-filter-padding-y:        map-get($spacers, 2);
+$c2-list-filters-filter-padding-x:        map-get($spacers, 3);
+$c2-list-filters-filter-colour:           $primary;
+$c2-list-filters-transition:              max-height .35s ease;
+
+.c2-list-filters {
+  top: map-get($spacers, 3);
+
+  .c2form_row {
+    margin: 0;
+    &:not(:last-child) {
+      border-bottom: $c2-list-filters-filter-border-bottom;
+    }
+  }
+
+  .c2form_fldname {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    cursor: pointer;
+    margin: 0;
+    padding: $c2-list-filters-filter-padding-y $c2-list-filters-filter-padding-x;
+    color: $c2-list-filters-filter-colour;
+    font-weight: $c2-list-filters-filter-font-weight;
+    &:after {
+      @include font-awesome-pseudo('\f078');
+    }
+
+    &:hover {
+      color: darken($c2-list-filters-filter-colour, $emphasized-link-hover-darken-percentage);
+    }
+  }
+
+  .c2form_input {
+    max-height: 0;
+    padding: 0 $c2-list-filters-filter-padding-x;
+    overflow: hidden;
+    &:not(.force) {
+      @include transition($c2-list-filters-transition);
+    }
+  }
+
+  .c2form_codes {
+    padding: $c2-list-filters-filter-padding-y 0;
+  }
+
+  .c2form_code label {
+    width: 100%;
+    .ldifoc {
+      float: right;
+    }
+  }
+}

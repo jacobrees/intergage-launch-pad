@@ -1,0 +1,8 @@
+// Bootstrap Empty
+// 
+// Use to bring all variable, mixins and functions from bootstrap
+
+//@import "functions"; // main.scss file should include this at the top
+@import "variables-launch-pad"; // Launch Pad defaults
+@import "variables";
+@import "mixins";

@@ -37,7 +37,7 @@ img {
     .img#{$infix}-object-fit-contain,
     #{if($infix == "", ".img-na-object-fit-contain", "")} {
       position: relative;
-      > img {
+      img {
         position: absolute;
         top: 0;
         left: calc(var(--grid-gutter-x) / 2); // stylelint-disable-line function-blacklist;
@@ -50,7 +50,7 @@ img {
     // Cover
     .img#{$infix}-object-fit-cover,
     #{if($infix == "", ".img-na-object-fit-cover", "")} {
-      > img {
+      img {
         object-fit: cover;
       }
     }
@@ -58,7 +58,7 @@ img {
     // Contain
     .img#{$infix}-object-fit-contain,
     #{if($infix == "", ".img-na-object-fit-contain", "")} {
-      > img {
+      img {
         object-fit: contain;
       }
     }
@@ -67,63 +67,63 @@ img {
 }
 // scss-docs-end responsive-breakpoints
 
-.img-object-fit-p-0 > img {
+.img-object-fit-p-0 img {
   left: 0;
   width: 100%;
 }
 
 // Position Top
 .img-object-fit-center-top {
-  > img {
+  img {
     object-position: top;
   }
 }
 
 // Position Bottom
 .img-object-fit-center-bottom {
-  > img {
+  img {
     object-position: bottom;
   }
 }
 
 // Position Left
 .img-object-fit-left-center {
-  > img {
+  img {
     object-position: left;
   }
 }
 
 // Position Right
 .img-object-fit-right-center {
-  > img {
+  img {
     object-position: right;
   }
 }
 
 // Position Left Top
 .img-object-fit-left-top {
-  > img {
+  img {
     object-position: left top;
   }
 }
 
 // Position Right Top
 .img-object-fit-right-top {
-  > img {
+  img {
     object-position: right top;
   }
 }
 
 // Position Left Bottom
 .img-object-fit-center-left-bottom {
-  > img {
+  img {
     object-position: left bottom;
   }
 }
 
 // Position Right Bottom
 .img-object-fit-right-bottom {
-  > img {
+  img {
     object-position: right bottom;
   }
 }

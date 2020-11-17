@@ -1,0 +1,19 @@
+// 
+// Listing Item
+//
+
+.ldic_Page .c2form_fldname, .ldic_Sort .c2form_fldname, .LegendHide {
+  display: none;
+} 
+
+.ldic_Tota, .ldic_Noun {
+  display: inline-block;
+}
+
+.ldic_Sort .c2form_row {
+  margin: 0;
+} 
+
+.c2-list__loading {
+  background: rgba($light, 0.5);
+}

@@ -1,0 +1,14 @@
+// Product SCSS Files
+// 
+// This SCSS will be bundled to build/scss/product.bundle.scss
+// This is used for Listing and Detail views for products
+
+@import '../bootstrap-theme/functions';
+
+@import 'variables';
+
+@import '../bootstrap-theme/bootstrap-empty';
+
+@import 'c2-filters';
+@import 'c2-listing';
+@import 'c2-details';
