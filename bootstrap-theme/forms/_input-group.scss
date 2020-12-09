@@ -28,6 +28,11 @@
   @include sr-only(); // Hide
 }
 
+// CMS seperator for buttons - hide it
+.c2form_btnsep {
+	display: none;
+}
+
 .c2form_date {
   display: flex;
   align-items: center;

@@ -16,22 +16,23 @@
 
 // Layout & components
 
-//@import "root"; - Critical
-//@import "reboot"; - Critical
-//@import "type"; - Critical
+@import "root";
+@import "reboot";
+@import "type";
 @import "dividers";
 @import "images";
-//@import "containers"; - Critical
+@import "containers";
 @import "tables";
 @import "forms";
-//@import "grid"; - Critical
+@import "grid";
 @import "buttons";
 @import "transitions";
+@import "transitions-critical"; // TBD: Move to critical-bootstrap when ready
 @import "animate";
 @import "dropdown";
 @import "button-group";
-//@import "nav"; - Critical
-//@import "navbar"; - Critical
+@import "nav";
+@import "navbar";
 @import "card";
 @import "breadcrumb";
 @import "pagination";
@@ -54,8 +55,8 @@
 
 
 // Utilities
-// Only use the non Critical Utilities
-$utilities: map-get-all-excluding($utilities, $critical-utilities);
+// Only use the non Critical Utilities - TBD: Disabled until defer load and inline css CMS options are released
+// $utilities: map-get-all-excluding($utilities, $critical-utilities);
 
 @import "utilities/api";
 
