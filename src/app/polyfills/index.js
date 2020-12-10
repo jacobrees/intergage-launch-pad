@@ -1,5 +1,6 @@
 import objectFit from './object-fit';
-import forEach from './forEach';
+import './forEach';
+import './assign';
 
 export default {
   objectFit: objectFit

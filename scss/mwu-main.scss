@@ -1,0 +1,10 @@
+// Main SCSS Files with MWU Colours
+// 
+// This SCSS will be bundled to build/scss/mwu-main.bundle.scss
+
+@import '../bootstrap-theme/functions';
+
+@import 'variables';
+@import 'mwu/colour-variables';
+
+@import 'main';

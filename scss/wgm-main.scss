@@ -1,0 +1,10 @@
+// Main SCSS Files with WGM Colours
+// 
+// This SCSS will be bundled to build/scss/wgm-main.bundle.scss
+
+@import '../bootstrap-theme/functions';
+
+@import 'variables';
+@import 'wgm/colour-variables';
+
+@import 'main';

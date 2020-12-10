@@ -33,9 +33,9 @@ export default class VATToggler {
     let togglerWrap = document.createElement('div');
     togglerWrap.className = `c2-toggler__slider d-flex align-items-center justify-content-around${this.active ? ' active' : ''}`;
     togglerWrap.innerHTML = `
-      <span>On</span><span>Off</span>
+      <span class="text-white font-weight-bold">On</span><span class="text-white font-weight-bold">Off</span>
       <div class="c2-toggler__slider__center bg-white d-flex align-items-center justify-content-center">
-        <span class="text-body">VAT</span>
+        <span class="text-body font-weight-bold">VAT</span>
       </div>
     `;
     togglerWrap.addEventListener('click', e => this.handleClick(e, togglerWrap));

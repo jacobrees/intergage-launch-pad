@@ -14,5 +14,18 @@ export default class ProductDetails extends PropObject {
 
   build() {
     this.buyForm.build();
+
+    let accessories = this.props.detailDom.querySelectorAll('.c2-product-detail__accessories__accessory');
+    accessories.forEach((accessory, id) => {
+      let btn = accessory.querySelector('.btn-modal'),
+          modal = accessory.querySelector('.modal'),
+          modalTitle = accessory.querySelector('.modal-title');
+
+      btn.dataset.target = `#accessoryModal${id}`;
+      modal.id           = `accessoryModal${id}`;
+
+      modal.setAttribute('aria-labelledby', `#accessoryModal${id}Label`);
+      modalTitle.id      = `accessoryModal${id}Label`;
+    })
   }
 }

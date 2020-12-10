@@ -5,6 +5,10 @@
 $c2-product-detail-qty-font-weight:   $font-weight-bold;
 $c2-product-detail-qty-margin-bottom: map-get($spacers, 4);
 
+$c2-product-tabs-link-min-width:      170px;
+$c2-product-tabs-link-padding-y:      0.8rem;
+$c2-product-tabs-link-font-weight:    600;
+
 .c2-product-detail {
   &__buy-form {
     .BuyFormFieldName:first-child, .BuyFormPrice {
@@ -29,6 +33,15 @@ $c2-product-detail-qty-margin-bottom: map-get($spacers, 4);
 
     .BuyFormBtn {
       display: flex;
+    }
+  }
+
+  .c2-product-tabs {
+    .nav-link {
+      padding-top: $c2-product-tabs-link-padding-y;
+      padding-bottom: $c2-product-tabs-link-padding-y;
+      min-width: $c2-product-tabs-link-min-width;
+      font-weight: $c2-product-tabs-link-font-weight;
     }
   }
 }

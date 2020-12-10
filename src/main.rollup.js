@@ -1,5 +1,5 @@
 import $ from 'jquery';
-import 'bootstrap';
+import '../node_modules/bootstrap/dist/js/bootstrap.js';
 import './lib/remove-default-styles';
 
 import app from './app';
@@ -18,10 +18,12 @@ $(document).ready(function() {
     productGallery();
   } catch (error) {
     // Not on the Product Pages
+    console.log(error);
   }
   try {
     productPage();
   } catch (error) {
     // Not on the Product Pages
+    console.log(error);
   }
 });
