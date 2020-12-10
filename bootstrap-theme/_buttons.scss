@@ -20,7 +20,7 @@
   @include button-size($btn-padding-y, $btn-padding-x, $btn-font-size, $btn-border-radius);
   @include transition($btn-transition);
 
-  &:after {
+  &:not(.btn-no-arrow):after {
     @include font-awesome-pseudo('\f054');
     margin-left: map-get($spacers, 1);
   }

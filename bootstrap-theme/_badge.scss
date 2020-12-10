@@ -26,3 +26,18 @@
   position: relative;
   top: -1px;
 }
+
+// Badges in Font Awesome Icons
+.fa, .fab, .fad, .fal, .far, .fas {
+  position: relative;
+  .badge {
+    position: absolute;
+    @include font-size($badge-font-size * 0.7);
+    // Don't let Font Awesome override the font
+    font-family: $font-family-base;
+    // Anchor Top Right
+    top: 0;
+    right: 0;
+    transform: translate(50%, -50%);
+  }
+}

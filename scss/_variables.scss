@@ -5,7 +5,11 @@
 
 $white: #fff;
 
+$cms-base-product: 'Ecom';
+
 $enable-gradients: true;
+
+$intergage-i-color: $white;
 
 
 // Headings
@@ -34,3 +38,10 @@ $btn-padding-x:     1.9rem;
 
 $btn-border-width:  0;
 $btn-border-radius: 0;
+
+
+// Breadcrumbs
+
+$breadcrumb-bg:         transparent;
+$breadcrumb-padding-y:  0rem;
+$breadcrumb-padding-x:  0rem;

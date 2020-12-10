@@ -37,7 +37,7 @@
           color: $basket-layout-info-text-colour;
           &:after {
             content: ":";
-            padding-right: get('1', $spacers);
+            padding-right: map-get($spacers, 1);
           }
         }
         .c2val {
@@ -46,7 +46,7 @@
       }
       // Shipping Row already has ':' on it, remove ours
       .c2ecbasshipnoed .c2lbl {
-        padding-right: get('1', $spacers);
+        padding-right: map-get($spacers, 1);
         &:after {
           content: none;
         }
@@ -56,7 +56,7 @@
   
   // Checkout now info
   .c2ecbaschkbtn {
-    margin-top: get('3', $spacers);
+    margin-top: map-get($spacers, 3);
     @include media-breakpoint-up('md') {
       display: flex;
       justify-content: space-between;

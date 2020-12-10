@@ -37,7 +37,7 @@ export default () => {
       position: "right"
     });
 
-    // Add Click Handle to Mav bar Toggler
+    // Add Click Handle to Nav bar Toggler
     navBar.querySelector(".navbar-toggler").addEventListener('click', function (event) {
       event.preventDefault();
       // Open MMenu

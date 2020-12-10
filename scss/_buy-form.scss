@@ -1,0 +1,33 @@
+// Buy Form
+// 
+// Styles for the Ecom Buy Form
+
+.c2-product-detail {
+  &__buyForm {
+    .BuyFormFieldName:first-child, .BuyFormPrice {
+      display: none;
+    }
+    .BuyFormFieldName {
+      margin-right: map-get($spacers, 2);
+    }
+    .c2ecbuyfrm {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+    span.BuyFormBtn {
+      width: 100%;
+    }
+    button.BuyFormBtn {
+      width: 100%!important; // Used to override bootstrap utils
+      margin: 0!important; // Used to override bootstrap utils
+      margin-top: map-get($spacers, 2)!important; // Used to override bootstrap utils
+    }
+  }
+
+  &__scroll-spy {
+    > div {
+      top: var(--headerHeight, '0px');
+    }
+  }
+}
