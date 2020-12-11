@@ -6,6 +6,7 @@ import polyfills from './polyfills';
 import configMenu from './actions/configMenu';
 import scrollToError from './actions/scrollToError';
 import hideBeforeInteraction from './actions/hideBeforeInteraction';
+import searchBoxToggler from './actions/searchBoxToggler';
 import { setHeightVariable } from './actions/findHeaderHeight';
 
 import ProductDetail from './product-detail';
@@ -20,6 +21,7 @@ export default () => {
   configMenu();
   scrollToError();
   setHeightVariable();
+  searchBoxToggler();
 
   // Find all Product Detail Layouts
   let productDetails = [].slice.call(document.querySelectorAll('.c2-product-detail'));

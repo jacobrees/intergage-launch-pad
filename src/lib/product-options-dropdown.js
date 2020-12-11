@@ -28,8 +28,8 @@ export default class ProductOptionDropdown extends PropObject {
     this.qtyLabel = qtyLabelDom ? qtyLabelDom.innerHTML : 'Quantity';
   }
 
-  updateQtyValueForSelectedOption(value) {
-    this.currentSelectedOption.qtyInput.value = value;
+  updateQtyValueForSelectedOption(newValue) {
+    this.currentSelectedOption.qtyInput.value = newValue;
   }
 
   selectOption(productOption) {
