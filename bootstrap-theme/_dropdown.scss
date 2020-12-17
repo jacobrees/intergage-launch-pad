@@ -2,28 +2,23 @@
 .dropup,
 .dropright,
 .dropdown,
-.dropleft,
-li.par {
+.dropleft {
   position: relative;
 }
 
-.dropdown-toggle,
-a.par,
-span.par {
+.dropdown-toggle {
   white-space: nowrap;
 
   // Generate the caret automatically
   @include caret();
   // Rotate caret on Dropdown Sub Menus
-  .dropdown-submenu &::after,
-  .navbar-nav:not(.mm-spn) li.par:not([class*="lev1"]) &::after {
+  .dropdown-submenu &::after {
     transform: rotate(-90deg);
   }
 }
 
 // The dropdown menu
-.dropdown-menu,
-.navbar-nav:not(.mm-spn) ul:not([class*="lev1"]) {
+.dropdown-menu {
   position: absolute;
   top: 100%;
   left: 0;
@@ -43,11 +38,6 @@ span.par {
   @include box-shadow($dropdown-box-shadow);
 }
 
-// To allow the dropdowns to work in the header
-.navbar-nav li:hover > ul {
-  display: block!important;
-}
-
 // scss-docs-start responsive-breakpoints
 @each $breakpoint in map-keys($grid-breakpoints) {
   @include media-breakpoint-up($breakpoint) {
@@ -65,16 +55,11 @@ span.par {
   }
 }
 // scss-docs-end responsive-breakpoints
-.navbar-nav:not(.mm-spn) ul:not([class*="lev1"]) {
-  margin: 0;
-}
 
 // Dropdown Sub Menus
-.dropdown-submenu,
-.navbar-nav:not(.mm-spn) li.par:not([class*="lev1"]) {
+.dropdown-submenu {
   position: relative;
-  > .dropdown-menu,
-  > ul {
+  > .dropdown-menu {
     top: -($dropdown-padding-y / 2);
     left: 100%;
   }
@@ -152,9 +137,7 @@ span.par {
 // Links, buttons, and more within the dropdown menu
 //
 // `<button>`-specific styles are denoted with `// For <button>s`
-.dropdown-item,
-.navbar-nav:not(.mm-spn) ul a.child,
-.navbar-nav:not(.mm-spn) ul a.par:not([class*="lev1"]) {
+.dropdown-item {
   display: block;
   width: 100%; // For `<button>`s
   padding: $dropdown-item-padding-y $dropdown-item-padding-x;
@@ -218,9 +201,7 @@ span.par {
 }
 
 // Dropdown text
-.dropdown-item-text,
-ul span.child,
-ul span.par:not([class*="lev1"]) {
+.dropdown-item-text {
   display: block;
   padding: $dropdown-item-padding-y $dropdown-item-padding-x;
   color: $dropdown-link-color;

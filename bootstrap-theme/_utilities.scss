@@ -446,6 +446,7 @@ $utilities: map-merge(
         (
           "body": $body-bg,
           "white": $white,
+          "dark-50": rgba($dark, 0.5),
           "transparent": transparent
         )
       )
