@@ -27,7 +27,7 @@ const OUTPUT_FILE_EXTENSION   = 'bundled.scss';
 
   // Find all Files in the SCSS directory without an _ at the start of their name
   const filesToBundle = fs.readdirSync(inputFilePath)
-    .filter(file => !file.startsWith('_'))
+    .filter(file => !file.startsWith('_') && file.endsWith('.scss'))
     .map(file => file);
 
   // Bundle all the Files, ready to be written
