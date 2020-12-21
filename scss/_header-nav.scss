@@ -6,7 +6,7 @@ $navbar-link-active-line-width:          80%;
 $navbar-link-active-line-height:         2px;
 $navbar-link-active-line-transition:     width 0.4s ease-in-out;
 
-.navbar-nav:not(.mm-spn) {
+.navbar-nav:not(.mm-spn) ul.lev1 {
   position: relative;
 }
 
@@ -19,6 +19,11 @@ $navbar-link-active-line-transition:     width 0.4s ease-in-out;
       &:before {
         width: $navbar-link-active-line-width;
       }
+    }
+
+    // Show level 2 if needed
+    ul.lev2 {
+      display: block;
     }
   }
 
@@ -41,22 +46,4 @@ $navbar-link-active-line-transition:     width 0.4s ease-in-out;
   }
 }
 
-// Level 2 Menus
-.navbar-nav:not(.mm-spn) ul.lev2 {
-  position: absolute;
-  left: 0;
-  top: 100%;
-  width: calc(100% - (var(--grid-gutter-x) / 2));
-  list-style: none;
-  padding: 0;
-
-  // Add image for this 2nd menu item
-  &:before {
-    content: "";
-    display: block;
-    width: 300px;
-    height: 100%;
-    background-image: url('giorgio-trovato-K62u25Jk6vo-unsplash.jpg');
-    background-size: cover;
-  }
-}
+@import 'header/second-level';

@@ -1,0 +1,102 @@
+// Second Level
+// 
+// 2nd Level menus for header nav
+
+$navbar-2nd-level-image-width:      300px;
+$navbar-2nd-level-image-height:     220px;
+
+$navbar-2nd-level-items-columns:    2;
+$navbar-2nd-level-items-max-width:  55%;
+$navbar-2nd-level-background:       $white;
+$navbar-2nd-level-padding-x:        map-get($spacers, 5);
+$navbar-2nd-level-padding-y:        map-get($spacers, 4);
+
+$navbar-2nd-level-item-padding:                       map-get($spacers, 2);
+$navbar-2nd-level-item-border-bottom:                 $border-width solid $secondary;
+$navbar-2nd-level-item-color:                         $body-color;
+$navbar-2nd-level-item-hover-color:                   darken($body-color, 15%);
+$navbar-2nd-level-item-after-pseudo-element-unicode:  $btn-after-pseudo-element-unicode;
+
+// Level 2 Menus
+.navbar-nav:not(.mm-spn) ul.lev2 {
+  position: absolute;
+  display: none;
+  left: 0;
+  top: 100%;
+  width: 100%;
+  min-height: calc(#{$navbar-2nd-level-image-height} + #{$navbar-2nd-level-padding-y * 2});
+  list-style: none;
+  padding: $navbar-2nd-level-padding-y $navbar-2nd-level-padding-x;
+  background-color: $navbar-2nd-level-background;
+
+  // The Max width of the items is controled by padding-left
+  padding-left: 100% - $navbar-2nd-level-items-max-width;
+
+  // Columns
+  columns: $navbar-2nd-level-items-columns;
+  column-fill: auto;
+
+  // Display Animation
+  animation: displayMenu 0.4s ease;
+
+  // Add image for this 2nd menu item
+  &:before {
+    content: "";
+    position: absolute;
+    display: block;
+    top: $navbar-2nd-level-padding-y;
+    left: $navbar-2nd-level-padding-x;
+    width: $navbar-2nd-level-image-width;
+    height: $navbar-2nd-level-image-height;
+    background-image: url('giorgio-trovato-K62u25Jk6vo-unsplash.jpg');
+    background-size: cover;
+    background-position: center;
+  }
+}
+
+// Level 2 Menus Items
+.navbar-nav:not(.mm-spn) li.lev2 {
+  padding: $navbar-2nd-level-item-padding;
+  border-bottom: $navbar-2nd-level-item-border-bottom;
+
+  // Fix overflowing of columns
+  // https://stackoverflow.com/questions/7785374/how-to-prevent-column-break-within-an-element#answer-10516788
+  display: inline-block;
+  width: 100%;
+
+  > a,
+  > span {
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    color: $navbar-2nd-level-item-color;
+    text-decoration: if($link-decoration == none, null, none);
+
+    &:after {
+      @include font-awesome-pseudo($navbar-2nd-level-item-after-pseudo-element-unicode);
+      display: none;
+    }
+
+    &:hover,
+    &:focus {
+      color: $navbar-2nd-level-item-hover-color;
+      text-decoration: if($link-hover-decoration == underline, none, null);
+
+      &:after {
+        display: block;
+      }
+    }
+  }
+}
+
+@keyframes displayMenu {
+  from {
+    transform: translateY(10px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0px);
+    opacity: 1;
+  }
+}
