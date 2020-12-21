@@ -20,13 +20,6 @@
   @include button-size($btn-padding-y, $btn-padding-x, $btn-font-size, $btn-border-radius);
   @include transition($btn-transition);
 
-  @if $btn-after-pseudo-element-unicode != null {
-    &:not(.btn-no-arrow):after {
-      @include font-awesome-pseudo($btn-after-pseudo-element-unicode);
-      margin-left: $btn-after-pseudo-element-margin-left;
-    }
-  }
-
   &:hover {
     color: $body-color;
     text-decoration: if($link-hover-decoration == underline, none, null);
@@ -63,8 +56,7 @@
 
 @each $color, $value in $theme-colors {
   .btn-#{$color} {
-    // For BTC the normal buttons are the outline ones...
-    @include button-outline-variant($value);
+    @include button-variant($value, $value);
   }
   // Extend .btn For RTE Buttons
   .rte-btn-#{$color} {
@@ -83,8 +75,7 @@
 
 @each $color, $value in $theme-colors {
   .btn-outline-#{$color} {
-    // For BTC the outline buttons are using the link button variant
-    @include button-link-variant($value);
+    @include button-outline-variant($value);
   }
   // Extend .btn For RTE Buttons
   .rte-btn-outline-#{$color} {

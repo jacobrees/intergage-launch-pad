@@ -20,13 +20,6 @@
   }
 }
 
-// CMS Reset Button - hide it if needed
-@if $c2-reset-btn-hide {
-  .c2btnreset {
-    display: none !important; // Important used to override bootstrap utils
-  }
-}
-
 // For all CMS Action buttons, add a spinner to the Focus State
 .btn[class*='c2']:focus:before {
   content: "";
