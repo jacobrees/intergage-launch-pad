@@ -79,6 +79,12 @@ $utilities: (
       "white": url(#{get('white', $border-image-names)}) #{$border-with-image-slice} / #{$border-with-image-width} / #{$border-with-image-outset} #{$border-with-image-repeat},
       "black": url(#{get('black', $border-image-names)}) #{$border-with-image-slice} / #{$border-with-image-width} / #{$border-with-image-outset} #{$border-with-image-repeat}
     )
+  ),
+  "z-index": (
+    property: z-index,
+    values: (
+      'behind': -1
+    )
   )
 );
 
