@@ -1,16 +1,14 @@
-// Main SCSS Files
 // 
-// This SCSS will be bundled to build/scss/main.bundle.scss
-
-@import '../bootstrap-theme/functions';
-
-@import 'variables';
+// Main SCSS Files
+//
 
 // Load the whole of Bootstrap
 // Optionally you can load parts of bootstrap - TDB: Needs documentation
 @import '../bootstrap-theme/bootstrap';
 
 @import 'header-nav';
+@import 'figure-with-hover-text';
+@import 'bearing-top-left';
 
 // Import MMenu Light Styles
 @import '~mmenu-light/src/mmenu-light';

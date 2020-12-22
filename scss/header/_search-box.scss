@@ -1,0 +1,30 @@
+// Search Box
+// 
+// The Toggle Search Box in the header
+
+$c2search-box-animation-timing: 0.2s ease;
+
+.c2search-box {
+  .SearchBox, .SearchBoxSubmit {
+    display: none;
+  }
+
+  left: 0;
+  animation: showSearchBar $c2search-box-animation-timing;
+  &:not(.show) {
+    display: none !important; // Used to override Bootstrap utils
+  }
+}
+
+.c2search-btn {
+  cursor: pointer;
+}
+
+@keyframes showSearchBar {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

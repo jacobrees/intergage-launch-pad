@@ -21,6 +21,12 @@
 
 [x] Add white-text-all checkbox to 'Footer' and 'Text' templated items
 
+[x] Build Image and Text Hover CTA
+
+[x] Get Bearing Icon from Design and add Text Style for it
+
+[ ] Match Form to Design
+
 [ ] Match Header and Footer to design
 
 [ ] Fix horizonal scroll on pages

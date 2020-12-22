@@ -1,0 +1,23 @@
+// Bearing Top Left
+// 
+// A Text style to add the Bearing Icon to the top left of the element
+// For example, onto headings
+
+$c2bearing-icon-size: 1em;
+
+.c2bearing-top-left {
+  position: relative;
+
+  &:before {
+    content: "";
+    position: absolute;
+    top: -$c2bearing-icon-size;
+    left: -$c2bearing-icon-size;
+    width: $c2bearing-icon-size;
+    height: $c2bearing-icon-size;
+    background-image: url('Bearing.svg');
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+}

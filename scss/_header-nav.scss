@@ -36,7 +36,7 @@ $navbar-link-active-line-transition:     width 0.4s ease-in-out;
       position: absolute;
       height: $navbar-link-active-line-height;
       width: 0%;
-      bottom: $navbar-link-active-line-height / 2;
+      bottom: $nav-link-padding-y / 2;
       // Center it
       left: 50%;
       transform: translateX(-50%);
@@ -47,3 +47,4 @@ $navbar-link-active-line-transition:     width 0.4s ease-in-out;
 }
 
 @import 'header/second-level';
+@import 'header/search-box';
