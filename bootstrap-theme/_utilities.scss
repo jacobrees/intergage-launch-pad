@@ -446,6 +446,7 @@ $utilities: map-merge(
         (
           "body": $body-bg,
           "white": $white,
+          "secondary-80": rgba($secondary, 0.8), // For Ensign's header 
           "transparent": transparent
         )
       )

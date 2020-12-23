@@ -3,6 +3,7 @@
 //
 
 .btn {
+  position: relative;
   display: inline-block;
   font-family: $btn-font-family;
   font-weight: $btn-font-weight;
@@ -19,6 +20,17 @@
   border: $btn-border-width solid transparent;
   @include button-size($btn-padding-y, $btn-padding-x, $btn-font-size, $btn-border-radius);
   @include transition($btn-transition);
+
+  // For Ensign - add Coloured Square on the top left of the button
+  &:before {
+    content: "";
+    position: absolute;
+    width: $btn-accent-square-width;
+    height: $btn-accent-square-height;
+    left: $btn-accent-square-width / -2;
+    top: $btn-accent-square-height / -2;
+    @include transition($btn-transition);
+  }
 
   &:hover {
     color: $body-color;

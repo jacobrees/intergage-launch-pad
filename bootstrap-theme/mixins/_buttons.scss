@@ -19,10 +19,17 @@
   border-color: $border;
   @include box-shadow($btn-box-shadow);
 
+  &:before {
+    background-color: $color;
+  }
+
   &:hover {
     color: $hover-color;
     @include gradient-bg($hover-background);
     border-color: $hover-border;
+    &:before {
+      background-color: $hover-color;
+    }
   }
 
   &:focus,
@@ -77,10 +84,17 @@
   color: $color;
   border-color: $color;
 
+  &:before {
+    background-color: $color;
+  }
+
   &:hover {
     color: $color-hover;
     background-color: $active-background;
     border-color: $active-border;
+    &:before {
+      background-color: $color-hover;
+    }
   }
 
   &:focus,
@@ -113,8 +127,8 @@
 }
 
 // Button sizes
-@mixin button-size($padding-y, $padding-x, $font-size, $border-radius) {
-  padding: $padding-y $padding-x;
+@mixin button-size($padding-y, $padding-x, $font-size, $border-radius, $important-flag: false) {
+  padding: $padding-y $padding-x if($important-flag, !important, null);
   @include font-size($font-size);
   // Manually declare to provide an override to the browser default
   @include border-radius($border-radius, 0);

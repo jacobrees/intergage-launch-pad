@@ -1,0 +1,30 @@
+// Header
+//
+// Custom Header styles for Ensign
+
+// Make last lev1 menu item look like a primary button on Desktop
+.navbar-nav:not(.mm-spn) a.lev1.last {
+  position: relative;
+  color: $white;
+  background-color: $primary;
+  @include button-size($btn-padding-y, $btn-padding-x, $btn-font-size, $btn-border-radius, true);
+  @include transition($btn-transition);
+
+  &:before {
+    content: "";
+    position: absolute;
+    width: $btn-accent-square-width;
+    height: $btn-accent-square-height;
+    left: $btn-accent-square-width / -2;
+    top: $btn-accent-square-height / -2;
+    background-color: $white;
+    @include transition($btn-transition);
+  }
+
+  &:hover, &:active, &.cur {
+    color: $body-color!important;
+    &:before {
+      background-color: $body-color;
+    }
+  }
+}

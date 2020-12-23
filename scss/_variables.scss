@@ -3,4 +3,38 @@
 // These Variables override Bootstrap's Defaults
 // Or are new Variables
 
+$white:    #fff;
 
+
+// Typography
+
+$headings-color:              $col-Secondary;
+
+$heading-font-size-base:      0.8rem;
+$h6-font-size:                1rem;
+$headings-font-weight:        700;
+
+$display1-weight:             500;
+$display2-weight:             500;
+$display3-weight:             500;
+$display4-weight:             500;
+
+
+// Buttons
+
+$btn-border-radius:           0;
+$btn-border-radius-sm:        0;
+$btn-border-radius-lg:        0;
+
+$btn-padding-y:               0.65rem;
+$btn-padding-x:               2.5rem;
+
+$btn-accent-square-width:     1em;
+$btn-accent-square-height:    $btn-accent-square-width;
+
+
+// Navbar
+
+$navbar-dark-color:                 $white;
+$navbar-dark-hover-color:           $col-Primary;
+$navbar-dark-active-color:          $col-Primary;
