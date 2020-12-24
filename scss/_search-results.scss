@@ -1,0 +1,16 @@
+// Search Results
+// 
+// Styling for the Search Results Page, mainly legacy markup...
+
+
+.ssresults {
+  @include make-row((
+    'gutter-y': map-get($spacers, 3)
+  ));
+
+  > * {
+    @include make-col-ready((
+      'make-full-width': false
+    ));
+  }
+}
