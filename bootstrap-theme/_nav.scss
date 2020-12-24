@@ -16,6 +16,8 @@
 .navbar-nav:not(.mm-spn) span.lev1 {
   display: block;
   padding: $nav-link-padding-y $nav-link-padding-x;
+  font-weight: $nav-link-font-weight;
+  letter-spacing: $nav-link-letter-spacing;
   text-decoration: if($link-decoration == none, null, none);
   text-transform: $nav-link-text-transform;
   @include transition($nav-link-transition);

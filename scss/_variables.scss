@@ -19,6 +19,9 @@ $display2-weight:             500;
 $display3-weight:             500;
 $display4-weight:             500;
 
+$lead-font-weight:            500;
+$lead-font-size:              1.5rem !default;
+
 
 // Buttons
 
@@ -38,3 +41,23 @@ $btn-accent-square-height:    $btn-accent-square-width;
 $navbar-dark-color:                 $white;
 $navbar-dark-hover-color:           $col-Primary;
 $navbar-dark-active-color:          $col-Primary;
+$nav-link-font-weight:              700;
+$nav-link-letter-spacing:           0.08em;
+$navbar-padding-y:                  1rem;
+$navbar-img-height:                 4rem;
+
+
+// Grid containers
+
+$container-max-widths: (
+  sm: 540px,
+  md: 720px,
+  lg: 960px,
+  xl: 1140px,
+  xxl: 1500px // Only Value changed here
+) !default;
+
+
+// Intergage Logo
+
+$intergage-i-color:  $white;
