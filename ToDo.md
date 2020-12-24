@@ -25,6 +25,17 @@
 
 [x] Get Bearing Icon from Design and add Text Style for it
 
+[x] Change colour of Bearing Icon to Secondary Colour
+[ ] Change Intro Icons to primary colour
+
+[x] Increase border radius of all buttons
+
+[x] Change colour of intergage logo to white
+
+[x] Add min-height script to header when banner is missing
+
+[ ] Add Lang switcher
+
 [ ] Match Form to Design
 
 [ ] Match Header and Footer to design

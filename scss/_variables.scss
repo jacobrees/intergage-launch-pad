@@ -43,12 +43,13 @@ $grid-gutter-width: 4rem;
 
 // Buttons
 
-$btn-reset-hide:                        true;
 $btn-after-pseudo-element-unicode:      '\f324';
 $btn-after-pseudo-element-margin-left:  1rem;
+$btn-border-radius:                     0.8rem;
 
 
 // CMS Button
+
 $c2-reset-btn-hide: true;
 
 
@@ -62,3 +63,8 @@ $navbar-brand-margin-right:         0;
 $navbar-padding-y:                  0;
 $nav-link-padding-y:                1.5rem;
 $nav-link-text-transform:           lowercase;
+
+
+// Intergage Logo
+
+$intergage-i-color: $white;

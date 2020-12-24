@@ -15,9 +15,15 @@ $c2bearing-icon-size: 1em;
     left: -$c2bearing-icon-size;
     width: $c2bearing-icon-size;
     height: $c2bearing-icon-size;
-    background-image: url('Bearing.svg');
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
+
+    .c2-page--engineering & {
+      background-image: url('bearing-engineering.svg');
+    }
+    .c2-page--automotive & {
+      background-image: url('bearing-automotive.svg');
+    }
   }
 }

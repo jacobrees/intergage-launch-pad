@@ -7,6 +7,7 @@ import configMenu from './actions/configMenu';
 import scrollToError from './actions/scrollToError';
 import hideBeforeInteraction from './actions/hideBeforeInteraction';
 import searchBoxToggle from './actions/searchBoxToggle';
+import { setHeightVariable } from './actions/findHeaderHeight';
 
 export default () => {
   polyfills.objectFit();
@@ -17,5 +18,6 @@ export default () => {
   configMenu();
   scrollToError();
   hideBeforeInteraction();
+  setHeightVariable();
   searchBoxToggle();
 };

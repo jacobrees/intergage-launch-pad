@@ -1,0 +1,7 @@
+// Min Banner Height
+// 
+// Set the min height of the banner when it does not container any content
+
+.c2-banner {
+  min-height: var(--headerHeight, 0);
+}
