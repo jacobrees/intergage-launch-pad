@@ -4,10 +4,10 @@
 // These styles will be render blocking
 // TBD: Not in use at the moment
 
-@import '../bootstrap-theme/functions';
+@import '../scss/functions';
 
 @import 'variables';
 
 
 // Load Critical Bootstrap styles
-@import '../bootstrap-theme/critical-bootstrap';
+@import '../scss/critical-bootstrap';

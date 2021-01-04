@@ -2,13 +2,13 @@
 // 
 // This SCSS will be bundled to build/scss/main.bundle.scss
 
-@import '../bootstrap-theme/functions';
+@import '../scss/functions';
 
 @import 'variables';
 
 // Load the whole of Bootstrap
 // Optionally you can load parts of bootstrap - TDB: Needs documentation
-@import '../bootstrap-theme/bootstrap';
+@import '../scss/bootstrap';
 
 // Import MMenu Light Styles
 @import '~mmenu-light/src/mmenu-light';

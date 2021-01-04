@@ -9,7 +9,7 @@ const NODE_MODULES_PATH       = '..';
 const IMPORT_PATTERN          = /@import\s+['"](.+)['"];/g;
 const FILE_EXTENSION_REGEX    = /\..+$/g;
 
-const INPUT_FILE_DIRECTORY    = '../scss/';
+const INPUT_FILE_DIRECTORY    = '../site/';
 const INPUT_FILE_IGNORE       = [];
 
 const OUTPUT_FILE_DIRECTORY   = '../build/scss';
