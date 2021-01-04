@@ -24,6 +24,7 @@
   padding-right: $navbar-padding-x; // default: null
   padding-bottom: $navbar-padding-y;
   padding-left: $navbar-padding-x; // default: null
+  @include gradient-bg();
 
   // Because flex properties aren't inherited, we need to redeclare these first
   // few properties so that content nested within behave properly.
@@ -55,7 +56,7 @@
 .navbar-brand {
   padding-top: $navbar-brand-padding-y;
   padding-bottom: $navbar-brand-padding-y;
-  margin-right: $navbar-brand-margin-right;
+  margin-right: $navbar-brand-margin-end;
   @include font-size($navbar-brand-font-size);
   text-decoration: if($link-decoration == none, null, none);
   white-space: nowrap;
@@ -162,6 +163,7 @@
     $next: breakpoint-next($breakpoint, $grid-breakpoints);
     $infix: breakpoint-infix($next, $grid-breakpoints);
 
+    // stylelint-disable-next-line scss/selector-no-union-class-name
     &#{$infix} {
       @include media-breakpoint-up($next) {
         flex-wrap: nowrap;
@@ -241,7 +243,6 @@
     .cur > span.lev1,
     .poc > a.lev1,
     .poc > span.lev1,
-    .nav-link.show,
     .nav-link.active {
       color: $navbar-light-active-color;
     }
@@ -306,7 +307,6 @@
     .active > .nav-link,
     .cur > a.lev1,
     .cur > span.lev1,
-    .nav-link.show,
     .nav-link.active {
       color: $navbar-dark-active-color;
     }

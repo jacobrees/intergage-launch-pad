@@ -1,12 +1,13 @@
 /*!
- * Bootstrap v4.3.1 (https://getbootstrap.com/)
+ * Bootstrap v5.0.0-beta1 (https://getbootstrap.com/)
  * Copyright 2011-2020 The Bootstrap Authors
  * Copyright 2011-2020 Twitter, Inc.
- * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
+ * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  */
 
-// Configuration
+// scss-docs-start import-stack
 
+// Configuration
 //@import "functions"; // main.scss file should include this at the top
 @import "variables-launch-pad"; // Launch Pad defaults
 @import "variables";
@@ -15,7 +16,6 @@
 
 
 // Layout & components
-
 @import "root";
 @import "reboot";
 @import "type";
@@ -48,17 +48,16 @@
 @import "carousel";
 @import "spinners";
 
-
 // Helpers
-
 @import "helpers";
 
 
 // Utilities
 // Only use the non Critical Utilities - TBD: Disabled until defer load and inline css CMS options are released
 // $utilities: map-get-all-excluding($utilities, $critical-utilities);
-
 @import "utilities/api";
 
 // Intergage Components
 @import "intergage";
+
+// scss-docs-end import-stack

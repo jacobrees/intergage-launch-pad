@@ -7,12 +7,15 @@
   $background,
   $border,
   $color: color-contrast($background),
-  $hover-background: darken($background, 7.5%),
-  $hover-border: darken($border, 10%),
+  $hover-background: if($color == $color-contrast-light, shade-color($background, $btn-hover-bg-shade-amount), tint-color($background, $btn-hover-bg-tint-amount)),
+  $hover-border: if($color == $color-contrast-light, shade-color($border, $btn-hover-border-shade-amount), tint-color($border, $btn-hover-border-tint-amount)),
   $hover-color: color-contrast($hover-background),
-  $active-background: darken($background, 10%),
-  $active-border: darken($border, 12.5%),
-  $active-color: color-contrast($active-background)
+  $active-background: if($color == $color-contrast-light, shade-color($background,$btn-active-bg-shade-amount), tint-color($background, $btn-active-bg-tint-amount)),
+  $active-border: if($color == $color-contrast-light, shade-color($border, $btn-active-border-shade-amount), tint-color($border, $btn-active-border-tint-amount)),
+  $active-color: color-contrast($active-background),
+  $disabled-background: $background,
+  $disabled-border: $border,
+  $disabled-color: color-contrast($disabled-background)
 ) {
   color: $color;
   @include gradient-bg($background);
@@ -25,8 +28,8 @@
     border-color: $hover-border;
   }
 
-  &:focus,
-  &.focus {
+  .btn-check:focus + &,
+  &:focus {
     color: $hover-color;
     @include gradient-bg($hover-background);
     border-color: $hover-border;
@@ -38,6 +41,8 @@
     }
   }
 
+  .btn-check:checked + &,
+  .btn-check:active + &,
   &:active,
   &.active,
   .show > &.dropdown-toggle {
@@ -59,11 +64,11 @@
 
   &:disabled,
   &.disabled {
-    color: $color;
-    background-color: $background;
+    color: $disabled-color;
+    background-color: $disabled-background;
     // Remove CSS gradients if they're enabled
     background-image: if($enable-gradients, none, null);
-    border-color: $border;
+    border-color: $disabled-border;
   }
 }
 
@@ -83,11 +88,13 @@
     border-color: $active-border;
   }
 
-  &:focus,
-  &.focus {
+  .btn-check:focus + &,
+  &:focus {
     box-shadow: 0 0 0 $btn-focus-width rgba($color, .5);
   }
 
+  .btn-check:checked + &,
+  .btn-check:active + &,
   &:active,
   &.active,
   &.dropdown-toggle.show {
