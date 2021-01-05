@@ -9,6 +9,11 @@
     > * {
       @include make-col-ready();
     }
+
+    > ol,
+    > ul {
+      margin-left: 2rem;
+    }
   }
 }
 
@@ -23,6 +28,11 @@
     // Make all Componets inside a col-12, include those p tags!
     > * {
       @include make-col-ready();
+    }
+
+    > ol,
+    > ul {
+      margin-left: 2rem;
     }
   }
 }
@@ -70,7 +80,11 @@
         padding-right: 0;
       }
     }
-    
+
+    > ol,
+    > ul {
+      margin-left: 2rem;
+    }
   }
 }
 

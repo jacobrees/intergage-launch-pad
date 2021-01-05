@@ -48,6 +48,25 @@
   }
 }
 
+// Responsive Absolute Bottom - for Featured Product CTA
+@each $breakpoint in map-keys($grid-breakpoints) {
+  @include media-breakpoint-up($breakpoint) {
+    $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
+
+    .absolute#{$infix}-bottom {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      z-index: $zindex-absolute;
+      // CMS Wrapper Div Hovers
+      &.c2etihook:hover {
+        position: absolute;
+      }
+    }
+  }
+}
+
 // Responsive sticky top
 @supports (position: sticky) {
   @each $breakpoint in map-keys($grid-breakpoints) {

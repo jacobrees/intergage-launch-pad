@@ -20,6 +20,8 @@ export default () => {
   searchIcon.addEventListener('click', () => {
     searchBox.classList.add('show');
 
+    searchInput.focus();
+
     setTimeout(() => {
       window.addEventListener('click', handleDocumentClick);
     }, 0);

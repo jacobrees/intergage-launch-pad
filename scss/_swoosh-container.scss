@@ -29,9 +29,12 @@
     // swoosh wouldn't be visable.
     // And inver the vertical alignment
     #{$this}--invert > & {
-      top: 100%;
+      top: calc(100% + 3vw); // Ensure no background leakage on Mobile
+      @include media-breakpoint-up(md) {
+        top: 100%;
+      }
       bottom: auto;
-      transform: translateY(-99%); // Ensure no background leakage
+      transform: translateY(-98%); // Ensure no background leakage
       svg {
         vertical-align: top;
       }
@@ -57,9 +60,12 @@
     // swoosh wouldn't be visable.
     // And inver the vertical alignment
     #{$this}--invert > & {
-      bottom: 100%;
+      bottom: calc(100% + 3vw); // Ensure no background leakage on Mobile
+      @include media-breakpoint-up(md) {
+        bottom: 100%;
+      }
       top: auto;
-      transform: translateY(99%); // Ensure no background leakage
+      transform: translateY(98%); // Ensure no background leakage
       svg {
         vertical-align: bottom;
       }

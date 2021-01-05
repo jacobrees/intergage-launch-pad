@@ -4,7 +4,7 @@ export default () => {
     let searchBox = searchResultsForms.querySelector('input'),
         searchSelect = searchResultsForms.querySelector('select');
 
-    if(searchBox) searchBox.classList.add('form-control', 'mb-2', 'mt-1');
-    if(searchSelect) searchSelect.classList.add('form-select', 'mb-2');
+    if(searchBox) searchBox.classList.add('form-control');
+    if(searchSelect) searchSelect.classList.add('form-select');
   });
 };
