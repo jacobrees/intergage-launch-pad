@@ -8,7 +8,7 @@
   background-position: center;
   width: 3rem;
   height: 3rem;
-  background-image: escape-svg($intergage-i);
+  background-image: escape-svg($c2-intergage-i);
   cursor: pointer;
   @include transition(transform 0.8s ease-in-out);
   &:hover {

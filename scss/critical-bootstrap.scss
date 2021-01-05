@@ -3,7 +3,7 @@
 // All styles which need to be render blocking
 // TBD: Not used at the moment, waiting for CMS changes
 
-@import "variables-launch-pad"; // Launch Pad defaults
+@import "c2-variables-launch-pad"; // Launch Pad defaults
 @import "variables";
 @import "mixins";
 
@@ -23,6 +23,6 @@
 @import "utilities";
 // Utilities
 // Only use the critical ultilties
-$utilities: map-get-multiple($utilities, $critical-utilities);
+$utilities: map-get-multiple($utilities, $c2-critical-utilities);
 
 @import "utilities/api";

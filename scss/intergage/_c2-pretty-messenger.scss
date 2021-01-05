@@ -1,0 +1,19 @@
+// 
+// Pretty Messenger Container Styles
+//
+
+.pretty-messenger-container {
+  bottom: $c2-pretty-messenger-container-margin-bottom;
+  
+  @if $c2-pretty-messenger-container-position == 'left' {
+    right: auto;
+  }
+  @if $c2-pretty-messenger-container-position == 'right' {
+    left: auto;
+  }
+
+  .alert {
+    width: $c2-pretty-messenger-alert-max-width;
+    max-width: 100%;;
+  }
+}

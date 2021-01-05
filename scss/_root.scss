@@ -15,6 +15,6 @@
   --#{$variable-prefix}gradient: #{$gradient};
 
   // CMS Base Value Fonts - TBD: Needs to be merged with latest Bootstrap
-  --font-family-base-value: #{unquote('"#{$var-font-family}", #{inspect($font-family-sans-serif)}')};
-  --font-family-heading: #{unquote('"#{$var-heading-font-family}", #{if($var-font-family, unquote('"#{$var-font-family}", #{inspect($font-family-sans-serif)}'), inspect($font-family-sans-serif))}')};
+  --#{$variable-prefix}font-base-value: #{unquote('"#{$var-font-family}", #{inspect($font-family-sans-serif)}')};
+  --#{$variable-prefix}font-heading: #{unquote('"#{$var-heading-font-family}", #{if($var-font-family, unquote('"#{$var-font-family}", #{inspect($font-family-sans-serif)}'), inspect($font-family-sans-serif))}')};
 }

@@ -20,7 +20,7 @@
   font-weight: $nav-link-font-weight;
   color: $nav-link-color;
   text-decoration: if($link-decoration == none, null, none);
-  text-transform: $nav-link-text-transform;
+  text-transform: $c2-nav-link-text-transform;
   @include transition($nav-link-transition);
 
   &:hover,

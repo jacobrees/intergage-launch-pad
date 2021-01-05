@@ -10,7 +10,7 @@
   color: $body-color;
   text-align: center;
   text-decoration: if($link-decoration == none, null, none);
-  text-transform: $btn-text-transform;
+  text-transform: $c2-btn-text-transform;
   white-space: $btn-white-space;
   vertical-align: middle;
   cursor: if($enable-button-pointers, pointer, null);

@@ -40,9 +40,9 @@ img {
       > img {
         position: absolute;
         top: 0;
-        left: calc(var(--grid-gutter-x) / 2); // stylelint-disable-line function-blacklist;
+        left: calc(var(--#{$variable-prefix}gutter-x) / 2); // stylelint-disable-line function-blacklist;
         height: 100%;
-        width: subtract(100%, var(--grid-gutter-x));
+        width: subtract(100%, var(--#{$variable-prefix}gutter-x));
         min-height: 1rem;
       }
     }

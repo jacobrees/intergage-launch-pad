@@ -13,69 +13,21 @@
   }
 }
 
-@mixin form-control-validation-state($color, $icon) {
-  border-color: $color;
-
-  @if $enable-validation-icons {
-    padding-right: $input-height-inner;
-    background-image: escape-svg($icon);
-    background-repeat: no-repeat;
-    background-position: right $input-height-inner-quarter center;
-    background-size: $input-height-inner-half $input-height-inner-half;
-  }
-
-  &:focus {
-    border-color: $color;
-    box-shadow: 0 0 0 $input-focus-width rgba($color, $input-btn-focus-color-opacity);
-  }
-}
-
-@mixin form-textarea-validation-state() {
-  @if $enable-validation-icons {
-    padding-right: $input-height-inner;
-    background-position: top $input-height-inner-quarter right $input-height-inner-quarter;
-  }
-}
-
-@mixin form-select-validation-state($color, $icon) {
-  border-color: $color;
-
-  @if $enable-validation-icons {
-    padding-right: $form-select-feedback-icon-padding-right;
-    background-image: escape-svg($form-select-indicator), escape-svg($icon);
-    background-position: $form-select-bg-position, $form-select-feedback-icon-position;
-    background-size: $form-select-bg-size, $form-select-feedback-icon-size;
-  }
-
-  &:focus {
-    border-color: $color;
-    box-shadow: 0 0 0 $input-focus-width rgba($color, .25);
-  }
-}
-
-@mixin form-check-validation-state($color) {
-  border-color: $color;
-
-  &:checked {
-    @include gradient-bg(lighten($color, 10%), escape-svg($form-check-input-checked-bg-image));
-  }
-
-  &:focus {
-    box-shadow: 0 0 0 $input-focus-width rgba($color, .25);
-  }
-
-  ~ .form-check-label {
-    color: $color;
-  }
-}
-
-@mixin form-validation-state($state, $color, $icon) {
+@mixin form-validation-state(
+  $state,
+  $color,
+  $icon,
+  $tooltip-color: color-contrast($color),
+  $tooltip-bg-color: rgba($color, $form-feedback-tooltip-opacity),
+  $focus-box-shadow: 0 0 0 $input-focus-width rgba($color, $input-btn-focus-color-opacity)
+) {
   .#{$state}-feedback,
   #{if($state == "invalid", ".FormFieldErrorText", "")} { // CMS Invalid Text Class Name
     display: none;
     width: 100%;
     margin-top: $form-feedback-margin-top;
     @include font-size($form-feedback-font-size);
+    font-style: $form-feedback-font-style;
     color: $color;
   }
 
@@ -89,8 +41,8 @@
     margin-top: .1rem;
     @include font-size($form-feedback-tooltip-font-size);
     line-height: $form-feedback-tooltip-line-height;
-    color: color-contrast($color);
-    background-color: rgba($color, $form-feedback-tooltip-opacity);
+    color: $tooltip-color;
+    background-color: $tooltip-bg-color;
     @include border-radius($form-feedback-tooltip-border-radius);
   }
 
@@ -101,7 +53,106 @@
     }
   }
 
-  // CMS Invalid
+  //
+  // Form Control
+  //
+  %form-control-validation-state {
+    border-color: $color;
+
+    @if $enable-validation-icons {
+      padding-right: $input-height-inner;
+      background-image: escape-svg($icon);
+      background-repeat: no-repeat;
+      background-position: right $input-height-inner-quarter center;
+      background-size: $input-height-inner-half $input-height-inner-half;
+    }
+
+    &:focus {
+      border-color: $color;
+      box-shadow: $focus-box-shadow;
+    }
+  }
+
+  //
+  // Textarea
+  //
+  %form-control-textarea-validation-state {
+    @if $enable-validation-icons {
+      padding-right: $input-height-inner;
+      background-position: top $input-height-inner-quarter right $input-height-inner-quarter;
+    }
+  }
+
+  //
+  // Form Select
+  //
+  %form-select-validation-state {
+    border-color: $color;
+
+    @if $enable-validation-icons {
+      padding-right: $form-select-feedback-icon-padding-end;
+      background-image: escape-svg($form-select-indicator), escape-svg($icon);
+      background-position: $form-select-bg-position, $form-select-feedback-icon-position;
+      background-size: $form-select-bg-size, $form-select-feedback-icon-size;
+    }
+
+    &:focus {
+      border-color: $color;
+      box-shadow: $focus-box-shadow;
+    }
+  }
+
+  //
+  // Checkboxes and Radio Buttons
+  //
+  %form-check-input-validation-state {
+    border-color: $color;
+
+    &:checked {
+      background-color: $color;
+    }
+
+    &:focus {
+      box-shadow: $focus-box-shadow;
+    }
+
+    ~ .form-check-label {
+      color: $color;
+    }
+  }
+
+  .form-control {
+    @include form-validation-state-selector($state) {
+      @extend %form-control-validation-state;
+    }
+  }
+
+  // stylelint-disable-next-line selector-no-qualifying-type
+  textarea.form-control {
+    @include form-validation-state-selector($state) {
+      @extend %form-control-textarea-validation-state;
+    }
+  }
+
+  .form-select {
+    @include form-validation-state-selector($state) {
+      @extend %form-select-validation-state;
+    }
+  }
+
+  .form-check-input {
+    @include form-validation-state-selector($state) {
+      @extend %form-check-input-validation-state;
+    }
+  }
+
+  .form-check-inline .form-check-input {
+    ~ .#{$state}-feedback {
+      margin-left: .5em;
+    }
+  }
+
+  // CMS Invalid State - CMS only has an invalid state for its forms
   @if ($state == "invalid") {
     // Error Text Wrapper
     .c2form_flderror_input ~ .FormFieldErrorText {
@@ -113,70 +164,23 @@
     .c2form_input .c2form_flderror_input input[type="text"],
     .c2form_input .c2form_flderror_input input[type="password"],
     .c2form_input .c2form_flderror_input textarea {
-      @include form-control-validation-state($color, $icon);
+      @extend %form-control-validation-state;
     }
 
     // Textarea
     .c2form_input .c2form_flderror_input textarea {
-      @include form-textarea-validation-state();
+      @extend %form-control-textarea-validation-state;
     }
 
     // Selects
     .c2form_input .c2form_flderror_input select {
-      @include form-select-validation-state($color, $icon);
+      @extend %form-select-validation-state;
     }
 
     // Checkboxes and Radio Buttons
     .c2form_input .c2form_flderror_input input[type="checkbox"],
     .c2form_input .c2form_flderror_input input[type="radio"] {
-      @include form-check-validation-state($color);
-    }
-  }
-
-  
-  .form-control {
-    @include form-validation-state-selector($state) {
-      @include form-control-validation-state($color, $icon);
-    }
-  }
-
-  // stylelint-disable-next-line selector-no-qualifying-type
-  textarea.form-control {
-    @include form-validation-state-selector($state) {
-      @include form-textarea-validation-state();
-    }
-  }
-
-  .form-select {
-    @include form-validation-state-selector($state) {
-      @include form-select-validation-state($color, $icon);
-    }
-  }
-
-  .form-check-input {
-    @include form-validation-state-selector($state) {
-      @include form-check-validation-state($color);
-    }
-  }
-  .form-check-inline .form-check-input {
-    ~ .#{$state}-feedback {
-      margin-left: .5em;
-    }
-  }
-
-  // custom file
-  .form-file-input {
-    @include form-validation-state-selector($state) {
-      ~ .form-file-label {
-        border-color: $color;
-      }
-
-      &:focus {
-        ~ .form-file-label {
-          border-color: $color;
-          box-shadow: 0 0 0 $input-focus-width rgba($color, .25);
-        }
-      }
+      @extend %form-check-input-validation-state;
     }
   }
 }

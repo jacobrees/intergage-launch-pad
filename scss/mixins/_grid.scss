@@ -9,17 +9,18 @@
   ) {
 
   @if get('reset-gutter', $config) {
-    --grid-gutter-x: #{get('gutter', $config)};
-    --grid-gutter-y: 0;
+    --#{$variable-prefix}gutter-x: #{get('gutter', $config)};
+    --#{$variable-prefix}gutter-y: 0;
   }
+
   display: flex;
   flex-wrap: wrap;
 
   @if get('negative-top', $config) {
-    margin-top: calc(var(--grid-gutter-y) * -1); // stylelint-disable-line function-blacklist
+    margin-top: calc(var(--#{$variable-prefix}gutter-y) * -1); // stylelint-disable-line function-blacklist
   }
-  margin-right: calc(var(--grid-gutter-x) / -2); // stylelint-disable-line function-blacklist
-  margin-left: calc(var(--grid-gutter-x) / -2); // stylelint-disable-line function-blacklist
+  margin-right: calc(var(--#{$variable-prefix}gutter-x) / -2); // stylelint-disable-line function-blacklist
+  margin-left: calc(var(--#{$variable-prefix}gutter-x) / -2); // stylelint-disable-line function-blacklist
 }
 
 @mixin make-col-ready($options: (), $config: map-merge((
@@ -35,11 +36,11 @@
   flex-shrink: 0;
   width: 100%;
   max-width: 100%; // Prevent `.col-auto`, `.col` (& responsive variants) from breaking out the grid
-  padding-right: calc(var(--grid-gutter-x) / 2); // stylelint-disable-line function-blacklist
-  padding-left: calc(var(--grid-gutter-x) / 2); // stylelint-disable-line function-blacklist
+  padding-right: calc(var(--#{$variable-prefix}gutter-x) / 2); // stylelint-disable-line function-blacklist
+  padding-left: calc(var(--#{$variable-prefix}gutter-x) / 2); // stylelint-disable-line function-blacklist
 
   @if get('margin-top', $config) {
-    margin-top: var(--grid-gutter-y);
+    margin-top: var(--#{$variable-prefix}gutter-y);
   }
 }
 
@@ -107,7 +108,6 @@
       .col#{$infix},
       #{if($infix == "", generate-extend-string(".cke_editable .col{{infix}}", $breakpoints), "")} { // For Rich Text Editors
         flex: 1 0 0%; // Flexbugs #4: https://github.com/philipwalton/flexbugs#flexbug-4
-        min-width: 0; // See https://github.com/twbs/bootstrap/issues/25410
       }
 
       .row-cols#{$infix}-auto > *,
@@ -115,10 +115,12 @@
         @include make-col-auto();
       }
 
-      @for $i from 1 through $grid-row-columns {
-        .row-cols#{$infix}-#{$i},
-        #{if($infix == "", generate-extend-string(".cke_editable .row-cols{{infix}}-#{$i}", $breakpoints), "")} {
-          @include row-cols($i);
+      @if $grid-row-columns > 0 {
+        @for $i from 1 through $grid-row-columns {
+          .row-cols#{$infix}-#{$i},
+          #{if($infix == "", generate-extend-string(".cke_editable .row-cols{{infix}}-#{$i}", $breakpoints), "")} {
+            @include row-cols($i);
+          }
         }
       }
 
@@ -127,19 +129,21 @@
         @include make-col-auto();
       }
 
-      @for $i from 1 through $columns {
-        .col#{$infix}-#{$i},
-        #{if($infix == "", generate-extend-string(".cke_editable .col{{infix}}-#{$i}", $breakpoints), "")} {
-          @include make-col($i, $columns);
+      @if $columns > 0 {
+        @for $i from 1 through $columns {
+          .col#{$infix}-#{$i},
+          #{if($infix == "", generate-extend-string(".cke_editable .col{{infix}}-#{$i}", $breakpoints), "")} {
+            @include make-col($i, $columns);
+          }
         }
-      }
-
-      // `$columns - 1` because offsetting by the width of an entire row isn't possible
-      @for $i from 0 through ($columns - 1) {
-        @if not ($infix == "" and $i == 0) { // Avoid emitting useless .offset-0
-          .offset#{$infix}-#{$i},
-          #{if($infix == "", generate-extend-string(".cke_editable .offset{{infix}}-#{$i}", $breakpoints), "")} {
-            @include make-col-offset($i, $columns);
+  
+        // `$columns - 1` because offsetting by the width of an entire row isn't possible
+        @for $i from 0 through ($columns - 1) {
+          @if not ($infix == "" and $i == 0) { // Avoid emitting useless .offset-0
+            .offset#{$infix}-#{$i},
+            #{if($infix == "", generate-extend-string(".cke_editable .offset{{infix}}-#{$i}", $breakpoints), "")} {
+              @include make-col-offset($i, $columns);
+            }
           }
         }
       }
@@ -149,17 +153,17 @@
       // Make use of `.g-*`, `.gx-*` or `.gy-*` utilities to change spacing between the columns.
       @each $key, $value in $gutters {
         .g#{$infix}-#{$key},
-        .gx#{$infix}-#{$key},
-        #{if($infix == "", generate-extend-string(".cke_editable .g{{infix}}-#{$key}", $breakpoints), "")},
-        #{if($infix == "", generate-extend-string(".cke_editable .gx{{infix}}-#{$key}", $breakpoints), "")} {
-          --grid-gutter-x: #{$value};
+        .gx#{$infix}-#{$key} {
+        //#{if($infix == "", generate-extend-string(".cke_editable .g{{infix}}-#{$key}", $breakpoints), "")},
+        //#{if($infix == "", generate-extend-string(".cke_editable .gx{{infix}}-#{$key}", $breakpoints), "")} {
+          --#{$variable-prefix}gutter-x: #{$value};
         }
 
         .g#{$infix}-#{$key},
-        .gy#{$infix}-#{$key},
-        #{if($infix == "", generate-extend-string(".cke_editable .g{{infix}}-#{$key}", $breakpoints), "")},
-        #{if($infix == "", generate-extend-string(".cke_editable .gy{{infix}}-#{$key}", $breakpoints), "")} {
-          --grid-gutter-y: #{$value};
+        .gy#{$infix}-#{$key} {
+        //#{if($infix == "", generate-extend-string(".cke_editable .g{{infix}}-#{$key}", $breakpoints), "")},
+        //#{if($infix == "", generate-extend-string(".cke_editable .gy{{infix}}-#{$key}", $breakpoints), "")} {
+          --#{$variable-prefix}gutter-y: #{$value};
         }
       }
     }

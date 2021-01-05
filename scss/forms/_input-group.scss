@@ -25,7 +25,7 @@
 }
 
 .bffsfield {
-  @include sr-only(); // Hide
+  @include visually-hidden(); // Hide
 }
 
 // CMS seperator for buttons - hide it

@@ -10,7 +10,7 @@
 .c2form_input textarea {
   display: block;
   width: 100%;
-  min-height: $input-height;
+  //min-height: $input-height;
   padding: $input-padding-y $input-padding-x;
   font-family: $input-font-family;
   @include font-size($input-font-size);

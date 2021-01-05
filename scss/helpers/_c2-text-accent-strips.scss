@@ -1,0 +1,19 @@
+// 
+// Add a Coloured strip to the bottom of text
+//
+
+.text-accent-strip {
+  position: relative;
+  display: block;
+  margin-bottom: $c2-accent-strips-margin-bottom;
+  &::after {
+    content: "";
+    position: absolute;
+    height: $c2-accent-strips-height;
+    bottom: -($c2-accent-strips-margin-bottom / 2);
+    left: 0;
+    width: $c2-accent-strips-width;
+    min-width: $c2-accent-strips-min-width;
+    background-color: $c2-accent-strips-colour;
+  }
+}

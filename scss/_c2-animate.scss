@@ -39,7 +39,7 @@
     animation-duration: 3s;
   }
 
-  @if $enable-prefers-reduced-motion-media-query {
+  @if $enable-reduced-motion {
     @media (prefers-reduced-motion: reduce) {
       animation: unset;
     }

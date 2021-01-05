@@ -9,7 +9,7 @@
 
 // Configuration
 //@import "functions"; // main.scss file should include this at the top
-@import "variables-launch-pad"; // Launch Pad defaults
+@import "c2-variables-launch-pad"; // Launch Pad defaults
 @import "variables";
 @import "mixins";
 @import "utilities";
@@ -19,7 +19,7 @@
 @import "root";
 @import "reboot";
 @import "type";
-@import "dividers";
+@import "c2-dividers";
 @import "images";
 @import "containers";
 @import "tables";
@@ -27,8 +27,8 @@
 @import "grid";
 @import "buttons";
 @import "transitions";
-@import "transitions-critical"; // TBD: Move to critical-bootstrap when ready
-@import "animate";
+@import "c2-transitions-critical"; // TBD: Move to critical-bootstrap when ready
+@import "c2-animate";
 @import "dropdown";
 @import "button-group";
 @import "nav";
@@ -55,10 +55,10 @@
 
 // Utilities
 // Only use the non Critical Utilities - TBD: Disabled until defer load and inline css CMS options are released
-// $utilities: map-get-all-excluding($utilities, $critical-utilities);
+// $utilities: map-get-all-excluding($utilities, $c2-critical-utilities);
 @import "utilities/api";
 
 // Intergage Components
-@import "intergage";
+@import "c2-intergage";
 
 // scss-docs-end import-stack
