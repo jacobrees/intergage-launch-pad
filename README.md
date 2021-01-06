@@ -1,7 +1,7 @@
 # Intergage Launch Pad Framework
 
 ## Usage
-Be sure to have [Node.js](https://nodejs.org/) installed before proceeding.
+Be sure to have [Node.js](https://nodejs.org/) and [git](https://git-scm.com/) installed before proceeding.
 ```
 # Clone the repo
 git clone https://github.com/owenjs/intergage-launch-pad.git
