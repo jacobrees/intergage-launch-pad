@@ -15,6 +15,11 @@
   .form-select {
     margin-top: map-get($spacers, 1);
   }
+
+  .c2form_buttons {
+    margin-top: map-get($spacers, 1);
+    text-align: left;
+  }
 }
 
 .sssubtitle {
