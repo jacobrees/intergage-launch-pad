@@ -8,6 +8,7 @@ import scrollToError from './actions/scrollToError';
 import hideBeforeInteraction from './actions/hideBeforeInteraction';
 import searchBoxToggle from './actions/searchBoxToggle';
 import { setHeightVariable } from './actions/findHeaderHeight';
+import fixSearchResults from './actions/fixSearchResults';
 
 export default () => {
   polyfills.objectFit();
@@ -20,4 +21,5 @@ export default () => {
   hideBeforeInteraction();
   setHeightVariable();
   searchBoxToggle();
+  fixSearchResults();
 };

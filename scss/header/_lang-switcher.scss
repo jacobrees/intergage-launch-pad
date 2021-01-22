@@ -1,0 +1,77 @@
+// Lang Switcher
+// 
+// The language switcher for the sub sites
+
+$lang-switcher-flag-width: 50px;
+
+%lang-not-current-option {
+  display: none;
+
+  position: absolute;
+  top: 100%;
+  padding-top: map-get($spacers, 3);
+
+  animation: lang-dropdown 0.2s;
+}
+
+.c2-lang-switcher {
+  $this: &;
+
+  &__option__name {
+    display: inline-flex;
+    align-items: center;
+    &:after {
+      @include font-awesome-pseudo('\f0d7');
+      margin-left: map-get($spacers, 2);
+    }
+  }
+
+  img {
+    width: $lang-switcher-flag-width;
+  }
+
+  // When on the English Sub Site
+  .c2-page--engineering-en & {
+    &:hover {
+      #{$this}__option.de {
+        display: block;
+      }
+    }
+
+    &__option.de {
+      @extend %lang-not-current-option;
+
+      #{$this}__option__name:after {
+        display: none;
+      }
+    }
+  } 
+
+  // When on the German Sub Site
+  .c2-page--engineering-de & {
+    &:hover {
+      #{$this}__option.en {
+        display: block;
+      }
+    }
+
+    &__option.en {
+      @extend %lang-not-current-option;
+
+      #{$this}__option__name:after {
+        display: none;
+      }
+    }
+  } 
+}
+
+@keyframes lang-dropdown {
+  from {
+    top: subtract(100%, map-get($spacers, 2));
+    opacity: 0.5;
+  }
+  to {
+    top: 100%;
+    opacity: 1;
+  }
+}
