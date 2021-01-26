@@ -15,7 +15,7 @@
 // cke_editable Rows
 //
 // Make the whole body of the CMS rich text editor a bootstrap "row"
-// So Column logic logic applies (if any)
+// So Column logic applies (if any)
 @if $enable-grid-classes {
   .cke_editable {
     @include make-row();
