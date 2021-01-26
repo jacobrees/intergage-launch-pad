@@ -6,6 +6,7 @@
 
 // Color system
 $white:    #fff;    // Hasn't changed - but need to use it below
+$gray-300: #dee2e6; // Hasn't changed - but need to use it below
 $gray-700: #495057; // Hasn't changed - but need to use it below
 $gray-800: #343a40; // Hasn't changed - but need to use it below
 $gray-900: #212529; // Hasn't changed - but need to use it below
@@ -59,12 +60,28 @@ $navbar-nav-link-padding-x:         2.5rem;
 $navbar-dark-color:                 $white;
 $navbar-dark-hover-color:           $white;
 $navbar-dark-active-color:          $white;
-$navbar-brand-margin-right:         0;
 $navbar-padding-y:                  0;
+
 $nav-link-padding-y:                1.5rem;
 $nav-link-text-transform:           lowercase;
+
+$navbar-img-height:                 4rem;
+$navbar-brand-padding-y:            0.5rem;
+$navbar-brand-margin-right:         1.2rem;
 
 
 // Intergage Logo
 
 $intergage-i-color: $white;
+
+
+// Forms
+
+$input-padding-y:                       0.65rem;
+$input-padding-x:                       1rem;
+$input-border-color:                    $gray-300;
+$input-border-radius:                   0;
+$input-border-radius-sm:                0;
+$input-border-radius-lg:                0;
+$form-label-font-weight:                500;
+$form-label-color:                      $headings-color;

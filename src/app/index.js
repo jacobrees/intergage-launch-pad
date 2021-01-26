@@ -1,4 +1,5 @@
 import PrettyMessenger from '../lib/pretty-messenger';
+import StickyHeader from '../lib/sticky-header';
 
 import polyfills from './polyfills';
 
@@ -15,6 +16,11 @@ export default () => {
 
   // Find Error Messages
   new PrettyMessenger().findMessages();
+
+  // Give the header the correct Class Names on scroll
+  new StickyHeader(document.querySelector('.c2-header')).init();
+
+
 
   configMenu();
   scrollToError();

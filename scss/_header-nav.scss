@@ -6,6 +6,11 @@ $navbar-link-active-line-width:          80%;
 $navbar-link-active-line-height:         2px;
 $navbar-link-active-line-transition:     width 0.4s ease-in-out;
 
+$c2header-sticky-navbar-link-color:      $gray-700;
+$c2header-sticky-border-color:           $black;
+$c2header-sticky-background-color:       $white;
+$c2header-sticky-transition:             0.2s ease-in-out;
+
 .navbar-nav:not(.mm-spn) ul.lev1 {
   position: relative;
 }
@@ -43,6 +48,30 @@ $navbar-link-active-line-transition:     width 0.4s ease-in-out;
       background-color: $secondary;
       @include transition($navbar-link-active-line-transition);
     }
+  }
+}
+
+.c2-header {
+  transition: background-color $c2header-sticky-transition, border-color $c2header-sticky-transition;
+  .border-white {
+    transition: border-color $c2header-sticky-transition;
+  }
+  &.c2-header--sticky .non-sticky-logo {
+    display: none;
+  }
+}
+
+.c2-header:not(.c2-header--sticky) {
+  background-color: $c2header-sticky-background-color !important; // Override Bootstrap Utils
+  .sticky-logo {
+    display: none;
+  }
+  &, .border-white {
+    border-color: $c2header-sticky-border-color !important; // Override Bootstrap Utils
+  }
+  a.lev1,
+  span.lev1 {
+    color: $c2header-sticky-navbar-link-color !important; // Override Bootstrap Utils
   }
 }
 

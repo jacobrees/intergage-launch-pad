@@ -2,7 +2,8 @@
 // 
 // The language switcher for the sub sites
 
-$lang-switcher-flag-width: 50px;
+$lang-switcher-flag-width:  50px;
+$lang-switcher-text-color:  $white;
 
 %lang-not-current-option {
   display: none;
@@ -20,6 +21,10 @@ $lang-switcher-flag-width: 50px;
   &__option__name {
     display: inline-flex;
     align-items: center;
+    transition: color $c2header-sticky-transition;
+    .c2-header--sticky & {
+      color: $lang-switcher-text-color;
+    }
     &:after {
       @include font-awesome-pseudo('\f0d7');
       margin-left: map-get($spacers, 2);

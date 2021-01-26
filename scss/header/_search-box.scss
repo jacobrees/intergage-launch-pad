@@ -2,7 +2,8 @@
 // 
 // The Toggle Search Box in the header
 
-$c2search-box-animation-timing: 0.2s ease;
+$c2search-btn-color:              $white;
+$c2search-box-animation-timing:   0.2s ease;
 
 .c2search-box {
   .SearchBox, .SearchBoxSubmit {
@@ -18,6 +19,10 @@ $c2search-box-animation-timing: 0.2s ease;
 
 .c2search-btn {
   cursor: pointer;
+  transition: color $c2header-sticky-transition;
+  .c2-header--sticky & {
+    color: $c2search-btn-color;
+  }
 }
 
 @keyframes showSearchBar {

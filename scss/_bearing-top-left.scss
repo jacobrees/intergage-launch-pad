@@ -3,7 +3,9 @@
 // A Text style to add the Bearing Icon to the top left of the element
 // For example, onto headings
 
-$c2bearing-icon-size: 1em;
+$c2bearing-icon-size:     1em;
+$c2bearing-icon-offset:   0.8em;
+$c2bearing-animation:     3s linear;
 
 .c2bearing-top-left {
   position: relative;
@@ -11,13 +13,15 @@ $c2bearing-icon-size: 1em;
   &:before {
     content: "";
     position: absolute;
-    top: -$c2bearing-icon-size;
-    left: -$c2bearing-icon-size;
+    top: -$c2bearing-icon-offset;
+    left: -$c2bearing-icon-offset;
     width: $c2bearing-icon-size;
     height: $c2bearing-icon-size;
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
+
+    animation: spin-bearing-icon $c2bearing-animation;
 
     .c2-page--engineering & {
       background-image: url('bearing-engineering.svg');
@@ -25,5 +29,14 @@ $c2bearing-icon-size: 1em;
     .c2-page--automotive & {
       background-image: url('bearing-automotive.svg');
     }
+  }
+}
+
+@keyframes spin-bearing-icon {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
   }
 }

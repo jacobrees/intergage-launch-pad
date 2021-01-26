@@ -414,7 +414,7 @@ $utilities: map-merge(
     "color-all": (
       property: color,
       class: text-all,
-      suffixSelectors: ('> *'),
+      suffixSelectors: ('> *', ' a'),
       suffixClass: 'Yes',
       values: map-merge(
         $theme-colors,
