@@ -165,6 +165,19 @@
         //#{if($infix == "", generate-extend-string(".cke_editable .gy{{infix}}-#{$key}", $breakpoints), "")} {
           --#{$variable-prefix}gutter-y: #{$value};
         }
+
+        // Gutter Container Utility
+        //
+        // Used to make the grid spacing the same as the container padding
+        //
+        // This is needed for the outer most container of the whole page to avoid 
+        // horizontal page scroll
+        //
+        // Also useful for sites where the default grid gutter is different to 
+        // the container padding
+        .gx#{$infix}-container {
+          --#{$variable-prefix}gutter-y: #{$container-padding-x * 2};
+        }
       }
     }
   }
