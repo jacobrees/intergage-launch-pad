@@ -25,8 +25,7 @@ export default class ProductScrollSpy extends PropObject {
     if(!this.spyMenu
       || !this.spyContent
       || !this.spyContentTabs
-      || !this.spyContentTabs.length 
-      || this.spyContentTabs.length === 1) {
+      || !this.spyContentTabs.length) {
       // Don't build the menu is there is only one tab
       return;
     }

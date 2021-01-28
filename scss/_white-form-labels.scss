@@ -1,0 +1,10 @@
+// White Form Labels
+// 
+// Util class to make all form labels white text
+// Can't use .text-all-white as input text becomes white on white.
+
+.form-labels-white {
+  .c2form_fldname {
+    color: $white;
+  }
+}
