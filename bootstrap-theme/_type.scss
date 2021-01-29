@@ -84,6 +84,15 @@
   }
 }
 
+// Increase the line height of list items on mobile
+// Used for lists with links in them
+@include media-breakpoint-down($c2-list-linked-breakpoint) {
+  .list-linked > li {
+    line-height: $c2-list-linked-line-height;
+  }
+}
+
+
 
 //
 // Misc

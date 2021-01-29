@@ -8,6 +8,7 @@ export default () => {
       searchLabel = searchBox.querySelector('.searchBoxLabel');
 
   searchInput.placeholder = searchLabel.innerHTML;
+  searchLabel.classList.add('sr-only');
   searchInput.classList.add('form-control');
 
   const handleDocumentClick = (e) => {

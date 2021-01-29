@@ -4,7 +4,7 @@ const fs = require('fs');
 const path = require('path');
 const { Bundler } = require('scss-bundle');
 
-const NODE_MODULES_PATH       = '../node_modules';
+const NODE_MODULES_PATH       = '..';
 
 const IMPORT_PATTERN          = /@import\s+['"](.+)['"];/g;
 const FILE_EXTENSION_REGEX    = /\..+$/g;
@@ -17,7 +17,7 @@ const OUTPUT_FILE_EXTENSION   = 'bundled.scss';
 
 (async () => {
   const projectDirectory = path.resolve(__dirname, NODE_MODULES_PATH);
-  const bundler = new Bundler(undefined, projectDirectory);
+  //const bundler = new Bundler(undefined, projectDirectory);
 
   const inputFilePath = path.resolve(__dirname, INPUT_FILE_DIRECTORY);
   if(!inputFilePath) {
@@ -32,6 +32,7 @@ const OUTPUT_FILE_EXTENSION   = 'bundled.scss';
 
   // Bundle all the Files, ready to be written
   const filesToWrite = await Promise.all(filesToBundle.map(async fileToBundle => {
+    const bundler = new Bundler(undefined, projectDirectory);
     // Bundle the File
     let result = await bundler.bundle(path.join(inputFilePath, fileToBundle), [], [], INPUT_FILE_IGNORE);
 

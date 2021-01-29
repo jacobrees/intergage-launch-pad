@@ -60,6 +60,10 @@
   text-decoration: if($link-decoration == none, null, none);
   white-space: nowrap;
 
+  img {
+    height: $c2-navbar-img-height;
+  }
+
   &:hover,
   &:focus {
     text-decoration: if($link-hover-decoration == underline, none, null);
