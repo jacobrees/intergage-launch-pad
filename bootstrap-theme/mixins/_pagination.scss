@@ -2,7 +2,8 @@
 
 @mixin pagination-size($padding-y, $padding-x, $font-size, $border-radius) {
   .page-link,
-  .c2page-link {
+  .c2page-link,
+  .sspagelinks .PageLinkResponsive > * {
     padding: $padding-y $padding-x;
     @include font-size($font-size);
   }
@@ -44,6 +45,27 @@
     } @else {
       //Add border-radius to all pageLinks in case they have left margin
       .c2page-link {
+        @include border-radius($border-radius);
+      }
+    }
+  }
+
+  .sspagelinks .PageLinkResponsive {
+    @if $pagination-margin-left == (-$pagination-border-width) {
+      &:first-child {
+        > * {
+          @include border-left-radius($border-radius);
+        }
+      }
+
+      &:last-child {
+        > * {
+          @include border-right-radius($border-radius);
+        }
+      }
+    } @else {
+      //Add border-radius to all pageLinks in case they have left margin
+      > * {
         @include border-radius($border-radius);
       }
     }

@@ -2,26 +2,37 @@
 // 
 // The language switcher for the sub sites
 
-$lang-switcher-flag-width:  50px;
-$lang-switcher-text-color:  $white;
+$lang-switcher-flag-width:        50px;
+$lang-switcher-text-color:        $white;
+$lang-switcher-radius:            0.5rem;
+
+$lang-switcher-hover-text-color:  $body-color;
+$lang-switcher-hover-background:  $light;
 
 %lang-not-current-option {
   display: none;
 
   position: absolute;
   top: 100%;
-  padding-top: map-get($spacers, 3);
-
-  animation: lang-dropdown 0.2s;
+  padding-top: map-get($spacers, 3) !important; // To override bootstrap util
+  border-bottom-left-radius: $lang-switcher-radius;
+  border-bottom-right-radius: $lang-switcher-radius;
 }
 
 .c2-lang-switcher {
   $this: &;
 
+  &:hover &__option {
+    background-color: $lang-switcher-hover-background;
+
+    &__name {
+      color: $lang-switcher-hover-text-color;
+    }
+  }
+
   &__option__name {
     display: inline-flex;
     align-items: center;
-    transition: color $c2header-sticky-transition;
     .c2-header--sticky & {
       color: $lang-switcher-text-color;
     }
@@ -36,11 +47,16 @@ $lang-switcher-text-color:  $white;
   }
 
   // When on the English Sub Site
-  .c2-page--engineering-en & {
+  .c2-page--en & {
     &:hover {
       #{$this}__option.de {
         display: block;
       }
+    }
+
+    &__option.en {
+      border-top-left-radius: $lang-switcher-radius;
+      border-top-right-radius: $lang-switcher-radius;
     }
 
     &__option.de {
@@ -53,11 +69,16 @@ $lang-switcher-text-color:  $white;
   } 
 
   // When on the German Sub Site
-  .c2-page--engineering-de & {
+  .c2-page--de & {
     &:hover {
       #{$this}__option.en {
         display: block;
       }
+    }
+
+    &__option.de {
+      border-top-left-radius: $lang-switcher-radius;
+      border-top-right-radius: $lang-switcher-radius;
     }
 
     &__option.en {
@@ -68,15 +89,4 @@ $lang-switcher-text-color:  $white;
       }
     }
   } 
-}
-
-@keyframes lang-dropdown {
-  from {
-    top: subtract(100%, map-get($spacers, 2));
-    opacity: 0.5;
-  }
-  to {
-    top: 100%;
-    opacity: 1;
-  }
 }

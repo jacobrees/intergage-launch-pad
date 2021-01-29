@@ -7,6 +7,12 @@ export default () => {
   let searchInput = searchBox.querySelector('.searchBoxInput'),
       searchLabel = searchBox.querySelector('.searchBoxLabel');
 
+  if(!searchInput || !searchLabel) {
+    // The search box hasn't been inserted into the header
+    searchBtn.querySelector('i').classList.add('d-none');
+    return;
+  };
+
   searchInput.placeholder = searchLabel.innerHTML;
   searchInput.classList.add('form-control');
 
@@ -14,7 +20,7 @@ export default () => {
   let inputGroup = document.createElement('div');
   inputGroup.classList.add('input-group', 'px-3');
   inputGroup.innerHTML = `
-    <button class="btn btn-primary btn-no-arrow"><i class="fas fa-search"></i></button>
+    <button class="btn btn-primary btn-no-arrow bg-dark"><i class="fas fa-search"></i></button>
   `;
   inputGroup.insertBefore(searchInput, inputGroup.firstChild);
 
@@ -28,6 +34,11 @@ export default () => {
     if(e.target.closest('.c2search-box')) return; // TBD: IE Support
 
     searchBox.classList.remove('show');
+
+    // Switch the Icon to the search icon
+    searchBtn.querySelector('i').classList.remove('fa-times');
+    searchBtn.querySelector('i').classList.add('fa-search');
+
     window.removeEventListener('click', handleDocumentClick);
   };
 
@@ -35,6 +46,10 @@ export default () => {
     if(searchBox.classList.contains('show')) return; // Already open
 
     searchBox.classList.add('show');
+
+    // Switch the Icon to the close icon
+    searchBtn.querySelector('i').classList.remove('fa-search');
+    searchBtn.querySelector('i').classList.add('fa-times');
 
     setTimeout(() => {
       window.addEventListener('click', handleDocumentClick);

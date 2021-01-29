@@ -48,6 +48,13 @@ $c2header-sticky-transition:             0.2s ease-in-out;
       background-color: $secondary;
       @include transition($navbar-link-active-line-transition);
     }
+
+    &.cur,
+    &.poc {
+      &:before {
+        width: $navbar-link-active-line-width;
+      }
+    }
   }
 }
 
@@ -63,15 +70,22 @@ $c2header-sticky-transition:             0.2s ease-in-out;
 
 .c2-header:not(.c2-header--sticky) {
   background-color: $c2header-sticky-background-color !important; // Override Bootstrap Utils
+
   .sticky-logo {
     display: none;
   }
+
   &, .border-white {
     border-color: $c2header-sticky-border-color !important; // Override Bootstrap Utils
   }
+
   a.lev1,
   span.lev1 {
     color: $c2header-sticky-navbar-link-color !important; // Override Bootstrap Utils
+  }
+
+  .navbar-toggler-icon {
+    background-image: escape-svg($navbar-light-toggler-icon-bg);
   }
 }
 

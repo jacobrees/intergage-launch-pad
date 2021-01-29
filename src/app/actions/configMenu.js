@@ -23,7 +23,7 @@ export default () => {
     // Find the BreakPoint for the Menu
     var breakpoint = navBar.dataset.navbarExpand.replace("navbar-expand-", "");
 
-    if(!bsGridBreakpoints[breakpoint]) return;
+    if(!bsGridBreakpoints[breakpoint] || !navBar.querySelector('.navbar-nav')) return;
 
     // Build the MMenu Light Plugin
     var MMenuAPI = new MmenuLight(

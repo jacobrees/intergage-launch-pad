@@ -20,12 +20,12 @@ export default () => {
   // Give the header the correct Class Names on scroll
   new StickyHeader(document.querySelector('.c2-header')).init();
 
-
-
   configMenu();
   scrollToError();
   hideBeforeInteraction();
-  setHeightVariable();
   searchBoxToggle();
   fixSearchResults();
+
+
+  setHeightVariable();
 };

@@ -22,8 +22,12 @@
   }
 }
 
-.sssubtitle {
-  margin: map-get($spacers, 1) 0;
+.sssubtitle, .sspagelinks {
+  margin: map-get($spacers, 2) 0;
+}
+
+.sspagelinks:not(:last-child) {
+  display: none;
 }
 
 .ssresults {
@@ -35,5 +39,6 @@
     @include make-col-ready((
       'make-full-width': false
     ));
+    @include make-col(3);
   }
 }
