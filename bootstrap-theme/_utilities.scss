@@ -485,7 +485,12 @@ $utilities: map-merge(
     "pointer-events": (
       property: pointer-events,
       class: pe,
-      values: none auto,
+      values: none auto pointer,
+    ),
+    "cursor": (
+      property: cursor,
+      class: cursor,
+      values: pointer
     ),
     "rounded": (
       property: border-radius,

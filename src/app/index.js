@@ -1,3 +1,5 @@
+import { Modal } from 'bootstrap';
+
 import PrettyMessenger from '../lib/pretty-messenger';
 import StickyHeader from '../lib/sticky-header';
 
@@ -19,6 +21,11 @@ export default () => {
 
   // Give the header the correct Class Names on scroll
   new StickyHeader(document.querySelector('.c2-header')).init();
+  
+  // Display the Modal on Load (If there)
+  if(document.getElementById('homeModal')) {
+    new Modal(document.getElementById('homeModal')).show();
+  }
 
   configMenu();
   scrollToError();

@@ -11,6 +11,7 @@ $navbar-2nd-level-background:       $white;
 $navbar-2nd-level-padding-x:        map-get($spacers, 5);
 $navbar-2nd-level-padding-y:        map-get($spacers, 4);
 
+$navbar-2nd-level-item-font-size:                     1rem;
 $navbar-2nd-level-item-padding:                       map-get($spacers, 2);
 $navbar-2nd-level-item-border-bottom:                 $border-width solid $secondary;
 $navbar-2nd-level-item-color:                         $body-color;
@@ -58,6 +59,7 @@ $navbar-2nd-level-item-after-pseudo-element-unicode:  $btn-after-pseudo-element-
 .navbar-nav:not(.mm-spn) li.lev2 {
   padding: $navbar-2nd-level-item-padding;
   border-bottom: $navbar-2nd-level-item-border-bottom;
+  font-size: $navbar-2nd-level-item-font-size;
 
   // Fix overflowing of columns
   // https://stackoverflow.com/questions/7785374/how-to-prevent-column-break-within-an-element#answer-10516788
