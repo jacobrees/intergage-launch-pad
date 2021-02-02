@@ -25,7 +25,7 @@ export default class PrettyMessenger {
       'basket': 'alert-success',
       'warn': 'alert-warning'
     };
-    this.sAlertMarkup = '<div class="alert $TYPE$ alert-dismissible fade show animated fadeInRight fast" role="alert">$CONTENT$<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button></div>';
+    this.sAlertMarkup = '<div class="alert $TYPE$ alert-dismissible fade show animated fadeInRight fast" role="alert">$CONTENT$<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>';
   }
 
   /*******************************************************************************

@@ -9,7 +9,7 @@
     "scss-bundle": "node config/scss-bundle.js",
     "scss-prefix": "postcss --config config/postcss.config.js --replace \"build/scss/*.scss\"",
     "watch-js": "rollup -c config/rollup.config.js --watch",
-    "watch-scss": "nodemon --watch scss/ --watch site/ --ext scss --exec \"npm run build-scss\"",
+    "watch-scss": "nodemon --watch bootstrap-ie11 --watch scss/ --watch site/ --ext scss --exec \"npm run build-scss\"",
     "serve-js": "rollup --environment SERVE:true -c config/rollup.config.js --watch",
     "serve": "serve public",
     "start": "npm-run-all --parallel serve serve-js watch-scss"
@@ -41,11 +41,11 @@
     "serve": "^11.3.2"
   },
   "dependencies": {
-    "bootstrap": "^5.0.0-alpha2",
+    "@popperjs/core": "^2.6.0",
+    "bootstrap": "^5.0.0-beta1",
     "jquery": "^3.5.1",
     "lodash": "^4.17.20",
-    "mmenu-light": "^3.0.7",
-    "popper.js": "^1.16.1"
+    "mmenu-light": "^3.0.7"
   },
   "bugs": {
     "url": "https://github.com/owenjs/intergage-launch-pad/issues"
