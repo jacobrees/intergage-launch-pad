@@ -1,6 +1,8 @@
 // Main SCSS Files
 // 
 // This SCSS will be bundled to build/scss/main.bundle.scss
+@import url('http://fonts.cdnfonts.com/css/no-more-lies');
+
 @import '../bootstrap-theme/functions';
 
 @import 'variables';
@@ -12,3 +14,4 @@
 @import 'slanted-containers';
 @import 'image-frames';
 @import 'brushes';
+@import 'desktop-header-btns';

@@ -103,11 +103,21 @@
   .rte-btn-#{$color} {
     @extend .btn;
     @extend .btn-#{$color};
-    margin-right: map-get($spacers, 5);
     // For a tag in Spans, generated when using the Rich Text Editor
     > a {
       color: inherit;
       text-decoration: none;
+
+      &::#{$stretched-link-pseudo-element} {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        z-index: $stretched-link-z-index;
+        content: "";
+      }
+
       &:hover {
         text-decoration: none;
       }
@@ -123,11 +133,21 @@
   .rte-btn-outline-#{$color} {
     @extend .btn;
     @extend .btn-outline-#{$color};
-    margin-right: map-get($spacers, 5);
     // For a tag in Spans, generated when using the Rich Text Editor
     > a {
       color: inherit;
       text-decoration: none;
+
+      &::#{$stretched-link-pseudo-element} {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        z-index: $stretched-link-z-index;
+        content: "";
+      }
+
       &:hover {
         text-decoration: none;
       }

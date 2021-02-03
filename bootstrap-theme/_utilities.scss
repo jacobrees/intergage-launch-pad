@@ -444,6 +444,11 @@ $utilities: map-merge(
       values: map-merge(
         $theme-colors,
         (
+          "hbGreen": $col-HB-Green,
+          "hbTurquoise": $col-HB-Turquoise,
+          "hbPink": $col-HB-Pink,
+          "hbYellow": $col-HB-Yellow,
+          "hbDeepPurple": $col-HB-DeepPurple,
           "body": $body-bg,
           "white": $white,
           "transparent": transparent

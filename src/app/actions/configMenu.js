@@ -27,7 +27,7 @@ export default () => {
 
     // Build the MMenu Light Plugin
     var MMenuAPI = new MmenuLight(
-      navBar.querySelector('.navbar-nav'),
+      navBar.querySelector('#navbarNavDropdown .navbar-nav'),
       (bsGridBreakpoints[breakpoint] != '0') ? '(max-width: ' + bsGridBreakpoints[breakpoint] + ')' : 'all'
     );
     var navigator = MMenuAPI.navigation({
