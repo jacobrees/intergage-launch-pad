@@ -1,3 +1,5 @@
+import { Modal } from 'bootstrap';
+
 import PrettyMessenger from '../lib/pretty-messenger';
 
 import polyfills from './polyfills';
@@ -12,6 +14,11 @@ export default () => {
 
   // Find Error Messages
   new PrettyMessenger().findMessages();
+
+  if(document.getElementById('signUpForm') && !localStorage.getItem('popup')) {
+    new Modal(document.getElementById('signUpForm')).show();
+    localStorage.setItem('popup', 'true');
+  }
 
   configMenu();
   scrollToError();

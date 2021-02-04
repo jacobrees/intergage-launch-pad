@@ -42,4 +42,26 @@
       }
     }
   }
+
+  // Containers within Containers - remove padding start and end
+  //
+  // Attribute Selector used to avoid long selector rules for every container breakpoint
+  // e.g 
+  //    .container {
+  //      .container, .container-sm, .container-md, .container-lg, .container-xl, .container-xxl {...}
+  //    }
+  //    .container-sm {
+  //      .container, .container-sm, .container-md, .container-lg, .container-xl, .container-xxl {...}
+  //    }
+  //    ....
+  //
+  // To overcome the situation where you want to maintain the padding start 
+  // and end on a container within a container 
+  // OR if an element contains the word 'container' in its class name but 
+  // isn't a container
+  // mark the element with '.maintain-px' class
+  *[class*='container'] *[class*='container']:not(.maintain-px) {
+    padding-left: 0;
+    padding-right: 0;
+  }
 }
