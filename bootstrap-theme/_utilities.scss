@@ -341,13 +341,23 @@ $utilities: map-merge(
       responsive: true,
       property: padding-right padding-left,
       class: px,
-      values: $spacers
+      values: map-merge(
+        $spacers,
+        (
+          "grid": calc(var(--grid-gutter-x) / 2)
+        )
+      )
     ),
     "padding-y": (
       responsive: true,
       property: padding-top padding-bottom,
       class: py,
-      values: $spacers
+      values: map-merge(
+        $spacers,
+        (
+          "grid": var(--grid-gutter-y)
+        )
+      )
     ),
     "padding-top": (
       responsive: true,
