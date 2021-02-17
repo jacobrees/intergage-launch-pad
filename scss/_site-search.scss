@@ -1,0 +1,44 @@
+// Search Results
+// 
+// Styling for the Search Results Page, mainly legacy markup...
+
+.sssearchform {
+  > form > div {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .form-control {
+    margin: map-get($spacers, 1) 0;
+  }
+
+  .form-select {
+    margin-top: map-get($spacers, 1);
+  }
+
+  .c2form_buttons {
+    margin-top: map-get($spacers, 1);
+    text-align: left;
+  }
+}
+
+.sssubtitle, .sspagelinks {
+  margin: map-get($spacers, 2) 0;
+}
+
+.sspagelinks:not(:last-child) {
+  display: none;
+}
+
+.ssresults {
+  @include make-row((
+    'gutter-y': map-get($spacers, 3)
+  ));
+
+  > * {
+    @include make-col-ready((
+      'make-full-width': false
+    ));
+    @include make-col(3);
+  }
+}

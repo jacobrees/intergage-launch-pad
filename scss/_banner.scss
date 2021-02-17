@@ -1,0 +1,8 @@
+// Banner
+// 
+// Apply min-height to banners section so if it's empty text isn't hidden by 
+// the header
+
+.c2-banner {
+  min-height: var(--headerHeight);
+}
