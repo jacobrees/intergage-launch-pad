@@ -1,0 +1,54 @@
+$team-member-text-background: $white;
+$team-member-text-overlap: 3rem;
+$team-member-text-space: 2.5rem;
+$team-member-text-line-break-width: 30%;
+$team-member-text-line-break-color: $col-Primaryorange;
+$team-member-social-icon-size: 1.8rem;
+
+.team-member {
+  display: flex;
+  flex-direction: column;
+	&__img {
+    position: relative;
+    margin-bottom: -$team-member-text-overlap;
+    &::after {
+      content: "";
+      display: block;
+      padding-top: 80%;
+    }
+  }
+  &__text {
+    z-index: 1;
+    background: $team-member-text-background;
+    text-align: center;
+    margin: auto auto 0;
+    padding: 0 1rem;
+	  max-width: 80%;
+    &__icons {
+      margin: 0.8rem 0;
+      font-size: $team-member-social-icon-size;
+      i {
+        margin: 0 0.5rem;
+      }
+    }
+
+    &__name {
+      position: relative;
+      margin-top: 0;
+      margin-bottom: $team-member-text-space;
+      &::after {
+        content: "";
+        position: absolute;
+        bottom: -($team-member-text-space / 2);
+        width: $team-member-text-line-break-width;
+        left: (100 - $team-member-text-line-break-width) / 2;
+        height: 2px;
+        background-color: $team-member-text-line-break-color;
+      }
+    }
+    &__title {
+      margin: $team-member-text-space 0;
+		  font-weight: 500;
+    }
+  }
+}

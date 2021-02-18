@@ -15,4 +15,4 @@
 
 [x] Change colour of Intergage logo to white
 
-[ ] Fix horizontal scroll
+[x] Fix horizontal scroll

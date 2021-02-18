@@ -52,6 +52,7 @@ img {
     #{if($infix == "", ".img-na-object-fit-cover", "")} {
       > img {
         object-fit: cover;
+        font-family: 'object-fit: cover;';
       }
     }
 
@@ -60,6 +61,7 @@ img {
     #{if($infix == "", ".img-na-object-fit-contain", "")} {
       > img {
         object-fit: contain;
+        font-family: 'object-fit: contain;';
       }
     }
 
