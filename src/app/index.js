@@ -6,7 +6,7 @@ import polyfills from './polyfills';
 import configMenu from './actions/configMenu';
 import scrollToError from './actions/scrollToError';
 import hideBeforeInteraction from './actions/hideBeforeInteraction';
-import { setHeightVariable } from './actions/findHeaderHeight';
+import { setHeightVariable, fixBannerHeight } from './actions/findHeaderHeight';
 import fixSearchResults from './actions/fixSearchResults';
 
 export default () => {
@@ -19,5 +19,7 @@ export default () => {
   scrollToError();
   setHeightVariable();
   hideBeforeInteraction();
+
+  fixBannerHeight();
   fixSearchResults();
 };
