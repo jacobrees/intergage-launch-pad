@@ -1,0 +1,17 @@
+// Mega Menu
+// 
+// Expandable Mega Menu Container
+
+$c2-mega-menu-slide-in-transition: max-height .5s ease-in-out;
+
+#c2-mega-menu-container {
+  left: 0;
+  overflow: hidden;
+
+  max-height: 0;
+  @include transition($c2-mega-menu-slide-in-transition);
+
+  &.active {
+    max-height: 70vh; // Will never be bigger than this
+  }
+}

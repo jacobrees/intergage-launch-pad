@@ -37,7 +37,7 @@
           color: $basket-layout-info-text-colour;
           &:after {
             content: ":";
-            padding-right: get('1', $spacers);
+            padding-right: map-get($spacers, 1);
           }
         }
         .c2val {
@@ -46,7 +46,7 @@
       }
       // Shipping Row already has ':' on it, remove ours
       .c2ecbasshipnoed .c2lbl {
-        padding-right: get('1', $spacers);
+        padding-right: map-get($spacers, 1);
         &:after {
           content: none;
         }
@@ -56,18 +56,14 @@
   
   // Checkout now info
   .c2ecbaschkbtn {
-    margin-top: get('3', $spacers);
-    @include media-breakpoint-up('md') {
-      display: flex;
-      justify-content: space-between;
-    }
     .btn {
       // Remove Default Margin given to all CMS Buttons
-      margin-right: 0 !important; 
+      margin-right: 0 !important;
+      width: 100% !important;
+      margin-top: map-get($spacers, 2) !important; 
     }
     .c2val {
       display: block;
-      text-align: right;
     }
   }
 }

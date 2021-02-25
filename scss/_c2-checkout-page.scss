@@ -1,0 +1,71 @@
+// _c2-checkout-page.scss
+// 
+// Basket Page Styles
+
+.basket-stage {
+  .ECStateMenu {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .Action {
+    &.DoneAction {
+      display: none;
+    }
+  }
+
+  &__menu-upper {
+    .Action {
+      &.NotDoneAction {
+        display: none;
+      }
+      &.CurrentAction {
+        // Match h2 styles
+        @extend %heading;
+        @include font-size($h2-font-size);
+        margin-bottom: 0;
+
+        background: $c2-basket-page-section-background;
+        padding: $c2-basket-page-section-padding;
+        padding-bottom: $headings-margin-bottom;
+      }
+    }
+  }
+
+  &__content {
+    background: $c2-basket-page-section-background;
+    padding: 0 $c2-basket-page-section-padding-y;
+    padding-bottom: $c2-basket-page-section-padding-x;
+
+    > p:first-child, .c2-basket-layout, .c2ecconf_spacer {
+      display: none;
+    }
+
+    .c2form_footer {
+      margin-top: $c2-basket-page-section-padding-x;
+    }
+
+    .c2ecconf_prevbtn, .c2ecconf_confbtn {
+      display: inline-block;
+    }
+  }
+
+  &__menu-lower {
+    .Action {
+      &.CurrentAction {
+        display: none;
+      }
+      &.NotDoneAction {
+        // Match h2 styles
+        @extend %heading;
+        @include font-size($h5-font-size);
+        margin-bottom: 0;
+        margin-top: $c2-basket-page-section-padding-y;
+
+        border: 2px solid $dark;
+        padding: $c2-basket-page-section-padding;
+      }
+    }
+  }
+}

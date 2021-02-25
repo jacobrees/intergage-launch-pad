@@ -1,0 +1,42 @@
+// _side-bar.scss
+// 
+// Slide out side bar for the side
+// Contains the Basket Link Item
+
+$c2-side-bar-width:               80%;
+$c2-side-bar-max-width:           500px;
+$c2-side-bar-background-color:    rgba($black, 0.2);
+$c2-side-bar-opening-transition:  0.3s;
+
+.c2-side-bar {
+  $this: &;
+
+  transition-property: top, background-color;
+  transition-duration: 0s, $c2-side-bar-opening-transition;
+  transition-timing-function: ease;
+  transition-delay: 0.45s, 0.15s;
+
+  &:not(.open) {
+    top: 100%;
+  }
+
+  &.open {
+    background: $c2-side-bar-background-color;
+    transition-delay: 0s;
+
+    #{$this}__content {
+      transform: translate3d(0, 0, 0);
+    }
+  }
+
+  &__content {
+    left: auto;
+    width: $c2-side-bar-width;
+    max-width: $c2-side-bar-max-width;
+    transform: translate3d(100%, 0, 0);
+
+    transition-property: transform;
+    transition-duration: $c2-side-bar-opening-transition;
+    transition-timing-function: ease;
+  }
+}

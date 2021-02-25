@@ -7,6 +7,7 @@
 
 ## Product Import
 
+- [x] Clean Rich Text
 - [ ] Make all duplicated Attributes not filterable
 - [ ] Remove all duplicated Attributes which are not Text or Rich Text...
 - [ ] Product Options need mapping
@@ -32,7 +33,7 @@
 ## Basket and Checkbox
 
 - [ ] Allow Linked Basket Item to act as a side bar - **What about Mobile?**
-- [ ] Match with current MWU Site
+- [x] Match with current MWU Site
 - [ ] Create User Logon Area - **Items may need styling**
 
 

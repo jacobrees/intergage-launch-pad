@@ -1,0 +1,50 @@
+// _c2-basket-page.scss
+// 
+// Basket Page Styles
+
+$c2-basket-page-section-background: $white;
+$c2-basket-page-section-padding-y:  map-get($spacers, 3);
+$c2-basket-page-section-padding-x:  map-get($spacers, 2);
+$c2-basket-page-section-padding:    $c2-basket-page-section-padding-x $c2-basket-page-section-padding-y;
+
+.c2-checkout-basket {
+  .figure-img, .c2-basket-layout__basket-options {
+    display: none;
+  }
+}
+
+.c2-basket-item-wrapper {
+  @include media-breakpoint-up(lg) {
+    form { // Let's hope there isn't another form...
+      @include make-col(8, $grid-columns, true);
+    }
+    .c2ecbaschkbtn {
+      @include make-col(4);
+    }
+  }
+
+  .c2ecbaschkbtn {
+    position: sticky;
+    top: map-get($spacers, 3);
+    align-self: flex-start;
+
+    .c2lbl {
+      display: block;
+      background: $c2-basket-page-section-background;
+      padding: $c2-basket-page-section-padding;
+    }
+  }
+
+  .c2ecconflayout {
+    background: $c2-basket-page-section-background;
+    padding: $c2-basket-page-section-padding;
+  }
+
+  .c2ecbasuptbtn {
+    text-align: right;
+    padding-left: map-get($spacers, 3);
+    button {
+      white-space: nowrap;
+    }
+  }
+} 

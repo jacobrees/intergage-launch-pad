@@ -9,6 +9,8 @@ import VATToggler from './actions/vatToggler';
 import searchBox from './actions/searchBox';
 
 import BasketLayout from './basket-layout';
+import SideBar from './side-bar';
+import MegaMenu from './mega-menu';
 
 export default () => {
   polyfills.objectFit();
@@ -20,6 +22,10 @@ export default () => {
   searchBox();
   configMenu();
   scrollToError();
+
+  new SideBar().listen();
+
+  new MegaMenu();
 
   let vatToggler = new VATToggler(document.querySelector('.c2ecvatsw'));
 
