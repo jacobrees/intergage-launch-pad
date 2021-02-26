@@ -7,10 +7,11 @@ import configMenu from './actions/configMenu';
 import scrollToError from './actions/scrollToError';
 import VATToggler from './actions/vatToggler';
 import searchBox from './actions/searchBox';
+import shopByDepartmentConfig from './actions/shop-by-department-menu';
 
 import BasketLayout from './basket-layout';
 import SideBar from './side-bar';
-import MegaMenu from './mega-menu';
+import megaMenu from './mega-menu';
 
 export default () => {
   polyfills.objectFit();
@@ -25,7 +26,9 @@ export default () => {
 
   new SideBar().listen();
 
-  new MegaMenu();
+  // Config the Menu Menu and it's menus inside
+  shopByDepartmentConfig();
+  megaMenu();
 
   let vatToggler = new VATToggler(document.querySelector('.c2ecvatsw'));
 

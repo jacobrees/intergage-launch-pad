@@ -3,13 +3,13 @@
 .dropright,
 .dropdown,
 .dropleft,
-li.par {
+.navbar-nav:not(.mm-spn) li.par {
   position: relative;
 }
 
 .dropdown-toggle,
-a.par,
-span.par {
+.navbar-nav:not(.mm-spn) a.par,
+.navbar-nav:not(.mm-spn) span.par {
   white-space: nowrap;
 
   // Generate the caret automatically
