@@ -9,6 +9,14 @@
     > * {
       @include make-col-ready();
     }
+
+    // A List can be a 'column', if so the default padding left doesn't apply
+    // This causes the dots or numbers of the list to be out of line
+    // Replace the padding-left with a margin-left
+    > ol,
+    > ul {
+      margin-left: $c2-list-padding-left;
+    }
   }
 }
 
@@ -23,6 +31,12 @@
     // Make all Componets inside a col-12, include those p tags!
     > * {
       @include make-col-ready();
+    }
+
+    // See comment above
+    > ol,
+    > ul {
+      margin-left: $c2-list-padding-left;
     }
   }
 }
@@ -75,6 +89,11 @@
       }
     }
     
+    // See comment above
+    > ol,
+    > ul {
+      margin-left: $c2-list-padding-left;
+    }
   }
 }
 

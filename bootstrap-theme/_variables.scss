@@ -407,7 +407,7 @@ $line-height-sm:              1.25 !default;
 $line-height-lg:              2 !default;
 
 $heading-font-size-base:      $font-size-base !default;
-$h1-font-size:                $heading-font-size-base * 2.5 !default;
+$h1-font-size:                $heading-font-size-base * 3 !default;
 $h2-font-size:                $heading-font-size-base * 2 !default;
 $h3-font-size:                $heading-font-size-base * 1.75 !default;
 $h4-font-size:                $heading-font-size-base * 1.5 !default;
@@ -463,6 +463,8 @@ $dt-font-weight:              $font-weight-bold !default;
 $nested-kbd-font-weight:      $font-weight-bold !default;
 
 $list-inline-padding:         .5rem !default;
+
+$c2-list-padding-left:        2rem !default;
 
 $mark-bg:                     #fcf8e3 !default;
 
