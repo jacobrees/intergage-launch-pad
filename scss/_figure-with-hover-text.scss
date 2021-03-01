@@ -6,6 +6,10 @@ $c2figure-with-hover-text-transition: 0.3s ease-in-out;
 
 .c2figure-with-hover-text {
 
+  > img {
+    z-index: -1;
+  }
+
   // On Mobile - always display text
   &__text {
     opacity: 0.8;
