@@ -1,5 +1,3 @@
-import { Modal } from 'bootstrap';
-
 import PrettyMessenger from '../lib/pretty-messenger';
 
 import polyfills from './polyfills';
@@ -8,6 +6,9 @@ import polyfills from './polyfills';
 import configMenu from './actions/configMenu';
 import scrollToError from './actions/scrollToError';
 import hideBeforeInteraction from './actions/hideBeforeInteraction';
+import modalSignUpForm from './actions/modal-sign-up';
+import bannerPadding from './actions/banner-padding';
+import replaceDonateLink from './actions/replace-donate-link';
 
 export default () => {
   polyfills.objectFit();
@@ -15,12 +16,11 @@ export default () => {
   // Find Error Messages
   new PrettyMessenger().findMessages();
 
-  if(document.getElementById('signUpForm') && !localStorage.getItem('popup')) {
-    new Modal(document.getElementById('signUpForm')).show();
-    localStorage.setItem('popup', 'true');
-  }
+  modalSignUpForm();
 
   configMenu();
   scrollToError();
   hideBeforeInteraction();
+  bannerPadding();
+  replaceDonateLink();
 };
