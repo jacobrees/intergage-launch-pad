@@ -1,38 +1,33 @@
 import PropObject from '../../PropObject';
+import SideBar from './side-bar';
 
-export default class BasketSideBar extends PropObject {
-  constructor(props) {
-    super(props);
-    
-    this.sideBarContainer = document.querySelector('.c2-side-bar');
+export default () => {
+  let sideBars = {};
 
-    if(this.sideBarContainer) {
-      this.sideBarContainer.addEventListener('click', e => {
-        this.close(e);
-      })
+  let sideBarContainers = document.querySelectorAll('.c2-side-bar');
+  sideBarContainers.forEach(sideBarContainer => {
+    let sideBarInstance = new SideBar({
+      sideBarContainer: sideBarContainer
+    });
+
+    if(sideBarInstance.id) {
+      sideBars[sideBarInstance.id] = sideBarInstance;
     }
-  }
+  });
 
-  listen() {
-    if(!this.sideBarContainer) {
-      return;
-    }
+  // Listen to the Triggers
+  let triggers = document.querySelectorAll('[data-c2-trigger="side-bar"]');
+  triggers.forEach(trigger => {
+    // Find the Target and it's Side Bar Instance for this Trigger
+    let target = trigger.dataset.c2Target,
+        targetSideBarInstance = sideBars[target];
 
-    let triggers = document.querySelectorAll('[data-c2-trigger="side-bar"]');
-    triggers.forEach(trigger => {
-      trigger.addEventListener('click', e => {
-        this.handleClick();
-      });
-    })
-  }
+    if(!target || !targetSideBarInstance) return;
 
-  handleClick() {
-    this.sideBarContainer.classList.toggle('open');
-  }
+    trigger.addEventListener('click', e => {
+      targetSideBarInstance.handleClick();
+    });
+  })
 
-  close(e) {
-    if(e.target.classList.contains('c2-side-bar')) {
-      this.sideBarContainer.classList.remove('open');
-    }
-  }
+  return;
 }

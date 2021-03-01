@@ -10,7 +10,7 @@ import searchBox from './actions/searchBox';
 import shopByDepartmentConfig from './actions/shop-by-department-menu';
 
 import BasketLayout from './basket-layout';
-import SideBar from './side-bar';
+import sideBars from './side-bar';
 import megaMenu from './mega-menu';
 
 export default () => {
@@ -24,7 +24,9 @@ export default () => {
   configMenu();
   scrollToError();
 
-  new SideBar().listen();
+  // Config the Sidebars
+  // Used for the Basket Item, Mobile Menu, Mobile Searchbox
+  sideBars();
 
   // Config the Menu Menu and it's menus inside
   shopByDepartmentConfig();
