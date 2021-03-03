@@ -9,7 +9,9 @@
 @import 'c2-toggler';
 @import 'c2-logo';
 @import 'side-bar/side-bar';
-@import 'side-bar/basket-side-bar';
 @import 'mega-menu/mega-menu';
 @import 'c2-basket-page';
 @import 'c2-checkout-page';
+
+// Import MMenu Light Styles
+@import '~mmenu-light/src/mmenu-light';

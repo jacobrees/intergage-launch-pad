@@ -1,7 +1,7 @@
 // _side-bar.scss
 // 
 // Slide out side bar for the side
-// Contains the Basket Link Item, Mobile Menu, Mobile Searchbox
+// Contains the Basket Link Item, Mobile Searchbox
 // Default Config is that the side bar comes in from the right
 // To change this add 'c2-side-bar--left'
 
@@ -52,3 +52,5 @@ $c2-side-bar-opening-transition:  0.3s;
     transition-timing-function: ease;
   }
 }
+
+@import 'basket-side-bar';

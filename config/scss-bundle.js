@@ -4,7 +4,7 @@ const fs = require('fs');
 const path = require('path');
 const { Bundler } = require('scss-bundle');
 
-const NODE_MODULES_PATH       = '../node_modules';
+const NODE_MODULES_PATH       = '..';
 
 const IMPORT_PATTERN          = /@import\s+['"](.+)['"];/g;
 const FILE_EXTENSION_REGEX    = /\..+$/g;

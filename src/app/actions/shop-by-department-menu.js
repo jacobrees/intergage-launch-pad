@@ -4,7 +4,7 @@ export default () => {
       
   if(!shopByDepartmentLev1 || !shopByDepartmentLev2) return;
 
-  shopByDepartmentLev1.querySelectorAll('li.lev1').forEach((level1Item, id) => {
+  shopByDepartmentLev1.querySelectorAll('li.lev1').forEach((level1Item, index) => {
     // Find the Title of this level
     let linkDom = level1Item.querySelector('a.lev1');
     if(!linkDom) return;
@@ -14,13 +14,13 @@ export default () => {
     // Find the Level 2 and move it
     let lev2Dom = level1Item.querySelector('ul.lev2');
     if(lev2Dom) {
-      // Create Wrapper for the Level 2// Create Wrapper for the Level 2
+      // Create Wrapper for the Level 2
       let lev2Wrapper = document.createElement('div');
 
       // Create ID for the Level 2
       let id = title.length 
         ? `shop-by-department-lev2-${title.replace(/ /g, '')}`
-        : `shop-by-department-lev2-${id}`;
+        : `shop-by-department-lev2-${index}`;
 
       lev2Wrapper.id = id;
       lev2Wrapper.className = 'lev2wrapper';

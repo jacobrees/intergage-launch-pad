@@ -1,6 +1,6 @@
 ## Home page
 
-- [ ] Shop By Brand Menu Dropdown based on [this](https://www.jamieoliver.com/) logic
+- [x] Shop By Brand Menu Dropdown based on [this](https://www.jamieoliver.com/) logic
 - [ ] Sliding banner styles
 - [ ] Title Border Styles
 
@@ -21,18 +21,23 @@
 
 ## Product Detail Page
 
-- [ ] Accessories and Optional Extras - does this work?
+- [ ] Add Checkbox for Accessories and Optional Extra to hide Title and Container
+- [ ] Accessories and Optional Extra Buy button doesn't display  **Category Issue**
+
 - [ ] Image Gallery thumbnail scroll
 - [ ] Image Gallery Zoom function - Fullscreen?
+
 - [ ] Multiple layouts based on 'Attribute Suffic'
+
 - [ ] Depending on what sub site you are on, allow text attributes to inherit
+
 - [ ] 'Saving of' attribute - **Ask Ollie**
-- [ ] Move Product Options to be in a dropdown for FAA products - **Hygenex Build**
+- [ ] Move actually Product Options to be in a dropdown for FAA products - **Hygenex Build**
 
 
-## Basket and Checkbox
+## Basket and Checkout
 
-- [ ] Allow Linked Basket Item to act as a side bar - **What about Mobile?**
+- [x] Allow Linked Basket Item to act as a side bar - **What about Mobile?**
 - [x] Match with current MWU Site
 - [ ] Create User Logon Area - **Items may need styling**
 
