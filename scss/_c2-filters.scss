@@ -8,9 +8,11 @@ $c2-list-filters-filter-padding-y:        map-get($spacers, 2);
 $c2-list-filters-filter-padding-x:        map-get($spacers, 3);
 $c2-list-filters-filter-colour:           $primary;
 $c2-list-filters-transition:              max-height .35s ease;
+$c2-list-filters-margin-y:                map-get($spacers, 3);
 
 .c2-list-filters {
-  top: map-get($spacers, 3);
+  top: $c2-list-filters-margin-y;
+  max-height: calc(100vh - #{$c2-list-filters-margin-y * 2});
 
   .c2form_row {
     margin: 0;
