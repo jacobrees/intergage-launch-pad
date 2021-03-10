@@ -18,9 +18,7 @@ export default () => {
       let lev2Wrapper = document.createElement('div');
 
       // Create ID for the Level 2
-      let id = title.length 
-        ? `shop-by-department-lev2-${title.replace(/ /g, '')}`
-        : `shop-by-department-lev2-${index}`;
+      let id = `shop-by-department-lev2-${index}`;
 
       lev2Wrapper.id = id;
       lev2Wrapper.className = 'lev2wrapper';

@@ -3,6 +3,7 @@ import PrettyMessenger from '../lib/pretty-messenger';
 import polyfills from './polyfills';
 
 // Actions
+import enableBSPopovers from './actions/enablePopovers';
 import configMenu from './actions/configMenu';
 import scrollToError from './actions/scrollToError';
 import VATToggler from './actions/vatToggler';
@@ -21,6 +22,7 @@ export default () => {
 
   // Trigger Actions
   searchBox();
+  let vatToggler = new VATToggler(document.querySelector('.c2ecvatsw'));
   configMenu();
   scrollToError();
 
@@ -32,7 +34,7 @@ export default () => {
   shopByDepartmentConfig();
   megaMenu();
 
-  let vatToggler = new VATToggler(document.querySelector('.c2ecvatsw'));
+  enableBSPopovers();
 
   // Find all Basket Layouts
   let basketLayouts = [].slice.call(document.querySelectorAll('.c2-basket-layout'));

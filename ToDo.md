@@ -16,7 +16,7 @@
 
 ## Product List View
 
-- [ ] Allow Filters to be in scrollable box incase list is too long for page
+- [x] Allow Filters to be in scrollable box incase list is too long for page
 
 
 ## Product Detail Page

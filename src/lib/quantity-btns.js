@@ -6,16 +6,23 @@ const DEFAULT_OPTIONS = {
   qtyContainerClassNames: ['input-group', 'input-group-sm', 'col-auto'],
   qtyInputClassNames: ['form-control', 'text-center'],
   qtyInputSize: 3,
-  qtyBtnClasses: ['btn', 'btn-secondary', 'd-flex', 'align-items-center'],
+  qtyBtnClasses: ['btn', 'btn-outline-secondary', 'd-flex', 'align-items-center'],
   delBtnClasses: ['btn', 'btn-danger'],
-  minQty: 1
+  minQty: 1,
+  dispatchEvents: {
+    plusBtnClick: 'QUANTITY-BTN-PLUS-CLICK',
+    minusBtnClick: 'QUANTITY-BTN-MINUS-CLICK',
+  }
+};
+
+const DEFAULT_EVENTS = {
+  plusBtn: (newValue) => {},
+  minusBtn: (newValue) => {}
 };
 
 export default class QuantityBtns extends PropObject {
   constructor(props) {
-    super(props);
-
-    this.options = Object.assign({...DEFAULT_OPTIONS}, this.props.options || {});
+    super(props, DEFAULT_OPTIONS, DEFAULT_EVENTS);
 
     this.btnAutoReload = 0;
   }
@@ -74,9 +81,11 @@ export default class QuantityBtns extends PropObject {
     if(plus) {
       this.props.qtyInput.value = `${currentValue + 1}`;
       valueChanged = true;
+      this.events.plusBtn(this.props.qtyInput.value);
     } else if(!plus && currentValue - 1 >= this.options.minQty) {
       this.props.qtyInput.value = `${currentValue - 1}`;
       valueChanged = true;
+      this.events.minusBtn(this.props.qtyInput.value);
     }
 
     if(this.options.autoSubmit && valueChanged) {

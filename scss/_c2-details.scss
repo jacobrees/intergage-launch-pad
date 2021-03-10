@@ -22,6 +22,10 @@ $c2-product-tabs-link-font-weight:    600;
       justify-content: flex-end;
     }
 
+    .PDOT {
+      display: none;
+    }
+
     .BuyFormFieldName {
       font-weight: $c2-product-detail-qty-font-weight;
       margin-right: map-get($spacers, 2);

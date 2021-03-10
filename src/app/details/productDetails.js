@@ -7,25 +7,14 @@ export default class ProductDetails extends PropObject {
     if(!this.props.detailDom) return;
 
     this.buyForm = new BuyForm({
+      productPriceDom: this.props.detailDom.querySelector('.c2-product-detail__product-price'),
       buyFormDom: this.props.detailDom.querySelector('.c2-product-detail__buy-form'),
+      selectBoxDropdownDom: this.props.detailDom.querySelector('.c2-product-detail__pd-option-select-box'),
       wishListBtn: this.props.detailDom.querySelector('.c2wlAddToWishListContainer') || this.props.detailDom.querySelector('.c2wlOnWishListContainer')
     });
   }
 
   build() {
-    this.buyForm.build();
-
-    let accessories = this.props.detailDom.querySelectorAll('.c2-product-detail__accessories__accessory');
-    accessories.forEach((accessory, id) => {
-      let btn = accessory.querySelector('.btn-modal'),
-          modal = accessory.querySelector('.modal'),
-          modalTitle = accessory.querySelector('.modal-title');
-
-      btn.dataset.target = `#accessoryModal${id}`;
-      modal.id           = `accessoryModal${id}`;
-
-      modal.setAttribute('aria-labelledby', `#accessoryModal${id}Label`);
-      modalTitle.id      = `accessoryModal${id}Label`;
-    })
+    if(this.buyForm) this.buyForm.build();
   }
 }
