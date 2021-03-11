@@ -10,9 +10,10 @@
     "scss-prefix": "postcss --config config/postcss.config.js --replace \"build/scss/*.scss\"",
     "watch-js": "rollup -c config/rollup.config.js --watch",
     "watch-scss": "nodemon --watch bootstrap-theme/ --watch scss/ --ext scss --exec \"npm run build-scss\"",
+    "chrome-launcher": "node config/chrome-launcher.js",
     "serve-js": "rollup --environment SERVE:true -c config/rollup.config.js --watch",
-    "serve": "serve public",
-    "start": "npm-run-all --parallel serve serve-js watch-scss"
+    "serve": "serve -C public",
+    "start": "npm-run-all --parallel serve serve-js watch-scss chrome-launcher"
   },
   "repository": {
     "type": "git",
@@ -42,6 +43,7 @@
   },
   "dependencies": {
     "bootstrap": "^5.0.0-alpha2",
+    "chrome-launcher": "^0.13.4",
     "jquery": "^3.5.1",
     "lodash": "^4.17.20",
     "mmenu-light": "^3.0.7",
@@ -51,5 +53,6 @@
   "bugs": {
     "url": "https://github.com/owenjs/intergage-launch-pad/issues"
   },
-  "homepage": "https://github.com/owenjs/intergage-launch-pad#readme"
+  "homepage": "https://github.com/owenjs/intergage-launch-pad#readme",
+  "chrome-launcher-start-url": "http://mowwithus2020com.24-1.a01.co.uk/c2/admin/preview.fcgi?dcb=2;nocache=16154636117714;p=1;ptmt=0"
 }
