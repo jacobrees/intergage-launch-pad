@@ -2,12 +2,14 @@
 // Product Details
 //
 
-$c2-product-detail-qty-font-weight:   $font-weight-bold;
-$c2-product-detail-qty-margin-bottom: map-get($spacers, 4);
+$c2-product-detail-qty-font-weight:     $font-weight-bold;
+$c2-product-detail-qty-margin-bottom:   map-get($spacers, 4);
 
-$c2-product-tabs-link-min-width:      170px;
-$c2-product-tabs-link-padding-y:      0.8rem;
-$c2-product-tabs-link-font-weight:    600;
+$c2-product-tabs-link-min-width:        170px;
+$c2-product-tabs-link-padding-y:        0.8rem;
+$c2-product-tabs-link-font-weight:      600;
+
+$c2-product-gallery-num-of-thumbnails:  4;
 
 .c2-product-detail {
   &__buy-form {
@@ -46,6 +48,17 @@ $c2-product-tabs-link-font-weight:    600;
       padding-bottom: $c2-product-tabs-link-padding-y;
       min-width: $c2-product-tabs-link-min-width;
       font-weight: $c2-product-tabs-link-font-weight;
+    }
+  }
+}
+
+.c2-product-gallery {
+  &__thumbnails {
+    > *:nth-of-type(#{$c2-product-gallery-num-of-thumbnails}) {
+      margin-right: 0!important; // Used to Override Bootstrap Utils
+    }
+    > *:nth-of-type(#{$c2-product-gallery-num-of-thumbnails}) ~ * {
+      display: none;
     }
   }
 }
