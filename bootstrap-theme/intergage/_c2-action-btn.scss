@@ -53,6 +53,16 @@
     }
   }
 
+  // Wish List Remove Button, add a Font Awesome Delete Icon and remove the text
+  .c2wlRemoveButton .c2btndel {
+    font-size: 0;
+    height: 100%;
+    &:before {
+      @include font-awesome-pseudo("\f1f8", "fas");
+      font-size: $font-size-lg;
+    }
+  }
+
   // "On Wish List" Div, turn into disabled inline button with Heart Icon and no text
   .c2wlOnWishList {
     display: inline-block;

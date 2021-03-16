@@ -6,12 +6,15 @@
 // Optionally you can load parts of bootstrap - TDB: Needs documentation
 @import '../bootstrap-theme/bootstrap';
 
+
+@import 'c2-header';
 @import 'c2-toggler';
-@import 'c2-logo';
 @import 'side-bar/side-bar';
 @import 'mega-menu/mega-menu';
 @import 'c2-basket-page';
 @import 'c2-checkout-page';
+@import 'c2-wish-list-page';
+@import 'c2-image-with-hover-text';
 
 // Import MMenu Light Styles
 @import '~mmenu-light/src/mmenu-light';

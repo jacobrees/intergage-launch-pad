@@ -582,7 +582,8 @@ $btn-transition:              color .15s ease-in-out, background-color .15s ease
 $c2-secondary-actions: (
   "c2btnreset",
   "c2btncancel",
-  "c2wlAddToWishList"
+  "c2wlAddToWishList",
+  "c2btndel"
 ) !default;
 
 $c2-on-wish-list-btn-class:     "primary" !default;

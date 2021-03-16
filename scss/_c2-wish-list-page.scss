@@ -1,0 +1,15 @@
+// 
+// Wish List Page
+//
+
+.c2wlContainer {
+  @include make-row((
+    'gutter-y': map-get($spacers, 4)
+  ));
+
+  > * {
+    padding-right: calc(var(--grid-gutter-x) / 2); // stylelint-disable-line function-blacklist
+    padding-left: calc(var(--grid-gutter-x) / 2); // stylelint-disable-line function-blacklist
+    margin-top: var(--grid-gutter-y);
+  }
+}

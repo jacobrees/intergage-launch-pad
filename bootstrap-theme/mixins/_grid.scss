@@ -4,13 +4,14 @@
 
 @mixin make-row($options: (), $config: map-merge((
     'gutter': $grid-gutter-width,
+    'gutter-y': 0,
     'negative-top': true,
     'reset-gutter': true), $options)
   ) {
 
   @if get('reset-gutter', $config) {
     --grid-gutter-x: #{get('gutter', $config)};
-    --grid-gutter-y: 0;
+    --grid-gutter-y: #{get('gutter-y', $config)};
   }
   display: flex;
   flex-wrap: wrap;

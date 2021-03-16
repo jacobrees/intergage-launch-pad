@@ -1,0 +1,36 @@
+// Image with hover text
+// 
+// Custom Page Item
+
+.c2-image-with-hover-text {
+  $this: &;
+
+  // On Hover Reveal the Text and add a gradient over the image
+  &:hover {
+    #{$this}__content {
+      opacity: 1;
+      background: $primary;
+      background: linear-gradient(180deg, rgba($primary, 1) 15%, rgba($primary, 0.2) 100%);
+    }
+  }
+
+  &__content {
+    background: linear-gradient(180deg, rgba($primary, 1) 15%, rgba($primary, 0.2) 100%);
+    z-index: 1;
+    @include media-breakpoint-up(lg) {
+      background: linear-gradient(180deg, rgba($primary, 0) 15%, rgba($primary, 0) 100%);
+      opacity: 0;
+    }
+    transition: opacity 0.5s, background 0.5s;
+  }
+
+  &__image {
+    z-index: 0;
+    img {
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+    }
+  }
+}
