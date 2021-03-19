@@ -1,0 +1,23 @@
+// Cookie Banner Overrides
+// 
+// The 'Side' Cookie banner is used on the BTC site, we need
+// to override the defaults
+
+.c2cookiebody {
+  .c2form_fldname {
+    color: $white;
+  }
+  .c2form_fieldset {
+    overflow-x: hidden;
+  }
+  .c2form_row {
+    margin-bottom: $form-row-margin-bottom !important;
+    padding-right: calc(var(--grid-gutter-x) / 2) !important; // stylelint-disable-line function-blacklist
+    padding-left: calc(var(--grid-gutter-x) / 2) !important; // stylelint-disable-line function-blacklist
+  }
+  .c2cookieconfirm {
+    &:after {
+      display: none;
+    }
+  }
+}

@@ -4,29 +4,34 @@
 
 $c2figure-with-hover-text-transition: 0.3s ease-in-out;
 
-.c2figure-with-hover-text {
+.c2-image-with-hover-text {
+  $this: &;
 
-  > img {
-    z-index: -1;
-  }
-
-  // On Mobile - always display text
-  &__text {
-    opacity: 0.8;
-    top: 0;
-    width: subtract(100%, var(--grid-gutter-x));
-    height: 100%;
-    transition: opacity $c2figure-with-hover-text-transition;
-  }
-
-  // On Desktops - show text on hover
-  @include media-breakpoint-up('md', $grid-breakpoints) {
-    &:hover &__text {
+  // On Hover Reveal the Text and add a gradient over the image
+  &:hover {
+    #{$this}__content {
       opacity: 1;
     }
+  }
 
-    &__text {
+  &__content {
+    z-index: 1;
+    opacity: 0.8;
+    transition: opacity 0.5s $c2figure-with-hover-text-transition;
+
+    // On Desktop the Text is revealed on Hover
+    @include media-breakpoint-up(lg) {
       opacity: 0;
+    }
+  }
+
+  &__image {
+    z-index: 0;
+    img {
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
     }
   }
 }
