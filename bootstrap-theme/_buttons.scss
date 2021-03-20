@@ -16,7 +16,15 @@
   cursor: if($enable-pointer-cursor-for-buttons, pointer, null);
   user-select: none;
   background-color: transparent;
+
   border: $btn-border-width solid transparent;
+  @if $c2-btn-border-images != null {
+    border-image-slice: $c2-btn-border-image-slice;
+    border-image-width: $c2-btn-border-image-width;
+    border-image-outset: $c2-btn-border-image-outset;
+    border-image-repeat: $c2-btn-border-image-repeat;
+  }
+
   @include button-size($btn-padding-y, $btn-padding-x, $btn-font-size, $btn-border-radius);
   @include transition($btn-transition);
 
@@ -56,7 +64,7 @@
 
 @each $color, $value in $theme-colors {
   .btn-#{$color} {
-    @include button-variant($value, $value);
+    @include button-variant($color, $value);
   }
   // Extend .btn For RTE Buttons
   .rte-btn-#{$color} {

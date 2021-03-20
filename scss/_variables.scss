@@ -5,6 +5,14 @@
 
 $cms-base-product: 'Ecom';
 
+
+// Typography
+
+$heading-font-size-base:  0.9rem;
+$headings-color:          $col-Primary;
+$headings-margin-bottom:  1rem;
+
+
 // Extention to Util
 
 $utilities: (
@@ -30,3 +38,16 @@ $nav-pills-border-radius: 0;
 // Navbar
 
 $c2-navbar-img-height: 6.5rem;
+
+
+// Buttons
+
+$input-btn-font-family:       var(--font-family-heading);
+
+$btn-padding-x:               1.2rem;
+$btn-padding-y:               0.6rem;
+
+// The Border Images are set in the Sub Site's "_colour-variables.scss" file
+$c2-border-image-slice:       10;
+$c2-border-image-width:       15px;
+$c2-border-image-outset:      2;

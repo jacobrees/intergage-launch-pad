@@ -1,0 +1,10 @@
+// Remove Empty p tags
+// 
+// All Rich Text Items are wrapped with a p tag, so if a div is in a p tag the 
+// HTML is parsed and the div is moved out of the p tag leaving an empty p tag. 
+// We must hide all empty p tags as they have a margin bottom style by default
+// which messes up layouts.
+
+p:empty {
+  display: none;
+}

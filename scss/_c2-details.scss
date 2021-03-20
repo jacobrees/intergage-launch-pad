@@ -6,7 +6,7 @@ $c2-product-detail-qty-font-weight:     $font-weight-bold;
 $c2-product-detail-qty-margin-bottom:   map-get($spacers, 4);
 
 $c2-product-tabs-link-padding-y:        0.8rem;
-$c2-product-tabs-link-font-weight:      600;
+$c2-product-tabs-display-bp:            'lg';
 
 $c2-product-gallery-num-of-thumbnails:  4;
 
@@ -46,9 +46,9 @@ $c2-product-gallery-num-of-thumbnails:  4;
       flex: 1 1 0px;
     }
     .nav-link {
+      font-family: var(--font-family-heading);
       padding-top: $c2-product-tabs-link-padding-y;
       padding-bottom: $c2-product-tabs-link-padding-y;
-      font-weight: $c2-product-tabs-link-font-weight;
     }
   }
 }
