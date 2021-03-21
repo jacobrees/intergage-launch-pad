@@ -150,18 +150,31 @@
       // Make use of `.g-*`, `.gx-*` or `.gy-*` utilities to change spacing between the columns.
       @each $key, $value in $gutters {
         .g#{$infix}-#{$key},
-        .gx#{$infix}-#{$key},
-        #{if($infix == "", generate-extend-string(".cke_editable .g{{infix}}-#{$key}", $breakpoints), "")},
-        #{if($infix == "", generate-extend-string(".cke_editable .gx{{infix}}-#{$key}", $breakpoints), "")} {
+        .gx#{$infix}-#{$key} {
+        //#{if($infix == "", generate-extend-string(".cke_editable .g{{infix}}-#{$key}", $breakpoints), "")},
+        //#{if($infix == "", generate-extend-string(".cke_editable .gx{{infix}}-#{$key}", $breakpoints), "")} {
           --grid-gutter-x: #{$value};
         }
 
         .g#{$infix}-#{$key},
-        .gy#{$infix}-#{$key},
-        #{if($infix == "", generate-extend-string(".cke_editable .g{{infix}}-#{$key}", $breakpoints), "")},
-        #{if($infix == "", generate-extend-string(".cke_editable .gy{{infix}}-#{$key}", $breakpoints), "")} {
+        .gy#{$infix}-#{$key} {
+        //#{if($infix == "", generate-extend-string(".cke_editable .g{{infix}}-#{$key}", $breakpoints), "")},
+        //#{if($infix == "", generate-extend-string(".cke_editable .gy{{infix}}-#{$key}", $breakpoints), "")} {
           --grid-gutter-y: #{$value};
         }
+      }
+
+      // Gutter Container Utility
+      //
+      // Used to make the grid spacing the same as the container padding
+      //
+      // This is needed for the outer most container of the whole page to avoid 
+      // horizontal page scroll
+      //
+      // Also useful for sites where the default grid gutter is different to 
+      // the container padding
+      .gx#{$infix}-container {
+        --grid-gutter-y: #{$container-padding-x * 2};
       }
     }
   }

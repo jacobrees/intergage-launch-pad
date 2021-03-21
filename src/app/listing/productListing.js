@@ -1,4 +1,4 @@
-import FilterGroup from './filterGroup';
+import FilterGroup, { configNumOfItemsPerFilterLabel } from './filterGroup';
 import PropObject from '../../PropObject';
 
 export default class Listing extends PropObject {
@@ -24,6 +24,17 @@ export default class Listing extends PropObject {
         this.loadingPanel.classList.remove('d-none');
         return true; // Safe to Reload
       });
+    }
+
+    // Move the Filter Side bar to the end of the body tag
+    let filterSideBar = this.props.listingDom.querySelector('#c2-filters-side-bar');
+    if(filterSideBar) {
+      document.body.appendChild(filterSideBar);
+      // Remove '()' around the number of items per filter
+      let badges = filterSideBar.querySelectorAll('.ldifoc');
+      badges.forEach(badge => {
+        configNumOfItemsPerFilterLabel(badge);
+      })
     }
   }
 }

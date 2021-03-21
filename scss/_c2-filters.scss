@@ -54,8 +54,15 @@ $c2-list-filters-margin-y:                map-get($spacers, 3);
 
   .c2form_code label {
     width: 100%;
-    .ldifoc {
-      float: right;
-    }
+  }
+}
+
+#c2-filters-side-bar {
+  .c2form_fldname {
+    color: $c2-list-filters-filter-colour;
+    font-weight: $c2-list-filters-filter-font-weight;
+  }
+  .c2form_code label {
+    width: 100%;
   }
 }

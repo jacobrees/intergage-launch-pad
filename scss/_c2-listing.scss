@@ -17,3 +17,19 @@
 .c2-list__loading {
   background: rgba($light, 0.5);
 }
+
+.listing-banner-container {
+  p {
+    margin: 0;
+  }
+  img:not(.listing-banner) {
+    display: none;
+  }
+  .listing-banner {
+    margin-bottom: 1rem;
+  }
+}
+
+.c2-summary--category .listing-banner {
+  display: none;
+}

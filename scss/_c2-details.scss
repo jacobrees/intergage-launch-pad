@@ -10,6 +10,8 @@ $c2-product-tabs-display-bp:            'lg';
 
 $c2-product-gallery-num-of-thumbnails:  4;
 
+$c2-product-collapse-transition:        0.3s ease-in-out;
+
 .c2-product-detail {
   &__buy-form {
     .BuyFormFieldName:first-child, .BuyFormPrice {
@@ -49,6 +51,16 @@ $c2-product-gallery-num-of-thumbnails:  4;
       font-family: var(--font-family-heading);
       padding-top: $c2-product-tabs-link-padding-y;
       padding-bottom: $c2-product-tabs-link-padding-y;
+    }
+  }
+
+  .c2-product-collapse {
+    .btn-chevron {
+      transition: transform $c2-product-collapse-transition;
+    }
+    .card-header .btn:not(.collapsed) .btn-chevron {
+      transform: rotate(180deg);
+      transform-origin: center;
     }
   }
 }

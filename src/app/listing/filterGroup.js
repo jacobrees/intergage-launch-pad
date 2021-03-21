@@ -1,5 +1,11 @@
 import PropObject from '../../PropObject';
 
+export const configNumOfItemsPerFilterLabel = badge => {
+  badge.innerHTML = badge.innerHTML.replace('(', '');
+  badge.innerHTML = badge.innerHTML.replace(')', '');
+  badge.classList.add('badge', 'bg-secondary', 'float-right');
+}
+
 export default class FilterGroup extends PropObject {
   constructor(props) {
     super(props);
@@ -27,9 +33,7 @@ export default class FilterGroup extends PropObject {
       // Remove '()' around the number of items per filter
       let badges = filter.inputContainer.querySelectorAll('.ldifoc');
       badges.forEach(badge => {
-        badge.innerHTML = badge.innerHTML.replace('(', '');
-        badge.innerHTML = badge.innerHTML.replace(')', '');
-        badge.classList.add('badge', 'bg-secondary');
+        configNumOfItemsPerFilterLabel(badge);
       })
 
       filter.label.addEventListener('click', e => this.openFilter(filter));

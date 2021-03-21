@@ -3,7 +3,7 @@ import PropObject from '../PropObject';
 const DEFAULT_OPTIONS = {
   autoSubmit: false,
   autoSubmitTimeout: 1000,
-  qtyContainerClassNames: ['input-group', 'input-group-sm', 'col-auto'],
+  qtyContainerClassNames: ['input-group', 'input-group-sm', 'col-auto', 'flex-nowrap'],
   qtyInputClassNames: ['form-control', 'text-center'],
   qtyInputSize: 3,
   qtyBtnClasses: ['btn', 'btn-outline-secondary', 'd-flex', 'align-items-center'],

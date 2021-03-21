@@ -41,7 +41,7 @@ $c2-basket-page-section-padding:    $c2-basket-page-section-padding-x $c2-basket
   }
 
   .c2ecbasuptbtn {
-    text-align: right;
+    margin-left: auto;
     padding-left: map-get($spacers, 3);
     button {
       white-space: nowrap;
