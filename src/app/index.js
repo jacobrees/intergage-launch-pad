@@ -9,6 +9,7 @@ import scrollToError from './actions/scrollToError';
 import VATToggler from './actions/vatToggler';
 import searchBox from './actions/searchBox';
 import shopByDepartmentConfig from './actions/shop-by-department-menu';
+import searchResults from './actions/searchResults';
 
 import BasketLayout from './basket-layout';
 import sideBars from './side-bar';
@@ -35,6 +36,8 @@ export default () => {
   megaMenu();
 
   enableBSPopovers();
+
+  searchResults();
 
   // Find all Basket Layouts
   let basketLayouts = [].slice.call(document.querySelectorAll('.c2-basket-layout'));

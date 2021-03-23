@@ -58,6 +58,12 @@
 }
 
 
+// Clear Button has no padding
+.btn-clear {
+  @include button-size(0, 0, $btn-font-size, 0);
+}
+
+
 //
 // Alternate buttons
 //

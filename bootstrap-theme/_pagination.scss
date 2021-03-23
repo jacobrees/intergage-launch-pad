@@ -1,11 +1,17 @@
 .pagination,
-.c2pagination {
+.c2pagination,
+.PageLinksContainer {
   display: flex;
   @include list-unstyled();
 }
 
+.PageLinksContainer .PageLinks {
+  display: none;
+}
+
 .page-link,
-.c2page-link {
+.c2page-link,
+.PageLinkResponsive > * {
   position: relative;
   display: block;
   color: $pagination-color;
@@ -66,6 +72,19 @@
     background-color: $pagination-disabled-bg;
     border-color: $pagination-disabled-border-color;
   }
+}
+
+.PageLink {
+  &:not(:first-child) a {
+    margin-left: $pagination-margin-left;
+  }
+}
+
+.PageLinkCurrent b {
+  z-index: 3;
+  color: $pagination-active-color;
+  background-color: $pagination-active-bg;
+  border-color: $pagination-active-border-color;
 }
 
 

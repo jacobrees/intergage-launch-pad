@@ -1,0 +1,21 @@
+// Search Results
+// 
+// Styling for the Search Results Page, mainly legacy markup...
+
+.c2-site-search {
+  &__form {
+    .slitext {
+
+    }
+
+    > form > div {
+      display: flex;
+      flex-direction: column;
+    }
+  
+    .c2form_buttons {
+      margin-top: map-get($spacers, 1);
+      text-align: left;
+    }
+  }
+}
