@@ -1,9 +1,13 @@
 import BuyForm from './buyForm';
 import PropObject from '../../PropObject';
 
+const DEFAULT_OPTIONS = {
+  extraBuyButtonText: 'Buy'
+};
+
 export default class ProductDetails extends PropObject {
   constructor(props) {
-    super(props);
+    super(props, DEFAULT_OPTIONS);
     if(!this.props.detailDom) return;
 
     this.buyForm = new BuyForm({
@@ -16,5 +20,13 @@ export default class ProductDetails extends PropObject {
 
   build() {
     if(this.buyForm) this.buyForm.build();
+
+    // Does this page have extra buy buttons, if so change the text and classes
+    let extraBuyButtons = this.props.detailDom.querySelectorAll('.c2-product-detail__accessories button.BuyFormBtn');
+    extraBuyButtons.forEach(extraBuyButton => {
+      extraBuyButton.innerHTML = this.options.extraBuyButtonText;
+      extraBuyButton.classList.add('btn-sm');
+      extraBuyButton.classList.remove('d-md-inline-block', 'w-md-auto');
+    });
   }
 }

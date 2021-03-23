@@ -43,6 +43,12 @@ $c2-product-collapse-transition:        0.3s ease-in-out;
     }
   }
 
+   &__accessories {
+     .BuyFormQty, .BuyFormFieldName, .BuyFormPrice {
+       display: none;
+     }
+   }
+
   .c2-product-tabs {
     .nav-item {
       flex: 1 1 0px;

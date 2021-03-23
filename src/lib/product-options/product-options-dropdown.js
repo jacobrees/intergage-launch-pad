@@ -1,28 +1,16 @@
-import PropObject from '../PropObject';
+import ProductOptions from '../product-options';
 
-import QtyBtns from './quantity-btns';
+import QtyBtns from '../quantity-btns';
 
 const DEFAULT_OPTIONS = {
-  debug: false,
   selectClasses: ['form-select', 'mt-1'],
-  qtyContainerClasses: ['d-flex', 'flex-wrap', 'align-items-center', 'mt-2', 'justify-content-end'],
-  buyBtnContainerClasses: ['BuyFormBtn', 'justify-content-end']
+  qtyContainerClasses: ['d-flex', 'flex-wrap', 'align-items-center', 'mt-2', 'justify-content-end']
 };
 
-export default class ProductOptionDropdown extends PropObject {
+export default class ProductOptionDropdown extends ProductOptions {
   constructor(props) {
     super(props, DEFAULT_OPTIONS);
     if(!this.props.productOptionTableDom) return;
-
-    this.prodcutTableRows = [].slice.call(this.props.productOptionTableDom.querySelectorAll('tbody tr[class*="ResultsRow"]'));
-
-    this.productOptions = this.prodcutTableRows.map(productTableRow => {
-      return {
-        name: productTableRow.querySelector('.PDOptionTableName').innerHTML,
-        price: productTableRow.querySelector('.PDOTQ').innerHTML,
-        qtyInput: productTableRow.querySelector('.PDOTOQ input')
-      };
-    });
 
     // Find the heading for 'Quantity' row - so it can be translated by the CMS
     let qtyLabelDom = this.props.productOptionTableDom.querySelector('tbody tr:first-child td:last-child');
@@ -48,8 +36,6 @@ export default class ProductOptionDropdown extends PropObject {
 
   build() {
     if(!this.productOptions || !this.productOptions.length) return;
-
-    if(this.options.debug) this.props.productOptionTableDom.classList.add('d-block');
 
     // Create Price Box
     this.priceBox = document.createElement('span');
@@ -108,28 +94,11 @@ export default class ProductOptionDropdown extends PropObject {
 
     this.props.containerDom.appendChild(qtyContainer);
 
-
-    // Products with Product Options will output the buy button into the table
-    // More it below the select box we've just built
-    let buyBtn = this.props.productOptionTableDom.querySelector('.BuyFormBtn');
-    if(buyBtn) {
-      // Build a Button Container for it
-      let buyBtnContainer = document.createElement('span');
-      buyBtnContainer.classList.add(...this.options.buyBtnContainerClasses);
-      buyBtnContainer.appendChild(buyBtn)
-      this.props.containerDom.appendChild(buyBtnContainer);
-      // The button won't submit the form as it no longer sits inside the form
-      // Add our own click listener
-      buyBtn.addEventListener('click', e => this.handleBuyAction());
-    };
+    this.moveHiddenBuyButton();
   }
 
   handleSelectChange(optionIndex) {
     this.selectOption(this.productOptions[optionIndex]);
-  }
-
-  handleBuyAction() {
-    this.currentSelectedOption.qtyInput.form.submit();
   }
 
 }

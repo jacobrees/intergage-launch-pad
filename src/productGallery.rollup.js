@@ -80,6 +80,11 @@ class ProductGallery extends PropObject {
   }
 
   init() {
+    // Hide the Thumbnails if there is only one
+    if(this.thumbnails.length === 1) {
+      this.props.gallery.querySelector('.c2-product-gallery__thumbnails').setAttribute('style', 'display:none !important');
+      this.props.gallery.querySelector('.c2-product-gallery__figure').classList.add('w-100');
+    }
     // Config each Thumbnail
     this.thumbnails.forEach((thumbnail, index) => {
       if(index === 0) {
