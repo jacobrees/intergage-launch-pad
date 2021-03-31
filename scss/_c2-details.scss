@@ -2,17 +2,31 @@
 // Product Details
 //
 
-$c2-product-detail-qty-font-weight:     $font-weight-bold;
-$c2-product-detail-qty-margin-bottom:   map-get($spacers, 4);
+$c2-product-detail-price-container-border-colour: $light;
 
-$c2-product-tabs-link-padding-y:        0.8rem;
-$c2-product-tabs-display-bp:            'lg';
+$c2-product-detail-buy-button-margin-right:       map-get($spacers, 3);
 
-$c2-product-gallery-num-of-thumbnails:  4;
+$c2-product-detail-qty-font-weight:               $font-weight-bold;
+$c2-product-detail-qty-margin-bottom:             map-get($spacers, 4);
 
-$c2-product-collapse-transition:        0.3s ease-in-out;
+$c2-product-tabs-link-padding-y:                  0.8rem;
+
+$c2-product-gallery-num-of-thumbnails:            4;
+
+$c2-product-collapse-transition:                  0.3s ease-in-out;
 
 .c2-product-detail {
+  &__product-price-container {
+    @include media-breakpoint-up(sm) {
+      border-right: 1px solid $c2-product-detail-price-container-border-colour;
+    }
+    @include media-breakpoint-up(lg) {
+      border-right: 0;
+    }
+    @include media-breakpoint-up(xl) {
+      border-right: 1px solid $c2-product-detail-price-container-border-colour;
+    }
+  }
   &__buy-form {
     .BuyFormFieldName:first-child, .BuyFormPrice {
       display: none;
@@ -31,15 +45,29 @@ $c2-product-collapse-transition:        0.3s ease-in-out;
 
     .BuyFormFieldName {
       font-weight: $c2-product-detail-qty-font-weight;
-      margin-right: map-get($spacers, 2);
+      text-align: right;
+      padding-right: map-get($spacers, 2);
     }
 
     .BuyFormFieldName, .BuyFormQty {
+      // col-6
+      flex: 0 0 auto;
+      width: 50%;
       margin-bottom: $c2-product-detail-qty-margin-bottom;
     }
 
     .BuyFormBtn {
       display: flex;
+    }
+
+    .c2btnbuy {
+      display: inline-block !important; // Used to Override Bootstrap Utils
+      margin: 0 $c2-product-detail-buy-button-margin-right 0 0 !important; // Used to Override Bootstrap Utils
+      width: auto;
+    }
+
+    .c2wlAddToWishList {
+      margin: 0 !important; // Used to Override Bootstrap Utils
     }
   }
 
@@ -78,6 +106,9 @@ $c2-product-collapse-transition:        0.3s ease-in-out;
     }
     > *:nth-of-type(#{$c2-product-gallery-num-of-thumbnails}) ~ * {
       display: none;
+    }
+    img {
+      width: 100%;
     }
   }
 }

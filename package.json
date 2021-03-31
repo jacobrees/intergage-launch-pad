@@ -9,7 +9,7 @@
     "scss-bundle": "node config/scss-bundle.js",
     "scss-prefix": "postcss --config config/postcss.config.js --replace \"build/scss/*.scss\"",
     "watch-js": "rollup -c config/rollup.config.js --watch",
-    "watch-scss": "nodemon --watch bootstrap-theme/ --watch scss/ --ext scss --exec \"npm run build-scss\"",
+    "watch-scss": "nodemon --watch bootstrap-theme/ --watch bootstrap-ie11/ --watch scss/ --ext scss --exec \"npm run build-scss\"",
     "chrome-launcher": "node config/chrome-launcher.js",
     "serve-js": "rollup --environment SERVE:true -c config/rollup.config.js --watch",
     "serve": "serve -C public",

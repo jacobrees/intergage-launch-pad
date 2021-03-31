@@ -9,13 +9,18 @@
     > * {
       @include make-col-ready();
     }
+
+    > ol,
+    > ul {
+      margin-left: 2rem;
+    }
   }
 }
 
 // cke_editable Rows
 //
 // Make the whole body of the CMS rich text editor a bootstrap "row"
-// So Column logic logic applies (if any)
+// So Column logic applies (if any)
 @if $enable-grid-classes {
   .cke_editable {
     @include make-row();
@@ -23,6 +28,11 @@
     // Make all Componets inside a col-12, include those p tags!
     > * {
       @include make-col-ready();
+    }
+
+    > ol,
+    > ul {
+      margin-left: 2rem;
     }
   }
 }
@@ -47,10 +57,12 @@
     .row > &,
     & > &,
     > .row {
-      margin-left: 0;
-      margin-right: 0;
-      padding-left: 0;
-      padding-right: 0;
+      &:not(.mx-auto) {
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+      }
+      padding-left: 0 !important;
+      padding-right: 0 !important;
     }
 
     // If this CMS Wrapper is within another CMS Wrapper Make width 100%
@@ -64,13 +76,19 @@
       @include make-col-ready(('margin-top': false));
       // Remove Aligment
       .row > &.row {
-        margin-left: 0;
-        margin-right: 0;
-        padding-left: 0;
-        padding-right: 0;
+        &:not(.mx-auto) {
+          margin-left: 0 !important;
+          margin-right: 0 !important;
+        }
+        padding-left: 0 !important;
+        padding-right: 0 !important;
       }
     }
     
+    > ol,
+    > ul {
+      margin-left: 2rem;
+    }
   }
 }
 

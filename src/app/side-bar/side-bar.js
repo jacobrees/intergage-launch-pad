@@ -21,7 +21,9 @@ export default class SideBar extends PropObject {
   }
 
   close(e) {
-    if(e.target.classList.contains('c2-side-bar')) {
+    if(e.target.classList.contains('c2-side-bar') 
+    || e.target.classList.contains('c2-side-bar__close')
+    || e.target.classList.contains('c2-side-bar__close__icon')) {
       this.props.sideBarContainer.classList.remove('open');
     }
   }

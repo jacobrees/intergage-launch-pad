@@ -174,7 +174,7 @@
       // Also useful for sites where the default grid gutter is different to 
       // the container padding
       .gx#{$infix}-container {
-        --grid-gutter-y: #{$container-padding-x * 2};
+        --grid-gutter-x: #{$container-padding-x * 2};
       }
     }
   }

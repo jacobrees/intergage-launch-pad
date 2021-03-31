@@ -2,19 +2,32 @@ import PropObject from '../../PropObject';
 
 import MegaMenuItem from './menu-item';
 
+const DEFAULT_OPTIONS = {
+  closingDelay: 500,
+};
+
 class MegaMenuContainer extends PropObject {
   constructor(props) {
-    super(props);
+    super(props, DEFAULT_OPTIONS);
 
     this.activeTargetDom = null;
+    this.validCloseMegaMenu = 0;
     
     this.megaMenuContainer = document.querySelector('#c2-mega-menu-container');
 
     if(!this.megaMenuContainer) return;
 
+    // Create 'mouseenter' listener for the MegaMenu Container
+    // This is triggered when the menu is already open and the user moves away 
+    // and then quickly hovers back over during the closing animation, we 
+    // don't want the menu to close if the user has hovered back over
+    this.megaMenuContainer.addEventListener('mouseenter', e => {
+      this.openMegaMenu();
+    });
+
     // Create 'mouseleave' listener for the MegaMenu Container
     this.megaMenuContainer.addEventListener('mouseleave', e => {
-      this.closeMegaMenu()
+      this.requestToCloseMegaMenu();
     });
 
     // Listen to the Triggers
@@ -29,13 +42,7 @@ class MegaMenuContainer extends PropObject {
       });
 
       trigger.addEventListener('mouseleave', e => {
-        // relatedTarget: The EventTarget the pointing device entered to
-        if(e.relatedTarget.closest('#c2-mega-menu-container')) { // TBD: IE Support
-          // The user has moved their mouse inside the MegaMenu Container,
-          // Let the 'mouseleave' listener on the MegaMenu Container close when ready
-          return;
-        }
-        this.closeMegaMenu();
+        this.requestToCloseMegaMenu();
       });
     })
   }
@@ -49,8 +56,10 @@ class MegaMenuContainer extends PropObject {
   }
 
   openMegaMenu(target) {
-    let targetDom = document.querySelector(target);
+    let targetDom = document.querySelector(target) || this.activeTargetDom;
     if(!targetDom) return;
+
+    this.validCloseMegaMenu = 0;
 
     this.activeTargetDom = targetDom;
     this.updateHeight();
@@ -58,10 +67,19 @@ class MegaMenuContainer extends PropObject {
     this.megaMenuContainer.classList.add('active');
   }
 
+  requestToCloseMegaMenu() {
+    this.validCloseMegaMenu += 1;
+    setTimeout(e => this.closeMegaMenu(), this.options.closingDelay);
+  }
+
   closeMegaMenu() {
-    this.activeTargetDom = null;
-    this.megaMenuContainer.style.height = '';
-    this.megaMenuContainer.classList.remove('active');
+    if(this.validCloseMegaMenu > 1) {
+      this.validCloseMegaMenu -= 1;
+    } else if (this.validCloseMegaMenu === 1) {
+      this.activeTargetDom = null;
+      this.megaMenuContainer.style.height = '';
+      this.megaMenuContainer.classList.remove('active');
+    }
   }
 }
 

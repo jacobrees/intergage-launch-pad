@@ -2,7 +2,10 @@
 // Stretched link
 //
 
-.stretched-link, .stretched-linkYes {
+// href^="http" attribute selector used so stretched links only work on 
+// <a> tags with a valid link.
+// To override this use ".stretched-link-always" class
+.stretched-link-always, .stretched-link[href^="http"], .stretched-linkYes[href^="http"] {
   &::#{$stretched-link-pseudo-element} {
     position: absolute;
     top: 0;

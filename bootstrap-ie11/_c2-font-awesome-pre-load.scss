@@ -1,0 +1,8 @@
+// Base class
+//
+// SVG do not have a default width on IE, 
+// so for Preloaded Font Awesome SVGs add a width
+
+.fa-pre-load svg {
+	width: 1em;
+}

@@ -47,6 +47,7 @@
   // Wish List Add Button, add a Font Awesome Heart Icon and remove the text
   .c2wlAddToWishList {
     font-size: 0;
+    border-image-width: 25px;
     &:before {
       @include font-awesome-pseudo("\f004", "far");
       font-size: $font-size-lg;
@@ -56,6 +57,7 @@
   // Wish List Remove Button, add a Font Awesome Delete Icon and remove the text
   .c2wlRemoveButton .c2btndel {
     font-size: 0;
+    border-image-width: 25px;
     height: 100%;
     &:before {
       @include font-awesome-pseudo("\f1f8", "fas");
@@ -67,9 +69,10 @@
   .c2wlOnWishList {
     display: inline-block;
     font-size: 0;
+    border-image-width: 25px;
     @extend .btn;
     @extend .btn.disabled;
-    @extend .btn-outline-#{$c2-on-wish-list-btn-class};
+    @extend .btn-#{$c2-on-wish-list-btn-class};
     &:before {
       @include font-awesome-pseudo("\f004", "fas");
       font-size: $font-size-lg;
