@@ -41,7 +41,7 @@
 
   // Containers within Containers - remove padding start and end
   //
-  // Attribute Selector used so avoid long selector rules for every container breakpoint
+  // Attribute Selector used to avoid long selector rules for every container breakpoint
   // e.g 
   //    .container {
   //      .container, .container-sm, .container-md, .container-lg, .container-xl, .container-xxl {...}

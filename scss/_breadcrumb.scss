@@ -41,3 +41,20 @@
     color: $breadcrumb-active-color;
   }
 }
+
+// Responsive CMS Locator Item
+@include media-breakpoint-down($c2-breadcrumb-mobile-breakpoint) {
+  .LocatorText:not(:nth-last-child(3)),
+  .LocatorSeparator {
+    display: none;
+  }
+  .LocatorText:nth-last-child(3) {
+    display: inline-flex;
+    align-items: center;
+    padding: 0;
+    &:before {
+      @include font-awesome-pseudo('\f053');
+      margin-right: map-get($spacers, 2);
+    }
+  }
+}
