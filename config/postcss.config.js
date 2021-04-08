@@ -4,6 +4,7 @@ module.exports = {
     autoprefixer: {
       cascade: false
     },
-    "postcss-strip-inline-comments": {}
+    "postcss-strip-inline-comments": {},
+    "postcss-object-fit-images": {}
   }
 };

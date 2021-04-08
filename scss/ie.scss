@@ -2,4 +2,15 @@
 // 
 // Based on https://github.com/coliff/bootstrap-ie11
 
+// Load Bootstrap Empty to get all the funcations, mixins and variables like normal
+@import '../bootstrap-theme/functions';
+@import 'variables';
+$secondary:     $col-MWUSecondary;
+
+@import '../bootstrap-theme/bootstrap-empty';
+
+// Bootstrap IE 11 Fixes
 @import '../bootstrap-ie11/bootstrap-ie11';
+
+// Custom Fixes
+@import './ie-fixes';

@@ -1,0 +1,52 @@
+// 
+// Custom IE Fixes
+// 
+
+
+// Featured CTA Changes
+
+.c2-featured-cta {
+  &__image {
+    position: static;
+  }
+  &__content {
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    z-index: 2;
+  }
+}
+
+
+// Buttons
+// Border image doesn't seem to work correctly,
+// just remove it.
+
+.btn {
+  border-image-source: none!important;
+}
+
+@each $color, $value in $theme-colors {
+  .rte-btn-#{$color}, .rte-btn-outline-#{$color} {
+    border-image-source: none!important;
+  }
+}
+
+
+// Basket Layout
+// Flex Container inside a table column losesd its relative width
+// give it a max-width which is the intended width
+
+.c2-basket-layout__desc {
+  max-width: 350px;
+}
+
+
+// Product List
+// Flex column is buggy in IE, remove it here.
+
+.c2-summary--product, .c2-summary--wishlist {
+  > div {
+    display: block!important;
+  }
+}
