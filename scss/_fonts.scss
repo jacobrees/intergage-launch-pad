@@ -1,0 +1,29 @@
+// Fonts
+//
+// BTC would like the Fonts to be hosted locally rather than using Google Font CDN
+
+$var-font-family: 'Lato';
+
+@font-face {
+  font-family: 'Lato';
+  src: url('lato-regular-webfont.woff2') format('woff2'),
+       url('lato-regular-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Lato';
+  src: url('lato-bold-webfont.woff2') format('woff2'),
+       url('lato-bold-webfont.woff') format('woff');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Lato';
+  src: url('lato-light-webfont.woff2') format('woff2'),
+       url('lato-light-webfont.woff') format('woff');
+  font-weight: 300;
+  font-style: normal;
+}

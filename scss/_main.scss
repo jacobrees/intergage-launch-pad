@@ -2,6 +2,9 @@
 // Main SCSS Files
 //
 
+// Load the Fonts for the Site
+@import 'fonts';
+
 // Load the whole of Bootstrap
 // Optionally you can load parts of bootstrap - TDB: Needs documentation
 @import '../bootstrap-theme/bootstrap';
@@ -15,3 +18,10 @@
 
 // Import MMenu Light Styles
 @import '~mmenu-light/src/mmenu-light';
+
+
+// Load Font Awesome
+$fa-font-path: "";
+@import '~@fortawesome/fontawesome-pro/scss/fontawesome';
+@import '~@fortawesome/fontawesome-pro/scss/brands';
+@import '~@fortawesome/fontawesome-pro/scss/solid';
