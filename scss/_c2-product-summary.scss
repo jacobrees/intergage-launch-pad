@@ -1,0 +1,11 @@
+// 
+// Product Summary
+//
+
+.c2-summary--product {
+  // If the Price is null display the Price Range Attribute as the product's 
+  // price is based on its product options
+  .c2price:empty ~ .c2price-range {
+    display: block!important;
+  }
+}

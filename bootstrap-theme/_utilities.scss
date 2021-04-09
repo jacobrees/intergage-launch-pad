@@ -58,6 +58,7 @@ $utilities: map-merge(
     ),
     "border-right": (
       property: border-right,
+      responsive: true,
       values: (
         null: $border-width solid $border-color,
         0: 0,
@@ -80,6 +81,7 @@ $utilities: map-merge(
     "border-color": (
       property: border-color,
       class: border,
+      responsive: true,
       values: map-merge($theme-colors, ("white": $white))
     ),
     // Sizing utilities
