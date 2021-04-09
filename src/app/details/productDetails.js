@@ -28,5 +28,14 @@ export default class ProductDetails extends PropObject {
       extraBuyButton.classList.add('btn-sm');
       extraBuyButton.classList.remove('d-md-inline-block', 'w-md-auto');
     });
+
+    // Check the tabs are open
+    // If the the Description tab isn't on the on the product the tabs won't open initially
+    let firstLink = this.props.detailDom.querySelector('.c2-product-tabs .nav-link'),
+        firstTab  = this.props.detailDom.querySelector('.c2-product-tabs .tab-pane');
+    if(firstLink && firstTab) {
+      firstLink.classList.add('active');
+      firstTab.classList.add('active', 'show');
+    }
   }
 }

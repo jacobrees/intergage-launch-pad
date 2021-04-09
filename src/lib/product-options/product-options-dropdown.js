@@ -75,7 +75,7 @@ export default class ProductOptionDropdown extends ProductOptions {
     let qtyContainer = document.createElement('div');
     qtyContainer.classList.add(...this.options.qtyContainerClasses);
     qtyContainer.innerHTML = `
-      <span class="mr-2 BuyFormFieldName d-inline">${this.qtyLabel}</span>
+      <span class="BuyFormFieldName d-inline">${this.qtyLabel}</span>
       <div class="BuyFormQty">
         <input type="text" value="1">
       </div>
