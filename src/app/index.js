@@ -10,6 +10,7 @@ import VATToggler from './actions/vatToggler';
 import searchBox from './actions/searchBox';
 import shopByDepartmentConfig from './actions/shop-by-department-menu';
 import searchResults from './actions/searchResults';
+import responsivePagination from './actions/responsivePagination';
 
 import BasketLayout from './basket-layout';
 import sideBars from './side-bar';
@@ -26,6 +27,7 @@ export default () => {
   let vatToggler = new VATToggler(document.querySelector('.c2ecvatsw'));
   configMenu();
   scrollToError();
+  responsivePagination();
 
   // Config the Sidebars
   // Used for the Basket Item, Mobile Menu, Mobile Searchbox

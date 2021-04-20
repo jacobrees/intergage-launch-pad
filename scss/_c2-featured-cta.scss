@@ -1,0 +1,21 @@
+// 
+// Featured CTA, used on Homepage and Brand pages
+// 
+
+$c2-featured-cta-hover-scale: 1.1;
+$c2-featured-cta-transition:  0.4s ease;
+
+.c2-featured-cta {
+  $this: &;
+
+  &__image img {
+    transform: scale(1);
+    transition: transform $c2-featured-cta-transition;
+  }
+
+  &:hover {
+    #{$this}__image img {
+      transform: scale($c2-featured-cta-hover-scale);
+    }
+  }
+}

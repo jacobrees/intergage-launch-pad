@@ -88,6 +88,36 @@
 }
 
 
+// Responsive CMS Pagination
+@include media-breakpoint-down($c2-pagination-mobile-breakpoint) {
+  .c2pagination {
+    .c2page-item {
+      display: none;
+
+      &.responsive,
+      &.active, 
+      &:first-child, 
+      &:last-child {
+        display: list-item;
+      }
+    }
+  }
+
+  .PageLinksContainer {
+    .PageLinkResponsive {
+      display: none;
+
+      &.responsive,
+      &.PageLinkCurrent, 
+      &:first-child, 
+      &:last-child {
+        display: list-item;
+      }
+    }
+  }
+}
+
+
 //
 // Sizing
 //

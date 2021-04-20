@@ -8,6 +8,7 @@
   
   &:not(:empty) {
     padding: $breadcrumb-padding-y $breadcrumb-padding-x;
+    margin-top: $breadcrumb-margin-top;
     margin-bottom: $breadcrumb-margin-bottom;
   }
 }

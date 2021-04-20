@@ -992,6 +992,8 @@ $pagination-disabled-color:         $gray-600 !default;
 $pagination-disabled-bg:            $white !default;
 $pagination-disabled-border-color:  $gray-300 !default;
 
+$c2-pagination-mobile-breakpoint:   'lg' !default;
+
 
 // Cards
 
@@ -1219,6 +1221,7 @@ $breadcrumb-padding-y:              .75rem !default;
 $breadcrumb-padding-x:              1rem !default;
 $breadcrumb-item-padding-x:         .5rem !default;
 
+$breadcrumb-margin-top:             null !default;
 $breadcrumb-margin-bottom:          1rem !default;
 
 $breadcrumb-bg:                     $gray-200 !default;

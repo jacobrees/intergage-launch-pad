@@ -1,0 +1,19 @@
+// Sticky Header
+// 
+// Helper classes for sticky elements that need to stick under the header
+
+$c2-sticky-header-height:       0rem;
+$c2-sticky-header-margin-top:   $container-padding-x;
+
+@supports (position: sticky) {
+  @each $breakpoint in map-keys($grid-breakpoints) {
+    @include media-breakpoint-up($breakpoint) {
+      $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
+
+      .sticky-header#{$infix}-top {
+        position: sticky;
+        top: $c2-sticky-header-height + $c2-sticky-header-margin-top;
+      }
+    }
+  }
+}

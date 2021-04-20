@@ -42,11 +42,27 @@
 }
 
 
-// Product List
-// Flex column is buggy in IE, remove it here.
+// Basket Side Bar
+// Same reason as above, although this time make the table fixed
+// Meaning each column is the same width
 
+#c2-basket-side-bar .c2-basket-layout table,
+.c2-checkout-basket .c2-basket-layout table {
+  table-layout: fixed;
+}
+
+
+// Product List
+
+// Flex column is buggy in IE, remove it here.
 .c2-summary--product, .c2-summary--wishlist {
   > div {
     display: block!important;
   }
+}
+
+// Sticky positions don't work in IE
+// Allow the filters to extent as much as they need to
+.c2-list-filters {
+  max-height: none;
 }

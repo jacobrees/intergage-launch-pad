@@ -12,6 +12,14 @@ $heading-font-size-base:  0.9rem;
 $headings-color:          $col-Primary;
 $headings-margin-bottom:  1rem;
 
+$lead-font-size:          1.1rem;
+$lead-font-weight:        500;
+
+
+// Pagination
+
+$c2-pagination-mobile-breakpoint: 'xxl'; // No query
+
 
 // Extention to Util
 
@@ -26,7 +34,10 @@ $utilities: (
 // Breadcrumbs
 
 $breadcrumb-bg:             transparent;
-$breadcrumb-margin-bottom:  0;
+$breadcrumb-margin-top:     0.5rem;
+$breadcrumb-margin-bottom:  1rem;
+$breadcrumb-item-padding-x: 1rem;
+$breadcrumb-padding-x:      1rem; // Same as container padding
 
 
 // Pill Tabs
@@ -52,11 +63,6 @@ $c2-border-image-slice:       15;
 $c2-border-image-width:       20px;
 $c2-border-image-outset:      2;
 $c2-border-image-repeat:      stretch;
-
-
-// Breadcrumbs
-
-$breadcrumb-padding-x: 0;
 
 
 // Grid containers

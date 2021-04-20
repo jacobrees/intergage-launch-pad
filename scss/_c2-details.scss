@@ -26,6 +26,11 @@ $c2-product-collapse-transition:                  0.3s ease-in-out;
     @include media-breakpoint-up(xl) {
       border-right: 1px solid $c2-product-detail-price-container-border-colour;
     }
+
+    // Used to hide RRP and Saving of attributes when an RRP is not provided
+    p[data-price=""] {
+      display: none;
+    }
   }
   &__buy-form {
     .BuyFormFieldName:first-child, .BuyFormPrice {
