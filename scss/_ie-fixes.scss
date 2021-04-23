@@ -4,17 +4,13 @@
 
 
 // Featured CTA Changes
+// IE 11 does not vertically align items correctly within flexbox items 
+// when min-height is used
+// A Height must be given, even just 1px
+// https://medium.com/codeart-mk/internet-explorer-hacks-796200e5741c
 
 .c2-featured-cta {
-  &__image {
-    position: static;
-  }
-  &__content {
-    position: absolute;
-    width: 100%;
-    bottom: 0;
-    z-index: 2;
-  }
+  height: 1px;
 }
 
 
@@ -30,6 +26,15 @@
   .rte-btn-#{$color}, .rte-btn-outline-#{$color} {
     border-image-source: none!important;
   }
+}
+
+
+// Header Buttons
+// Display flex and center align does not work for an anchor tag in IE
+// Make line height of the anchor tag the same as the intended height
+
+.shop-by-brand-btn {
+  line-height: $c2-shop-by-btns-min-height;
 }
 
 

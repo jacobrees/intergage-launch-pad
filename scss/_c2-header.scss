@@ -8,7 +8,7 @@
     outline: 0;
   }
   .shop-by-brand-btn, .shop-by-department-btn, .searchBoxForm {
-    min-height: 60px;
+    min-height: $c2-shop-by-btns-min-height;
     padding: 0;
   }
 }

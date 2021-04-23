@@ -1,4 +1,5 @@
 import PropObject from '../../PropObject';
+import passiveIfSupported  from '../../lib/passiveSupported';
 
 export const configNumOfItemsPerFilterLabel = badge => {
   badge.innerHTML = badge.innerHTML.replace('(', '');
@@ -12,6 +13,8 @@ export default class FilterGroup extends PropObject {
     this.filters = [];
     if(!this.props.filterDom) return;
 
+    this.inSideBar = false;
+
     let fitlerRows = Array.prototype.slice.call(this.props.filterDom.querySelectorAll('.c2form_row'));
     fitlerRows.forEach(row => {
       this.filters.push({
@@ -21,6 +24,12 @@ export default class FilterGroup extends PropObject {
         open: this.isOpen(row.querySelector('label').htmlFor)
       });
     })
+
+    // Move the Filter Side bar to the end of the body tag
+    if(this.props.filterSideBar) {
+      document.body.appendChild(this.props.filterSideBar);
+      this.filterUnstyledContainer = this.props.filterDom.querySelector('.ldic');
+    }
   }
 
   build() {
@@ -41,6 +50,26 @@ export default class FilterGroup extends PropObject {
         this.openFilter(filter, true); // No animation on initial load
       }
     });
+
+    if(!this.props.filterSideBar) return;
+
+    // Check if the filtes need to move to the sidebar
+    if(document.documentElement.clientWidth < 992) {
+      this.moveFiltersToSideBar();
+    }
+
+    // Listen to Window Resize so the filters can move to the sidebar when needed
+    window.addEventListener('resize', () => {
+      let clientWidth = document.documentElement.clientWidth;
+
+      if(clientWidth < 992 && !this.inSideBar) {
+        this.moveFiltersToSideBar();
+      }
+
+      if(clientWidth >= 992 && this.inSideBar) {
+        this.moveFiltersFromSideBar();
+      }
+    }, passiveIfSupported);
   }
 
   openFilter(filter, force) {
@@ -66,5 +95,15 @@ export default class FilterGroup extends PropObject {
 
   isOpen(id) {
     return localStorage.getItem(id) == '1' ? true : false;
+  }
+
+  moveFiltersToSideBar() {
+    this.props.filterSideBar.querySelector('.c2-filters-side-bar__filters').appendChild(this.filterUnstyledContainer);
+    this.inSideBar = true;
+  }
+
+  moveFiltersFromSideBar() {
+    this.props.filterDom.children[0].appendChild(this.filterUnstyledContainer)
+    this.inSideBar = false;
   }
 }
