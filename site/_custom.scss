@@ -168,7 +168,7 @@ p:last-child,figure:only-child {
 	&__image {
 		position:absolute;
 		bottom:2rem;
-		right:0;
+		left:0; 
 		width:100%;
 		z-index:15;
 		height:30vh;
@@ -196,7 +196,6 @@ p:last-child,figure:only-child {
 		width:25%;
 		z-index:6;
 		background-repeat:no-repeat;
-		content:"";
 		opacity:0.25;
 		transform:translate(-25%,-25%);
 		display:block;
@@ -210,6 +209,12 @@ p:last-child,figure:only-child {
 }
 
 .odor-eaters-cta {
+	z-index:0;
+	.stretched-link {
+		&:after {
+			z-index:200;
+		}
+	}
 	&:after {
 		padding-top:100%;
 		display:block;
@@ -245,19 +250,37 @@ p:last-child,figure:only-child {
 		}
 	}
 	&__cutaway {
-		height: 200%;
-   		position: absolute;
-    top: 0;
-    left: 0;
-    width: 200%;
-		transform: translate(-50%, -50%) rotate(-31deg);
+		height: 400%;
+		position: absolute;
+		top: 0;
+		left: 0;
+		transform: translate(0%, -75%);
+    	z-index: 0;
+		border-radius: 0% 100% 100% 0% / 0% 50% 50% 100%;
+    	width: 150%;
 		@include media-breakpoint-up(md) {
-			transform: translate(-50%, -50%) rotate(-31deg);
+				width: 120%;
 		}
-		@include media-breakpoint-up(lg) {
-			transform: translate(-50%, -50%) rotate(-31deg);
+		@include media-breakpoint-up(xl) {
+				width: 100%;
 		}
-    z-index: 5;
+		@include media-breakpoint-up(xxl) {
+				width: 90%;
+		}
+		&:after {
+			content: "";
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			background-image:url('banner-sky.jpg');
+			background-size: cover;
+			background-repeat: no-repeat;
+			background-position: center center;
+			border-radius: 0% 100% 100% 0% / 0% 50% 50% 100%;
+			transform: rotate(5deg) skewY(5deg);
+		}
 	}
 }
 
@@ -273,7 +296,7 @@ p:last-child,figure:only-child {
 }
 
 .faqs {
-	max-width:600px!important;
+	max-width:768px!important;
 	margin:0 auto;
 	display:block;
 	&__heading {
@@ -312,13 +335,14 @@ p:last-child,figure:only-child {
 	}
 }
 
-.stretched-link {
-	z-index:400;
-	font-size:0;
-	display:block;
-	top:0;
-	left:0;
-	width:100%;
-	height:100%;
-	position:absolute;
+.btn-primary.c2btnreset,
+.c2btnreset.rte-btn-primary,
+.btn-primary.c2btncancel,
+.c2btncancel.rte-btn-primary,
+.btn-primary.c2wlAddToWishList,
+.c2wlAddToWishList.rte-btn-primary {
+	color:$primary!important;
+	&:hover {
+		color:white!important;
+	}
 }
