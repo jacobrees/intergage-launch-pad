@@ -88,6 +88,11 @@ body {
     height: 15rem;
     border-radius: 100%;
   }
+  &:not(.chewy-vites-banner) {
+    &:before {
+      z-index:10;
+    }
+  }
   &--white {
     &:before {
       background: #fff;
@@ -114,9 +119,44 @@ body {
 
 .slider-testimonial {
   flex-wrap: wrap;
-  padding: 1rem 4rem;
-  &__content {
-    max-width: 65%;
+  display:flex!important;
+  flex-direction:column;
+  justify-content:center;
+ min-height:300px!important;
+ padding:0 4rem!important;
+ &__content {
+   position:relative;
+   &::after,
+   &::before {
+    font-size:3rem;
+    position:absolute;
+    content:"\"";
+   }
+   &::after {
+    bottom:-2rem;
+    right:-2rem;
+   }
+   &::before {
+    top:-2rem;
+    left:-2rem;
+   }
+   &__quote {
+     position:relative;
+     z-index:40;
+     p {
+       font-size:1.25rem;
+     }
+   }
+ }
+}
+
+.testimonials-slider {
+  .slick-arrow {
+    &:before {
+      filter:brightness(0);
+      width: 60%!important;
+      height: 60%!important;
+    }
   }
 }
 
@@ -169,8 +209,41 @@ ul {
   &:before { 
     z-index:15;
   }
-  @include media-breakpoint-up(md) {
-    max-height:550px;
+  &--height-min-vh-none {
+    height:70vh;
+    @include media-breakpoint-up(md) {
+      max-height:550px;
+    }
+  }
+  &--height-min-vh-10 {
+    min-height:10vh;
+  }
+  &--height-min-vh-20 {
+    min-height:20vh;
+  }
+  &--height-min-vh-30 {
+    min-height:30vh;
+  }
+  &--height-min-vh-40 {
+    min-height:40vh;
+  }
+  &--height-min-vh-50 {
+    min-height:50vh;
+  }
+  &--height-min-vh-60 {
+    min-height:60vh;
+  }
+  &--height-min-vh-70 {
+    height:70vh;
+  }
+  &--height-min-vh-80 {
+    min-height:80vh;
+  }
+  &--height-min-vh-90 {
+    min-height:90vh;
+  }
+  &--height-min-vh-100 {
+    min-height:10vh;
   }
   display:flex;
   flex-direction:column;
@@ -181,6 +254,7 @@ ul {
     position:relative;
     z-index:10;
     top:-5vh;
+    right:3vw;
     * {
       color:white;
     }
@@ -191,15 +265,16 @@ ul {
     padding-top:75%;
     z-index:9;
     border-radius:50%;
-    right:-18%;
+    right: -36%;
     top:50%;
     transform:translateY(-55%);
   }
   &__image {
     z-index:5;
     position:absolute;
-    height:70vh;
-    width:65%;
+    height:100%;
+    min-height:100%;
+    width:66.66%;
     top:0;
     left:0;
     background-size:cover;
@@ -212,4 +287,12 @@ ul {
       max-height:500px;
     }
   }
+}
+
+.curve-me-up {
+	clip-path:  ellipse(100% 75% at 50% 75%);
+	overflow:hidden;
+	top: -10vh;
+    position: relative;
+    z-index: 20;
 }
