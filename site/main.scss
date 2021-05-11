@@ -10,7 +10,10 @@
 // Optionally you can load parts of bootstrap - TDB: Needs documentation
 @import '../scss/bootstrap';
 
+@import 'buttons';
+@import 'footer';
 @import 'custom';
+@import 'banner';
 
 // Import MMenu Light Styles
 @import '~mmenu-light/src/mmenu-light';

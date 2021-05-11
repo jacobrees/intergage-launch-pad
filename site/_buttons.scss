@@ -1,0 +1,9 @@
+// 
+// Button Extras
+// 
+
+// Not the best solution but "color-contrast()" doesn't return white every time
+// and that is what we need...
+.btn {
+  color: $white !important;
+}

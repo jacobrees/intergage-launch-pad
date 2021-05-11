@@ -1,0 +1,9 @@
+// 
+// Footer Extras
+// 
+
+@include media-breakpoint-up(md) {
+  .c2-footer img {
+    max-width: 80%;
+  }
+}
