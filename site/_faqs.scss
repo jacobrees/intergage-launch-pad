@@ -1,0 +1,43 @@
+// FAQs
+// 
+// Custom FAQs Built for Odor Eaters
+
+.faqs {
+  max-width: 768px !important;
+  margin: 0 auto;
+  display: block;
+  &__heading {
+    a {
+      color: black;
+      text-decoration: none;
+      font-size: 1.2rem;
+      display: block;
+      font-weight: 700;
+      padding: 0.5rem 0;
+      position: relative;
+      &::after {
+        position: absolute;
+        right: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        content: '+';
+      }
+    }
+    & + div {
+      transition: all 0.35s ease;
+      max-height: 0px;
+      overflow: hidden;
+      width: 100%;
+    }
+    &.active {
+      a {
+        &::after {
+          content: '-';
+        }
+      }
+      & + div {
+        max-height: 500px;
+      }
+    }
+  }
+}

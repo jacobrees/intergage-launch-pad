@@ -1,0 +1,24 @@
+// 1920 Max
+// 
+// This forces the site to only ever be a maxium of 1920 pixels wide.
+// To stops any screen with a higher resolution that 1920px (4k) 
+// from breaking elements of the site not tested for that resolution.
+//
+// This does NOT include position fixed elements
+
+#wrap {
+  max-width: 1920px;
+  margin: 0px auto;
+  background-color: $body-bg;
+
+  &:after {
+    content: "";
+    background-color: $c2-body-out-of-bounds-bg;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+  }
+}

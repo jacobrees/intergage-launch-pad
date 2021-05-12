@@ -473,18 +473,8 @@ $utilities: map-merge(
     "color-all": (
       property: color,
       class: text-all,
-      suffixSelectors: ('> *'),
-      values: map-merge(
-        $theme-colors,
-        (
-          "white": $white,
-          "body": $body-color,
-          "muted": $text-muted,
-          "black-50": rgba($black, .5),
-          "white-50": rgba($white, .5),
-          "reset": inherit,
-        )
-      )
+      suffixSelectors: ('> *', ' a'),
+      values: ("white": $white)
     ),
     "line-height": (
       property: line-height,

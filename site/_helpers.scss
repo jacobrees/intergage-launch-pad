@@ -1,0 +1,18 @@
+// 
+// Extra Helpers
+// 
+
+p:last-child,
+figure:only-child {
+  margin-bottom: 0;
+}
+
+.bg-primary,
+.bg-secondary,
+.bg-success,
+.bg-warning {
+  color: white;
+  a {
+    color: white;
+  }
+}
