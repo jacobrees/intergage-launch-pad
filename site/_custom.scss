@@ -1,5 +1,22 @@
 //CUSTOM SCSS FOR THIS PROJECT
 
+#wrap {
+  max-width: 1920px;
+  margin: 0px auto;
+  background-color: $body-bg;
+
+  &:after {
+    content: "";
+    background-color: #ddd;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+  }
+}
+
 p:last-child,
 figure:only-child {
   margin-bottom: 0;
@@ -86,121 +103,6 @@ figure:only-child {
     img {
       height: 250px;
       width: auto;
-    }
-  }
-}
-
-.odor-eaters-banner {
-  width: 100%;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center center;
-  position: relative;
-  overflow: hidden;
-  max-width: 1920px;
-  margin: 0 auto;
-  min-height: 50vh;
-  display:flex;
-  justify-content:center;
-  flex-direction:column;
-  @include media-breakpoint-up(md) {
-    min-height: 80vh;
-  }
-  @include media-breakpoint-up(lg) {
-    min-height: 500px;
-    max-height: 70vh;
-  }
-
-  &__content {
-	@include media-breakpoint-up(lg) {
-		> .container {
-			position:relative;
-			top:-5vh;
-			left:-5vh;
-		}
-	}
-    li {
-      font-size: 1.5rem;
-    }
-    * {
-      margin-bottom: 0;
-      font-family: var(--bs-font-heading) !important;
-    }
-    * {
-      color: white !important;
-    }
-    .display-1 {
-      font-size: 4rem;
-      line-height: 2.9rem;
-      font-weight: 700;
-    }
-    .display-2 {
-      font-size: 2.5rem;
-      font-weight: 700;
-    }
-    .rte-btn-outline-light {
-      margin-top: 1rem !important;
-      display: inline-block;
-      font-size: 1.25rem;
-    }
-    .container {
-      z-index: 1;
-    }
-  }
-  &__cutaway {
-    height: 450%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    transform: translate(0%, -75%);
-    z-index: 0;
-    border-radius: 0% 100% 100% 0% / 0% 50% 50% 100%;
-
-    width: 150%;
-    @include media-breakpoint-up(md) {
-      width: 120%;
-    }
-    @include media-breakpoint-up(xl) {
-      width: 100%;
-    }
-    @include media-breakpoint-up(xxl) {
-      width: 90%;
-    }
-
-    &:after {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-image: url('banner-sky.jpg');
-      background-size: cover;
-      background-repeat: no-repeat;
-      background-position: center center;
-      border-radius: 0% 100% 100% 0% / 0% 50% 50% 100%;
-      transform: rotate(5deg) skewY(5deg);
-    }
-  }
-  &__image {
-    position: absolute;
-    bottom: 2rem;
-    right:0vw;
-	@include media-breakpoint-up(lg) {
-		right:-5vw;
-	}
-    width: 100%;
-    z-index: 15;
-    height: auto;
-	
-    .container {
-      text-align: right;
-    }
-    img {
-      height: 30vh;
-      width: auto;
-      max-width: none;
-	  max-height:200px;
     }
   }
 }
@@ -371,22 +273,16 @@ figure:only-child {
     color: white !important;
   }
 }
-
-.super-large-screen-container {
-	max-width:1920px!important;
-	margin:0 auto!important;
-	position:relative;
-	&:after {
-		top:0;
-		height:100%;
-		width:100vw;
-		left: 50%;
-		right: 50%;
-		margin-left: -50vw;
-		margin-right: -50vw;
-		background:#ddd;
-		content:"";
-		z-index:-1;
-		position:absolute;
-	}
-}
+  
+  .vertical-centre-content-in-figure {
+    display:flex;
+      justify-content:space-between;
+      flex-direction:column;
+      min-height:280px;
+    figcaption {
+      display:flex;
+      justify-content:space-between;
+      flex-direction:column;
+      min-height:280px;
+    }
+  }

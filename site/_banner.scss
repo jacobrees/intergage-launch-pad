@@ -1,0 +1,45 @@
+.c2-odor-eaters-banner {
+  min-height: 40vh;
+
+  &__swoosh {
+    top: 0;
+    left: 0;
+    width: 90%;
+    height: 98%;
+
+    @include media-breakpoint-up(xxl) {
+      width: 70%;
+    }
+
+    &:before, &:after {
+      content: "";
+      position: absolute;
+      height: 200%;
+      left: 0;
+    }
+    
+    &:before {
+      top: -107%;
+      width: 100%;
+      border-radius: 0% 100% 75% 25% / 95% 50% 50% 5%;
+      background: $info;
+      background: linear-gradient(180deg, rgba($info, 1) 50%, rgba($white, 1) 100%);
+      z-index: 1;
+    }
+
+    &:after {
+      top: -100%;
+      width: 98%;
+      background-color: $primary;
+      border-radius: 0% 100% 75% 25% / 98% 50% 50% 2%;
+    }
+  }
+
+  &__content {
+    z-index: 1;
+  }
+
+  @include media-breakpoint-up(md) {
+    min-height: 80vh;
+  }
+}
