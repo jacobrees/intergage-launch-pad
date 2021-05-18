@@ -1,0 +1,18 @@
+// Second Level Menu Images
+// 
+// Depending on the Subsite the images are different
+
+.navbar-nav:not(.mm-spn) {
+  // Products Dropdown
+  li.menu-img-products ul.lev2:before {
+    background-image: url('btc-needle-bearings-products-menu-image.jpg');
+  }
+  // About Us Dropdown
+  li.menu-img-about-us ul.lev2:before {
+    background-image: url('btc-engineering-about-us-menu-image.jpg');
+  }
+  // Applications Dropdown
+  li.menu-img-applications ul.lev2:before {
+    background-image: url('applications_gearboxes1.jpg');
+  }
+}

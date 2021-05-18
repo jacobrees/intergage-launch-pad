@@ -3,7 +3,7 @@
 // 2nd Level menus for header nav
 
 $navbar-2nd-level-image-width:      300px;
-$navbar-2nd-level-image-height:     220px;
+$navbar-2nd-level-image-height:     180px;
 
 $navbar-2nd-level-items-columns:    2;
 $navbar-2nd-level-items-max-width:  55%;
@@ -11,12 +11,13 @@ $navbar-2nd-level-background:       $white;
 $navbar-2nd-level-padding-x:        map-get($spacers, 5);
 $navbar-2nd-level-padding-y:        map-get($spacers, 4);
 
-$navbar-2nd-level-item-font-size:                     1rem;
-$navbar-2nd-level-item-padding:                       map-get($spacers, 2);
-$navbar-2nd-level-item-border-bottom:                 $border-width solid $secondary;
-$navbar-2nd-level-item-color:                         $body-color;
-$navbar-2nd-level-item-hover-color:                   darken($body-color, 15%);
-$navbar-2nd-level-item-after-pseudo-element-unicode:  $btn-after-pseudo-element-unicode;
+$navbar-2nd-level-item-font-size:                         1rem;
+$navbar-2nd-level-item-padding:                           map-get($spacers, 2);
+$navbar-2nd-level-item-border-bottom:                     $border-width solid $secondary;
+$navbar-2nd-level-item-color:                             $body-color;
+$navbar-2nd-level-item-hover-color:                       darken($body-color, 15%);
+$navbar-2nd-level-item-after-pseudo-element-unicode:      $btn-after-pseudo-element-unicode;
+$navbar-2nd-level-item-after-pseudo-element-margin-left:  map-get($spacers, 1);
 
 // Level 2 Menus
 .navbar-nav:not(.mm-spn) {
@@ -54,13 +55,6 @@ $navbar-2nd-level-item-after-pseudo-element-unicode:  $btn-after-pseudo-element-
       background-position: center;
     }
   }
-
-  li.menu-img-products ul.lev2:before {
-    background-image: url('Placeholder-Product.jpg');
-  }
-  li.menu-img-applications ul.lev2:before {
-    background-image: url('applications_gearboxes1.jpg');
-  }
 }
 
 // Level 2 Menus Items
@@ -86,7 +80,8 @@ $navbar-2nd-level-item-after-pseudo-element-unicode:  $btn-after-pseudo-element-
 
     &:after {
       @include font-awesome-pseudo($navbar-2nd-level-item-after-pseudo-element-unicode);
-      display: none;
+      margin-left: $navbar-2nd-level-item-after-pseudo-element-margin-left;
+      visibility: hidden;
     }
 
     &:hover,
@@ -95,7 +90,7 @@ $navbar-2nd-level-item-after-pseudo-element-unicode:  $btn-after-pseudo-element-
       text-decoration: if($link-hover-decoration == underline, none, null);
 
       &:after {
-        display: block;
+        visibility: visible;
       }
     }
   }

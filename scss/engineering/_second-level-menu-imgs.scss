@@ -1,0 +1,16 @@
+// Second Level Menu Images
+// 
+// Depending on the Subsite the images are different
+
+.navbar-nav:not(.mm-spn) {
+  // About Us and Products Dropdown
+  li.menu-img-products, li.menu-img-about-us {
+    ul.lev2:before {
+      background-image: url('Engineering-Product-About-Us-Image.jpg');
+    }
+  } 
+  // Applications Dropdown
+  li.menu-img-applications ul.lev2:before {
+    background-image: url('applications_gearboxes1.jpg');
+  }
+}
