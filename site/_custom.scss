@@ -81,49 +81,6 @@
   }
 }
 
-.slider-testimonial {
-  flex-wrap: wrap;
-  display:flex!important;
-  flex-direction:column;
-  justify-content:center;
- min-height:300px!important;
- padding:0 4rem!important;
- &__content {
-   position:relative;
-   &::after,
-   &::before {
-    font-size:3rem;
-    position:absolute;
-    //content:"\"";
-   }
-   &::after {
-    bottom:-2rem;
-    right:-2rem;
-   }
-   &::before {
-    top:-2rem;
-    left:-2rem;
-   }
-   &__quote {
-     position:relative;
-     z-index:40;
-     p {
-       font-size:1.25rem;
-     }
-   }
- }
-}
-
-.testimonials-slider {
-  .slick-arrow {
-    &:before {
-      filter:brightness(0);
-      width: 60%!important;
-      height: 60%!important;
-    }
-  }
-}
-
 .c2-summary > div {
   position: relative;
   .btn {
@@ -153,14 +110,13 @@ ul {
       position: relative;
 	  line-height:2rem;
       &:before {
-        top: 50%;
+        top: 0;
         left: 0;
         font-size: 1.2rem;
         position: absolute;
-        transform: translateY(-50%);
         content: '\2713';
-		font-weight:700;
-		color:$success;
+        font-weight:700;
+        color:$success;
       }
     }
   }

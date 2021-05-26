@@ -1,0 +1,50 @@
+// Testimonials
+// 
+// using Slick Slider
+
+.slider-testimonial {
+  flex-wrap: wrap;
+  display:flex!important;
+  flex-direction:column;
+  justify-content:center;
+  min-height:300px!important;
+  padding:0 5rem!important;
+  &__content {
+    position:relative;
+    padding-top: 3rem;
+    &::after,
+    &::before {
+      @include font-awesome-pseudo("\f10d");
+
+      position:absolute;
+      font-size:3rem;
+    }
+    &::after {
+      content: "\f10e";
+      bottom:0rem;
+      right:-3rem;
+    }
+    &::before {
+      top:0rem;
+      left:-3rem;
+    }
+    &__quote {
+      position:relative;
+      z-index:40;
+      p {
+        font-size:1.25rem;
+      }
+    }
+  }
+}
+
+.testimonials-slider {
+  .slick-arrow {
+    &:before {
+      // Change the colour of the SVG, basically Inverting the colours
+      filter:brightness(0);
+      width: 60%!important;
+      height: 60%!important;
+    }
+  }
+}

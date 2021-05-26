@@ -2,15 +2,14 @@
 // Chewy Vites Custom Banner
 // 
 
-$c2-chewy-vites-banner-image-shadow-blur:   20px;
-$c2-chewy-vites-banner-image-shadow-spread: 30px;
 $c2-chewy-vites-banner-image-shadow-colour: $white;
+$c2-chewy-vites-banner-image-shadow: inset -40px 0 20px -10px $c2-chewy-vites-banner-image-shadow-colour;
 
 .c2-chewy-vites-banner {
   
   // Add Blured Frame to Image
   &__image {
-    box-shadow: inset 0 0 $c2-chewy-vites-banner-image-shadow-blur $c2-chewy-vites-banner-image-shadow-spread $c2-chewy-vites-banner-image-shadow-colour;
+    box-shadow: $c2-chewy-vites-banner-image-shadow;
     width: 100%;
     left: 0;
 
@@ -51,7 +50,6 @@ $c2-chewy-vites-banner-image-shadow-colour: $white;
 
     &__image {
       width: subtract(100%, var(--#{$variable-prefix}gutter-x));
-      left: -$c2-chewy-vites-banner-image-shadow-spread;
 
       &:after {
         display: none;
@@ -64,7 +62,7 @@ $c2-chewy-vites-banner-image-shadow-colour: $white;
       min-width: 100%;
       min-height: 120%;
       top: 50%;
-      left: add($c2-chewy-vites-banner-image-shadow-spread, var(--#{$variable-prefix}gutter-x));
+      left: var(--#{$variable-prefix}gutter-x);
       right: auto;
       transform: translateY(-50%);
     }
