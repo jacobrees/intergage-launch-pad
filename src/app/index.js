@@ -6,6 +6,7 @@ import polyfills from './polyfills';
 import configMenu from './actions/configMenu';
 import scrollToError from './actions/scrollToError';
 import hideBeforeInteraction from './actions/hideBeforeInteraction';
+import FAQs from './actions/TA_FAQs';
 
 export default () => {
   polyfills.objectFit();
@@ -16,4 +17,5 @@ export default () => {
   configMenu();
   scrollToError();
   hideBeforeInteraction();
+  FAQs();
 };
