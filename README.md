@@ -1,4 +1,4 @@
-# Intergage Launch Pad Framework
+# WGM Launch Pad Framework
 
 ## Usage
 Be sure to have [Node.js](https://nodejs.org/) installed before proceeding.
@@ -22,12 +22,27 @@ npm run watch-scss
 npm start
 ```
 
-### ToDo
-- [x] Prefix SCSS after Bundle
-- [x] Create Watch Script for SCSS and JS
-- [x] Move all Current JS to Bundle File
-- [x] Tidy up Rollup's Config
-- [x] Be able to bundle multiple SCSS files
+## Text Resources
+Mapping for the Text Resources within the admin to the start files within the repo.
 
-- [ ] Don't load the whole of Bootstrap JS in the bundle file
-- [ ] Have config options for SCSS so CSS file isn't massive
+### JavaScript
+- IE Polyfill for objectFit
+  - src/object-fit-polyfill.rollup.js
+- Product Gallery
+  - src/productGallery.rollup.js
+- Product Scripts
+  - src/productPage.rollup.js
+- App
+  - src/main.rollup.js
+
+### SCSS
+- WGM Theme
+  - scss/wgm-main.scss
+- MWU Theme
+  - scss/mwu-main.scss
+- FAA Theme
+  - scss/faa-main.scss
+- Product Styles
+  - scss/product.scss
+- Bootstrap IE Styles
+  - scss/ie.scss
