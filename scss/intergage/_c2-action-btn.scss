@@ -37,6 +37,12 @@
   animation: spinner-border $spinner-animation-speed linear infinite;
 }
 
+@if $c2-hide-reset-btn {
+  .c2btnreset {
+    display: none !important;
+  }
+}
+
 @if $c2-cms-base-product == 'Ecom' {
   // Buy Button, add a Font Awesome Cart Icon
   .c2btnbuy:after {

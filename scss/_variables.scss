@@ -222,7 +222,8 @@ $enable-important-utilities:  true !default;
 
 // Non Bootstrap Options
 
-$c2-enable-bg-gradients:         true !default;
+$c2-enable-bg-gradients:      true !default;
+$c2-hide-reset-btn:           true !default;
 
 // CMS Options
 //
@@ -642,11 +643,22 @@ $btn-active-border-tint-amount:   10% !default;
 //
 // If a CMS action button needs to be a secondary variant add its class name here 
 
-$c2-secondary-actions: (
-  "c2btnreset",
-  "c2btncancel",
-  "c2wlAddToWishList"
-) !default;
+$c2-secondary-actions: () !default;
+$c2-secondary-actions: list-merge((
+  "c2btncancel"
+), $c2-secondary-actions);
+
+@if $c2-cms-base-product == 'Ecom' {
+  $c2-secondary-actions: list-merge((
+    "c2wlAddToWishList"
+  ), $c2-secondary-actions);
+}
+
+@if not $c2-hide-reset-btn {
+  $c2-secondary-actions: list-merge((
+    "c2btnreset"
+  ), $c2-secondary-actions);
+}
 
 $c2-on-wish-list-btn-class:     "primary" !default;
 
