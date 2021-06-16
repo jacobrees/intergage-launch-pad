@@ -1,0 +1,71 @@
+// CMS Default Checkout Layout
+// 
+// Please Read the Ecommerce documentation in the README.md to see how to apply
+// these styles to a new site
+
+@if $c2-cms-base-product == 'Ecom' {
+  .c2-checkout-basket {
+    .figure-img, .c2-basket-layout__basket-options {
+      display: none !important; // Used to override Bootstrap's Util Class
+    }
+  }
+
+  .c2-basket-stage {
+    .ECStateMenu {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+  
+    .Action {
+      &.DoneAction {
+        display: none;
+      }
+    }
+  
+    &__menu-upper {
+      .Action {
+        &.NotDoneAction {
+          display: none;
+        }
+        &.CurrentAction {
+          // Match h2 styles
+          @extend %heading;
+          @include font-size($c2-basket-layout-nav-active-font-size);
+        }
+      }
+    }
+  
+    &__content {
+      > p:first-child, .c2-basket-layout, .c2ecconf_spacer {
+        display: none;
+      }
+  
+      .c2form_footer {
+        margin-top: $c2-basket-layout-section-spacer;
+      }
+  
+      .c2ecconf_prevbtn, .c2ecconf_confbtn {
+        display: inline-block;
+      }
+    }
+  
+    &__menu-lower {
+      .Action {
+        &.CurrentAction {
+          display: none;
+        }
+        &.NotDoneAction {
+          // Match h2 styles
+          @extend %heading;
+          @include font-size($c2-basket-layout-nav-not-done-font-size);
+          margin-bottom: 0;
+          margin-top: $c2-basket-layout-section-spacer;
+  
+          border: $c2-basket-layout-nav-border;
+          padding: $c2-basket-layout-nav-padding;
+        }
+      }
+    }
+  }
+}

@@ -1407,11 +1407,23 @@ $c2-accent-strips-min-width:           150px !default;
 
 // CMS Basket Layout
 
+$c2-basket-layout-column-width:                          8 !default;
+
 $c2-basket-layout-item-variations-select-border-colour:  $border-color !default;
 $c2-basket-layout-item-variations-select-border-width:   $border-width !default;
 
 $c2-basket-layout-info-text-colour:                      $text-muted !default;
 $c2-basket-layout-info-text-weight:                      $font-weight-bold !default;
+
+
+// CMS Checkout Layout
+
+$c2-basket-layout-section-spacer: map-get($spacers, 3) !default;
+
+$c2-basket-layout-nav-active-font-size:     $h2-font-size !default;
+$c2-basket-layout-nav-not-done-font-size:   $h5-font-size !default;
+$c2-basket-layout-nav-border:               map-get($border-widths, 2) solid $border-color !default;
+$c2-basket-layout-nav-padding:              map-get($spacers, 2) map-get($spacers, 3) !default;
 
 
 // Pretty Messenger

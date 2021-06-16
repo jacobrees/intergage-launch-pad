@@ -7,6 +7,9 @@ import configMenu from './actions/configMenu';
 import scrollToError from './actions/scrollToError';
 import hideBeforeInteraction from './actions/hideBeforeInteraction';
 
+// Ecom
+//import ecomInit from './actions/ecomInit';
+
 export default () => {
   polyfills.objectFit();
 
@@ -16,4 +19,8 @@ export default () => {
   configMenu();
   scrollToError();
   hideBeforeInteraction();
+
+  // Ecom
+  // ecomInit();
+  
 };

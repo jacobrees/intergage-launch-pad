@@ -44,9 +44,9 @@
   }
 }
 
-@mixin make-col($size, $columns: $grid-columns) {
+@mixin make-col($size, $columns: $grid-columns, $important: false) {
   flex: 0 0 auto;
-  width: percentage($size / $columns);
+  width: percentage($size / $columns) if($important, !important, null);
 }
 
 @mixin make-col-auto() {
