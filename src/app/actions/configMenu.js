@@ -13,10 +13,12 @@ export default () => {
   let narBars = Array.prototype.slice.call(document.querySelectorAll(".navbar"));
   narBars.forEach(function(navBar) {
     if(!navBar.dataset.navbarExpand
-      || navBar.dataset.toggle != 'standard') {
+      || navBar.dataset.toggle != 'standard'
+      || !navBar.querySelector('.navbar-nav')) {
       // Don't Build the Menu, it's not from the Templated Page Item
       // Must be a custom menu somewhere else on the page
       // Or if the Menu is not in Standard Mode
+      // Or the CSS menu is not present
       return;
     }
 

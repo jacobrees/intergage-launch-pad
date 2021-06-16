@@ -1,0 +1,34 @@
+// Search Box
+//
+// Search Box which can be added to the header, see documentation in README.md
+
+@if $c2-cms-base-product == 'Pro' or $c2-cms-base-product == 'Ecom' {
+  .c2-header {
+    &__search__icon {
+      cursor: pointer;
+    }
+  
+    &__search__box {
+      top: 0;
+      left: calc(var(--#{$variable-prefix}gutter-x) / 2);
+      width: calc(100% - var(--#{$variable-prefix}gutter-x));
+  
+      &:not(.show) {
+        z-index: -1;
+      }
+  
+      > div {
+        height: 100%;
+      }
+  
+      .SearchBoxSubmit {
+        display: none;
+      }
+  
+      .searchBoxInput {
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+}

@@ -27,7 +27,7 @@ The Launch Pad framework includes default formating for the Basket and Checkout 
 ```scss
 $c2-cms-base-product: 'Ecom';
 ```
-There is also some Javascipt that needs to added to the main.bundle.js file. Remove the commented code labeled 'Ecom' in src/app/index.js
+There is also some Javascipt that needs to added to the main.bundle.js file. Uncomment code labeled 'Ecom' in src/app/index.js
 
 When a copy of the Launch Pad is upgraded to E-Commerce it will use to legacy markup by default, this is not styled by the framework. Instead there are display templates available which need to be selected in 'E-Commerce Settings' > 'Layout':
 - ✅ Use Responsive Checkout
@@ -76,6 +76,15 @@ These items are inserted into a custom column layout using a 'HTML Content Item'
   </div>
 </div>
 ```
+
+## Add a Search Bar into the header
+The Launch Pad framework includes scripts and styles to achieve a toggleable  search bar in the 'Header' templated page item, although it's not included in the complied CSS and JS by default. To enable the styles set this variable to 'Pro' or 'Ecom' in site/_variables.scss:
+```scss
+$c2-cms-base-product: 'Pro';
+```
+And uncomment the code labeled 'Search Bar' in src/app/index.js
+
+In the page template 'Standard Launchpad Template' add a 'Site Search Item' into the header section, making sure the 'Template' for the search item is set to 'Search Form - Styleable'. Then insert the item into the provided insert point in the header called 'Search Box'.
 
 ## Merge with the latest Bootstrap release
 First, make sure that VSCode is set as your git diff tool. Add the following to your global .gitconfig file:
