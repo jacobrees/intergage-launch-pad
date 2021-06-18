@@ -86,6 +86,62 @@ And uncomment the code labeled 'Search Bar' in src/app/index.js
 
 In the page template 'Standard Launchpad Template' add a 'Site Search Item' into the header section, making sure the 'Template' for the search item is set to 'Search Form - Styleable'. Then insert the item into the provided insert point in the header called 'Search Box'.
 
+## Default List Item Layouts
+By default the Launch Pad's 'Base Product' is set to 'Light', this means that list item layouts for areas other than Articles, Products and Downloads can't be created. But the summary and detail display templates for the rest of the main CMS modules are included in the Launch Pad, meaning when creating a new site all that needs to be created are the List Display Templates for modules you wish to use. Please see below on how to add List Display Templates for modules which are included in the Launch Pad by default.
+
+### Events
+Add a 'List Display Template' with these settings:
+- Name
+  - Launch Pad Events
+- Singular name
+  - Event
+- Plural Name
+  - Events
+- Applicable List Items
+  - ✅ Event List Item
+- Layout
+  - Fluid
+- Items per page
+  - 12
+- Default Summary Template
+  - Events Summary
+- ✅ Use custom layout
+- Custom Layout
+```html
+<section class="c2-list c2-list--events-grid">
+  <div class="row g-5">
+    $RESULTTABLE$
+  </div>
+
+  <div class="row gx-5 justify-content-end row-cols-auto">
+    $PAGELINKS$
+  </div>
+</section>
+```
+- Detail Page Container Markup
+  - `$Template;Events Details$`
+
+Then add an "Attribute Set" with these settings:
+- Name
+  - Events
+- Content Type
+  - Event
+- Attributes
+  - ✅ Summary Image ✅ Detail Image
+
+Head to the setting pages "Events > Event Settings" and under the "Template" tab add this markup for the "Booking Container Template" field:
+```html
+<div>
+  <div class="container">
+    <article class="c2-detail c2-detail--event-booking">
+      <div class="row">
+        <div class="col-12 col-lg-10 col-xl-8 mx-auto">$BOOKFORM$</div>
+      </div>
+    </article>
+  </div>
+</div>
+```
+
 ## Merge with the latest Bootstrap release
 First, make sure that VSCode is set as your git diff tool. Add the following to your global .gitconfig file:
 ```
