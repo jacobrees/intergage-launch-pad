@@ -30,24 +30,26 @@
     "@rollup/plugin-node-resolve": "^9.0.0",
     "autoprefixer": "^10.0.1",
     "babel-plugin-lodash": "^3.3.4",
+    "chrome-launcher": "^0.13.4",
     "nodemon": "^2.0.6",
     "npm-run-all": "^4.1.5",
-    "postcss": "^8.1.4",
+    "postcss": "^8.3.5",
     "postcss-cli": "^8.1.0",
     "postcss-scss": "^3.0.2",
     "postcss-strip-inline-comments": "^0.1.5",
     "rollup": "^2.32.1",
     "rollup-plugin-terser": "^7.0.2",
     "scss-bundle": "^3.1.2",
-    "chrome-launcher": "^0.13.4",
     "serve": "^11.3.2"
   },
   "dependencies": {
     "@popperjs/core": "^2.6.0",
     "bootstrap": "^5.0.0-beta1",
     "jquery": "^3.5.1",
-    "lodash": "^4.17.20",
-    "mmenu-light": "^3.0.7"
+    "lodash": "^4.17.21",
+    "mmenu-light": "^3.0.7",
+    "object-fit-images": "^3.2.4",
+    "postcss-object-fit-images": "^1.1.2"
   },
   "bugs": {
     "url": "https://github.com/owenjs/intergage-launch-pad/issues"
