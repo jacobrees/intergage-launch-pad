@@ -11,6 +11,10 @@
 @import '../bootstrap-theme/bootstrap';
 
 //@import 'header';
+#headerINeedDropDown:hover > .dropdown-menu {
+  display: block
+}
+
 @import 'banner';
 @import 'meet-the-team';
 @import 'site-search';
