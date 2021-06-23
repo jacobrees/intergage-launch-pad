@@ -1,0 +1,106 @@
+// Event Calendar Item
+// 
+// The Event Calendar Item in the CMS is a table representing a month with
+// markers for events that appear on days within that month. Buttons and
+// dropdowns allow the user to change the month being viewed or view a day 
+// specifically. When this is changed any adjacent event list items will then
+// only show events within that month or day.
+// 
+// These styles are disabled by default as it's an uncommon item
+
+@if $c2-enable-event-calendar-styles {
+  .CalCont {
+    .Cal {
+      @include make-row((
+        'gutter-y': map-get($spacers, 3)
+      ));
+      width: auto;
+  
+      > * {
+        @include make-col-ready();
+      }
+  
+      input[name="submit"] {
+        @include visually-hidden();
+      }
+    }
+  
+    .CalHeaderTable {
+      order: 1;
+  
+      input {
+        padding: $input-btn-padding-y-lg $input-btn-padding-x-lg;
+        border: $c2-event-calendar-cell-border;
+      }
+    }
+  
+    .CalHeaderMonth {
+      width: 100% !important;
+      font-size: $c2-event-calendar-month-font-size;
+    }
+  
+    .CalTable {
+      order: 2;
+      border-collapse: collapse;
+      text-align: center;
+  
+      // tr
+      > * > * {
+        // td / th
+        > * {
+          background-color: transparent;
+          border: $c2-event-calendar-cell-border;
+          padding: $c2-event-calendar-cell-padding;
+  
+          // a / span
+          > * {
+            font-size: $c2-event-calendar-cell-font-size;
+            font-weight: $c2-event-calendar-cell-font-weight;
+            color: $c2-event-calendar-cell-color;
+  
+            text-decoration: none;
+            background-color: transparent;
+  
+            &:after {
+              content: "";
+              display: block;
+              margin: 0 auto;
+              width: $c2-event-calendar-event-dot-diameter;
+              height: $c2-event-calendar-event-dot-diameter;
+              border-radius: $c2-event-calendar-event-dot-diameter / 2;
+              margin-top: $c2-event-calendar-event-dot-margin-top;
+              background-color: transparent;
+            }
+          }
+        }
+      }
+  
+      // First Column - View Week selectors
+      // Hidden as functionality is confusing
+      td:first-child {
+        display: none;
+      }
+  
+      // Header row
+      tr:first-child {
+        background-color: $c2-event-calendar-header-row-color;
+      }
+  
+      // Dates not in this month
+      .CalOutMon > * {
+        color: $c2-event-calendar-outside-dates-color;
+      }
+  
+      a.CalEv:after {
+        background-color: $c2-event-calendar-event-dot-unselected-color;
+      }
+  
+      .CalSelected a.CalEv, a.CalEv:hover {
+        text-decoration: underline;
+        &:after {
+          background-color: $c2-event-calendar-event-dot-selected-color;
+        }
+      }
+    }
+  }
+}

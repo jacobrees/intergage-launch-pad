@@ -4,7 +4,8 @@
 // https://primer.github.io/.
 
 .form-select,
-.c2form_input select {
+.c2form_input select,
+#{if($c2-enable-event-calendar-styles, ".CalQSel", "")} {
   display: block;
   width: 100%;
   padding: $form-select-padding-y $form-select-indicator-padding $form-select-padding-y $form-select-padding-x;

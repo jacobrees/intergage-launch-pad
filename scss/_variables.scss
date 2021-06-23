@@ -222,8 +222,9 @@ $enable-important-utilities:  true !default;
 
 // Non Bootstrap Options
 
-$c2-enable-bg-gradients:      true !default;
-$c2-hide-reset-btn:           true !default;
+$c2-enable-bg-gradients:              true !default;
+$c2-hide-reset-btn:                   true !default;
+$c2-enable-event-calendar-styles:     false !default;
 
 // CMS Options
 //
@@ -1436,6 +1437,25 @@ $c2-basket-layout-nav-active-font-size:     $h2-font-size !default;
 $c2-basket-layout-nav-not-done-font-size:   $h5-font-size !default;
 $c2-basket-layout-nav-border:               map-get($border-widths, 2) solid $border-color !default;
 $c2-basket-layout-nav-padding:              map-get($spacers, 2) map-get($spacers, 3) !default;
+
+
+// CMS Event Calendar
+
+$c2-event-calendar-month-font-size:                 $h5-font-size !default;
+
+$c2-event-calendar-header-row-color:                $light !default;
+$c2-event-calendar-outside-dates-color:             $gray-400 !default;
+
+$c2-event-calendar-cell-font-size:                  null !default;
+$c2-event-calendar-cell-font-weight:                700 !default;
+$c2-event-calendar-cell-color:                      $body-color !default;
+$c2-event-calendar-cell-padding:                    map-get($spacers, 3) map-get($spacers, 1) !default;
+$c2-event-calendar-cell-border:                     1px solid $gray-300 !default;
+
+$c2-event-calendar-event-dot-unselected-color:      rgba($primary, 0.4) !default;
+$c2-event-calendar-event-dot-selected-color:        $primary !default;
+$c2-event-calendar-event-dot-diameter:              10px !default;
+$c2-event-calendar-event-dot-margin-top:            5px !default;
 
 
 // Pretty Messenger

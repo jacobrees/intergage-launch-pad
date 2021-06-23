@@ -142,6 +142,12 @@ Head to the setting pages "Events > Event Settings" and under the "Template" tab
 </div>
 ```
 
+### Event Calendar
+Make sure to enable the styles using this variable:
+```scss
+$c2-enable-event-calendar-styles: true;
+```
+
 ## Merge with the latest Bootstrap release
 First, make sure that VSCode is set as your git diff tool. Add the following to your global .gitconfig file:
 ```
