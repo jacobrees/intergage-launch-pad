@@ -9,7 +9,8 @@
 
 // Configuration
 //@import "functions"; // main.scss file should include this at the top
-@import "c2-variables-launch-pad"; // Launch Pad defaults
+//@import "c2-variables-base-values"; // main.scss file should include this at the top
+//@import "variables-colours"; // main.scss file should include this at the top
 @import "variables";
 @import "mixins";
 @import "utilities";
