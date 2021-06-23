@@ -72,27 +72,6 @@
   }
 }
 
-// Generate Extend String
-//
-// Generates a string of the selector repeated for each breakpoint
-// Replacing $replace-str with $infix (bp), comma separated.
-//
-// Example:
-// $selector: ".cke_editable .col{{infix}}"
-// @return ".cke_editable .col, .cke_editable .col-sm, .cke_editable .col-md, .cke_editable .col-lg" 
-//
-// Used in @mixin make-grid-columns (Below) to generate the overrides
-// needed in the Rich Text Editor
-@function generate-extend-string($selector, $breakpoints, $replace-str: "{{infix}}") {
-  $extend-string: "";
-
-  @each $breakpoint in map-keys($breakpoints) {
-    $infix: breakpoint-infix($breakpoint, $breakpoints);
-    $extend-string: $extend-string + str-replace($selector, $replace-str, $infix) + ", ";
-  }
-
-  @return $extend-string;
-}
 
 // Framework grid generation
 //
@@ -106,34 +85,29 @@
     @include media-breakpoint-up($breakpoint, $breakpoints) {
 
       // Provide basic `.col-{bp}` classes for equal-width flexbox columns
-      .col#{$infix},
-      #{if($infix == "", generate-extend-string(".cke_editable .col{{infix}}", $breakpoints), "")} { // For Rich Text Editors
+      .col#{$infix} {
         flex: 1 0 0%; // Flexbugs #4: https://github.com/philipwalton/flexbugs#flexbug-4
       }
 
-      .row-cols#{$infix}-auto > *,
-      #{if($infix == "", generate-extend-string(".cke_editable .row-cols{{infix}}-auto > *", $breakpoints), "")} {
+      .row-cols#{$infix}-auto > * {
         @include make-col-auto();
       }
 
       @if $grid-row-columns > 0 {
         @for $i from 1 through $grid-row-columns {
-          .row-cols#{$infix}-#{$i},
-          #{if($infix == "", generate-extend-string(".cke_editable .row-cols{{infix}}-#{$i}", $breakpoints), "")} {
+          .row-cols#{$infix}-#{$i} {
             @include row-cols($i);
           }
         }
       }
 
-      .col#{$infix}-auto,
-      #{if($infix == "", generate-extend-string(".cke_editable .col{{infix}}-auto", $breakpoints), "")} {
+      .col#{$infix}-auto {
         @include make-col-auto();
       }
 
       @if $columns > 0 {
         @for $i from 1 through $columns {
-          .col#{$infix}-#{$i},
-          #{if($infix == "", generate-extend-string(".cke_editable .col{{infix}}-#{$i}", $breakpoints), "")} {
+          .col#{$infix}-#{$i} {
             @include make-col($i, $columns);
           }
         }
@@ -141,8 +115,7 @@
         // `$columns - 1` because offsetting by the width of an entire row isn't possible
         @for $i from 0 through ($columns - 1) {
           @if not ($infix == "" and $i == 0) { // Avoid emitting useless .offset-0
-            .offset#{$infix}-#{$i},
-            #{if($infix == "", generate-extend-string(".cke_editable .offset{{infix}}-#{$i}", $breakpoints), "")} {
+            .offset#{$infix}-#{$i} {
               @include make-col-offset($i, $columns);
             }
           }
