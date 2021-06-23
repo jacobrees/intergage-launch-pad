@@ -23,7 +23,7 @@ npm start
 ```
 
 ## Enabling E-Commerce Layouts
-The Launch Pad framework includes default formating for the Basket and Checkout pages, although it's not included in the complied CSS by default. To enable the styles set this variable to 'Ecom' in site/_variables.scss:
+The Launch Pad framework includes default formating for the Basket and Checkout pages as well as the product list item, although it's not included in the complied CSS by default. To enable the styles set this variable to 'Ecom' in site/_variables.scss:
 ```scss
 $c2-cms-base-product: 'Ecom';
 ```

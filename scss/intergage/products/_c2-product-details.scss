@@ -1,0 +1,48 @@
+// CMS Default Product Detail Page
+// 
+// Please Read the Ecommerce documentation in the README.md to see how to apply
+// these styles to a new site
+
+@if $c2-cms-base-product != 'Ecom' {
+  .c2-product-detail__buy-form {
+    // Hide on none Ecommerce sites
+    display: none;
+  }
+}
+
+
+@if $c2-cms-base-product == 'Ecom' {
+  .c2-product-detail {
+    &__buy-form {
+      display: block;
+
+      .c2ecbuyfrm {
+        .BuyFormFieldName:first-child, .BuyFormPrice {
+          display: none;
+        }
+  
+        @include make-row((
+          'gutter': map-get($spacers, 2),
+          'gutter-y': map-get($spacers, 3)
+        ));
+        align-items: baseline;
+  
+        > * {
+          @include make-col-ready();
+        }
+  
+        .BuyFormFieldName {
+          flex: 0 0 auto;
+          width: auto;
+        }
+  
+        .BuyFormBtn > * {
+          // Override Bootstrap Utils
+          width: 100%!important;
+          margin-top: 0!important;
+          margin-right: 0!important;
+        }
+      }
+    }
+  }
+}
