@@ -3,6 +3,10 @@
   margin:0px auto;
 } 
 
+.c2btnreset {
+  display: none !important;
+}
+
 @include media-breakpoint-up(md) {
   .nudge-image,
   .overflow-image {
